@@ -12,7 +12,7 @@
 <meta name="theme-color" content="#04060c">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=202610210853">
+<link rel="stylesheet" href="css/site.css?v=202610211000">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%2304060c'/%3E%3Cellipse cx='32' cy='32' rx='24' ry='9' fill='none' stroke='%236fd3ff' stroke-width='3' transform='rotate(-25 32 32)'/%3E%3Ccircle cx='32' cy='32' r='7' fill='%23a98bff'/%3E%3C/svg%3E">
 </head>
 <body>
@@ -106,21 +106,39 @@
 <section class="sec sec-tight" id="result">
   <div class="wrap">
     <div class="sec-head reveal">
-      <p class="eyebrow mono">// raw stack → finished</p>
-      <h2>From the stack to the <span class="grad">finished image</span>.</h2>
-      <p>Drag the line. Left: the run's own stacked Hα master, linear, exactly as it comes out of stacking. Right: PiMagic's finished SHO from the same run — same pixels, same framing. Your creative work starts from here, not from the raw data.</p>
+      <p class="eyebrow mono">// raw data → PiMagic → your art</p>
+      <h2>From raw data to <span class="grad">your art</span>.</h2>
+      <p>Two steps. PiMagic does the first one for you — the routine. The second one is yours — the creativity.</p>
     </div>
+    <p class="stepline mono reveal"><b>1</b> Raw stack <i>→</i> PiMagic, automatically</p>
     <figure class="ba glass reveal" data-start="0.5">
       <img class="ba-after" src="assets/img/ba_rosette_final.webp" alt="Rosette Nebula, finished SHO by PiMagic" loading="lazy">
       <div class="ba-before"><img src="assets/img/ba_rosette_raw.webp" alt="Rosette Nebula, linear stacked H-alpha master" loading="lazy"></div>
       <div class="ba-handle" role="slider" tabindex="0" aria-label="Compare raw and finished" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><span></span></div>
       <span class="ba-tag ba-tag-l mono">Stacked master · linear</span><span class="ba-tag ba-tag-r mono">PiMagic · finished SHO</span>
     </figure>
+    <p class="ba-cap small reveal">Drag the line. Left: the run's own stacked Hα master, linear, exactly as it comes out of stacking. Right: PiMagic's finished SHO from the same run — same pixels, same framing.</p>
     <div class="stats reveal">
       <div><b data-count="146">146</b><span>raw files in the folder</span></div>
       <div><b>~15<small>min</small></b><span>to finished, on a Mac</span></div>
       <div><b data-count="6">6</b><span>finished images: RGB, SHO, HOO, Hα, OIII, SII</span></div>
       <div><b data-count="1">1</b><span>press of Start</span></div>
+    </div>
+
+    <p class="stepline mono reveal"><b>2</b> PiMagic <i>→</i> your creativity</p>
+    <div class="art-grid">
+      <figure class="ba ba-art glass reveal" data-start="0.5">
+        <img class="ba-after" src="assets/img/ba2_rosette_craig.webp" alt="Rosette Nebula mosaic, finished in Photoshop by Craig Stocks" loading="lazy">
+        <div class="ba-before"><img src="assets/img/ba2_rosette_pimagic.webp" alt="Rosette Nebula mosaic as it comes out of PiMagic" loading="lazy"></div>
+        <div class="ba-handle" role="slider" tabindex="0" aria-label="Compare PiMagic's result with Craig Stocks' finished image" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><span></span></div>
+        <span class="ba-tag ba-tag-l mono">PiMagic · ready for you</span><span class="ba-tag ba-tag-r mono">Craig's finish</span>
+      </figure>
+      <div class="art-copy reveal">
+        <h3>The routine is done.<br><span class="grad">Now the art begins.</span></h3>
+        <p>This two-pane Rosette mosaic came out of PiMagic on the left — calibrated, stacked, assembled, coloured and ready. Craig Stocks took that very file into Photoshop with AstroMagic and made it his own on the right.</p>
+        <p>Same data, same pixels. No hours of routine work in between — just his creative choices: colour, contrast, mood.</p>
+        <p class="mono small">Finished in Photoshop by Craig Stocks · Utah Desert Remote Observatories</p>
+      </div>
     </div>
   </div>
 </section>
@@ -351,6 +369,6 @@
 <div class="modal" id="filmModal" hidden><div class="modal-in"><button class="modal-x" aria-label="Close">✕</button><video controls playsinline preload="none"></video></div></div>
 <div class="modal" id="lightbox" hidden><div class="modal-in lb"><button class="modal-x" aria-label="Close">✕</button><img alt=""><p class="mono"></p></div></div>
 
-<script src="js/site.js?v=202610210853" defer></script>
+<script src="js/site.js?v=202610211000" defer></script>
 </body>
 </html>
