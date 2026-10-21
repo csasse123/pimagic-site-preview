@@ -44,8 +44,11 @@ $$("video.lazyvid").forEach(v => vio.observe(v));
 /* ---------- before / after sliders ---------- */
 $$(".ba").forEach(ba => {
   const before = $(".ba-before", ba), h = $(".ba-handle", ba);
-  const set = f => { f = clamp(f, 0, 1); before.style.clipPath = `inset(0 ${(1 - f) * 100}% 0 0)`; h.style.left = f * 100 + "%"; h.setAttribute("aria-valuenow", Math.round(f * 100)); ba._f = f; };
+  const tl = $(".ba-tag-l", ba), tr = $(".ba-tag-r", ba);
+  const set = f => { f = clamp(f, 0, 1); before.style.clipPath = `inset(0 ${(1 - f) * 100}% 0 0)`; h.style.left = f * 100 + "%"; h.setAttribute("aria-valuenow", Math.round(f * 100)); ba._f = f;
+    if (tl) tl.style.opacity = clamp((f - .04) / .14); if (tr) tr.style.opacity = clamp((.96 - f) / .14); };   // a label leaves with its side
   set(+ba.dataset.start || .5);
+  ba._glide = to => { ba._user = true; const from = ba._f, t0 = performance.now(); const st = t => { const u = clamp((t - t0) / 600); set(from + (to - from) * ease(u)); if (u < 1) requestAnimationFrame(st); }; requestAnimationFrame(st); };
   const at = e => { const r = ba.getBoundingClientRect(); set((e.clientX - r.left) / r.width); };
   let drag = false;
   ba.addEventListener("pointerdown", e => { drag = true; ba.setPointerCapture(e.pointerId); at(e); });
@@ -54,7 +57,7 @@ $$(".ba").forEach(ba => {
   h.addEventListener("keydown", e => { if (e.key === "ArrowLeft") set(ba._f - .05); if (e.key === "ArrowRight") set(ba._f + .05); });
   // a gentle hint the first time it is seen
   const hint = new IntersectionObserver(es => { if (es[0].isIntersecting && !reduce) { hint.disconnect(); let t0 = null;
-    const an = t => { t0 ??= t; const u = (t - t0) / 1600; if (u > 1 || drag) return; set(.5 + .22 * Math.sin(u * 6.28)); requestAnimationFrame(an); }; requestAnimationFrame(an); } }, { threshold: .6 });
+    const an = t => { t0 ??= t; const u = (t - t0) / 1600; if (u > 1 || drag || ba._user) return; set(.5 + .22 * Math.sin(u * 6.28)); requestAnimationFrame(an); }; requestAnimationFrame(an); } }, { threshold: .6 });
   hint.observe(ba);
 });
 
@@ -166,6 +169,25 @@ $$(".player[data-src]").forEach(p => $(".play", p).addEventListener("click", () 
   q.addEventListener("input", apply); arch.addEventListener("change", apply); apply();
 })();
 $$(".more").forEach(b => b.addEventListener("click", () => { const c = b.closest(".tq"); c.classList.toggle("open"); b.textContent = c.classList.contains("open") ? "Show less" : "Read the full story"; }));
+
+/* ---------- PiMagic layers (step 1) and Craig's versions (step 2) ---------- */
+const showLayers = L => { const ba = L.closest(".ba"); if (ba && ba._f > .02) ba._glide(0); };   // the layers live on PiMagic's side: open it up
+$$(".lchip[data-layer]").forEach(b => b.addEventListener("click", () => { const L = $("#" + b.dataset.layer), on = !L.classList.contains("on");
+  L.classList.toggle("on", on); b.classList.toggle("on", on); b.setAttribute("aria-pressed", on); if (on) showLayers(L); }));
+$$(".lchip[data-all]").forEach(b => b.addEventListener("click", () => { const chips = $$(`.lchip[data-layer^="${b.dataset.all}-"]`), on = !b.classList.contains("on");
+  chips.forEach(c => { $("#" + c.dataset.layer).classList.toggle("on", on); c.classList.toggle("on", on); c.setAttribute("aria-pressed", on); });
+  b.classList.toggle("on", on); b.setAttribute("aria-pressed", on); if (on && chips[0]) showLayers($("#" + chips[0].dataset.layer)); }));
+(() => { const img = $("#craigImg"); if (!img) return;
+  ["ba2_rosette_craig_meta", "ba2_rosette_craig_annot"].forEach(n => { const i = new Image(); i.src = BASE + `assets/img/${n}.webp`; });   // no flash on switch
+  $$(".lchip[data-craig]").forEach(b => b.addEventListener("click", () => { img.src = BASE + `assets/img/${b.dataset.craig}.webp`;
+    const ba = img.closest(".ba"); if (b.dataset.craig !== "ba2_rosette_craig" && ba._f > .02) ba._glide(0);
+    $$(".lchip[data-craig]").forEach(x => { x.classList.toggle("on", x === b); x.setAttribute("aria-pressed", x === b); }); })); })();
+
+/* ---------- contact form: compose an email (WordPress: WPForms takes over) ---------- */
+(() => { const f = $("#cform"); if (!f) return;
+  f.addEventListener("submit", e => { e.preventDefault(); const v = n => f.elements[n].value.trim();
+    const body = `${v("message")}\n\n— ${v("first")} ${v("last")} <${v("email")}>`;
+    location.href = `mailto:info@pimagicstudio.com?subject=${encodeURIComponent("PiMagic Studio: " + v("topic"))}&body=${encodeURIComponent(body)}`; }); })();
 
 /* ---------- counters ---------- */
 $$("[data-count]").forEach(el => new IntersectionObserver((es, o) => { if (!es[0].isIntersecting || reduce) return; o.disconnect();
