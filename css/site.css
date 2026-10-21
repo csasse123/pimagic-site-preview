@@ -313,3 +313,17 @@ p{margin:0 0 1em;color:var(--mute)} .small{font-size:14px;color:var(--dim)}
 .cform select option{background:#0b1120} .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px} .cform .small{margin:0;text-align:center}
 .contact-side{display:grid;gap:18px} .contact-side .card p{margin:0}
 @media (max-width:900px){.contact-grid{grid-template-columns:1fr}} @media (max-width:520px){.row2{grid-template-columns:1fr}}
+/* WordPress: the real WPForms form inside the contact card */
+.cform-wp{--wpforms-field-background-color:rgba(0,0,0,.35);--wpforms-field-border-color:rgba(140,190,255,.28);--wpforms-field-text-color:#e7edf7;
+  --wpforms-label-color:#93a1b8;--wpforms-label-sublabel-color:#5e6b82;--wpforms-label-error-color:#ff8fb1;--wpforms-button-background-color:#6fd3ff;
+  --wpforms-button-text-color:#061018;--wpforms-button-border-radius:999px;--wpforms-field-border-radius:12px;--wpforms-page-break-color:#6fd3ff}
+.cform-wp .wpforms-container{margin:0!important}
+.cform-wp .wpforms-field-label,.cform-wp .wpforms-field-sublabel{color:var(--mute)!important;font-family:var(--body)!important;font-weight:500!important}
+.cform-wp input[type=text],.cform-wp input[type=email],.cform-wp input[type=tel],.cform-wp textarea,.cform-wp select{font:400 16px var(--body)!important;color:var(--text)!important;
+  background:rgba(0,0,0,.35)!important;border:1px solid var(--line2)!important;border-radius:12px!important;padding:12px 14px!important;box-shadow:none!important}
+.cform-wp input:focus,.cform-wp textarea:focus,.cform-wp select:focus{border-color:var(--cyan)!important;box-shadow:0 0 0 3px rgba(111,211,255,.15)!important}
+.cform-wp button[type=submit],.cform-wp .wpforms-submit{width:100%;padding:14px 24px!important;border:0!important;border-radius:999px!important;font:600 16px var(--head)!important;
+  color:#061018!important;background:var(--grad)!important;box-shadow:0 10px 40px -8px rgba(111,211,255,.55)!important;cursor:pointer}
+.cform-wp .wpforms-confirmation-container-full{background:rgba(142,240,196,.08)!important;border:1px solid rgba(142,240,196,.4)!important;color:var(--text)!important;border-radius:12px}
+.cform-wp .wpforms-field input,.cform-wp .wpforms-field textarea,.cform-wp .wpforms-field select,.cform-wp .wpforms-field-row{max-width:100%!important;width:100%}
+.cform-wp .wpforms-field{padding:8px 0!important}
