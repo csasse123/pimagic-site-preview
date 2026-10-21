@@ -16,3 +16,9 @@ css/js = child-theme enqueue; the pricing card's button becomes the EDD buy butt
 Message (Christian, 21 Oct 2026): "Astrophotography. Made simple." - routine processing automatic, complex made simple, the
 creativity is yours (Photoshop or any tool). Never "PixInsight made simple"; PixInsight only where it is a fact (requirements).
 Open: three-stage slider raw -> PiMagic -> Craig's Photoshop finish of the same Rosette data (Christian has asked Craig).
+
+Step 2 slider (21 Oct 2026): Craig Stocks' Photoshop finish of PiMagic's Rosette_2 mosaic (sources/craig_rosette_2026-10-21, from
+Downloads/"Rosette Final from CraIg") vs PiMagic's Final_Preview_Rosette_2_SHO (run PiMagic-Rosette_2-2026-09-05-10-32-43, archive
+LaCie4TB-1/M5-Archive-2026-09-21/PiMagic-Archive/runs-2026-09-06). Fit tools/align_craig_refine.py -> craig_fit.txt (3.8125 PiMagic
+px per Craig px, origin -38,-34; corr 0.89; red/cyan star overlay checked centre + corners); pair by tools/make_craig_pair.py.
+The Rosette_2 run kept no linear mosaic, so step 1 stays the single-field Rosette run (raw stack -> PiMagic).
