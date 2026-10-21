@@ -1,0 +1,120 @@
+{
+ "ba": [
+  2000,
+  1250
+ ],
+ "gallery": [
+  {
+   "key": "veil_nebula",
+   "title": "Veil Nebula",
+   "sub": "SHO narrowband",
+   "w": 1800,
+   "h": 1186
+  },
+  {
+   "key": "wizard_nebula",
+   "title": "Wizard Nebula",
+   "sub": "SHO narrowband \u00b7 mono",
+   "w": 1800,
+   "h": 1194
+  },
+  {
+   "key": "elephant_s_trunk",
+   "title": "Elephant's Trunk",
+   "sub": "SHO narrowband",
+   "w": 1800,
+   "h": 1193
+  },
+  {
+   "key": "tarantula_nebula",
+   "title": "Tarantula Nebula",
+   "sub": "SHO narrowband",
+   "w": 1800,
+   "h": 1203
+  },
+  {
+   "key": "rosette_nebula",
+   "title": "Rosette Nebula",
+   "sub": "SHO \u00b7 146 raw files, one press of Start",
+   "w": 1800,
+   "h": 1220
+  },
+  {
+   "key": "soul_nebula",
+   "title": "Soul Nebula",
+   "sub": "mosaic",
+   "w": 1800,
+   "h": 1545
+  },
+  {
+   "key": "andromeda_galaxy",
+   "title": "Andromeda Galaxy",
+   "sub": "RGB",
+   "w": 1800,
+   "h": 1194
+  },
+  {
+   "key": "bode_s_galaxy",
+   "title": "Bode's Galaxy",
+   "sub": "LRGB \u00b7 mono",
+   "w": 1800,
+   "h": 1201
+  },
+  {
+   "key": "dumbbell_nebula",
+   "title": "Dumbbell Nebula",
+   "sub": "one-shot colour \u00b7 large telescope",
+   "w": 1800,
+   "h": 1309
+  },
+  {
+   "key": "m78",
+   "title": "M78",
+   "sub": "RGB \u00b7 mono",
+   "w": 1800,
+   "h": 1199
+  },
+  {
+   "key": "pleiades",
+   "title": "Pleiades",
+   "sub": "one-shot colour",
+   "w": 1800,
+   "h": 1160
+  },
+  {
+   "key": "horsehead_nebula",
+   "title": "Horsehead Nebula",
+   "sub": "one-shot colour + dual-band",
+   "w": 1800,
+   "h": 1199
+  },
+  {
+   "key": "comet_12p_pons_brooks",
+   "title": "Comet 12P/Pons-Brooks",
+   "sub": "RGB",
+   "w": 1800,
+   "h": 1205
+  },
+  {
+   "key": "milky_way_nightscape",
+   "title": "Milky Way nightscape",
+   "sub": "mirrorless camera",
+   "w": 1800,
+   "h": 1200
+  },
+  {
+   "key": "gunlock_panorama",
+   "title": "Gunlock panorama",
+   "sub": "fisheye nightscape \u00b7 4 frames blended",
+   "w": 1800,
+   "h": 1488
+  },
+  {
+   "key": "all_sky",
+   "title": "All-sky",
+   "sub": "fisheye lens",
+   "w": 1800,
+   "h": 1125
+  }
+ ]
+}
