@@ -88,8 +88,8 @@ if "images" in what:
         gal.append({"key": key, "title": title, "sub": sub, "w": size[0], "h": size[1]})
     meta["gallery"] = gal
     # 6 posters / social
-    save(Image.open(os.path.join(FILM, "exports/thumbnail2_1920.jpg")).convert("RGB"), "poster_film", 1920, 86)
-    og = Image.open(os.path.join(FILM, "exports/thumbnail2_1920.jpg")).convert("RGB").resize((1200, 675), Image.LANCZOS)
+    save(Image.open(os.path.join(FILM, "exports/thumbnail3_1920.jpg")).convert("RGB"), "poster_film", 1920, 86)
+    og = Image.open(os.path.join(FILM, "exports/thumbnail3_1920.jpg")).convert("RGB").resize((1200, 675), Image.LANCZOS)
     og.crop((0, 22, 1200, 652)).save(os.path.join(OUT_I, "og.jpg"), quality=88)
     im = Image.open(os.path.join(FILM, "assets/craig/gunlock_ps.jpg")).convert("RGB"); save(im, "am_gunlock", 1800)   # Craig's finish of PiMagic's blend
     json.dump(meta, open(os.path.join(HERE, "site", "assets", "meta.json"), "w"), indent=1)

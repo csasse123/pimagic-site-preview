@@ -17,7 +17,7 @@ def head(title, desc):
 <meta name="theme-color" content="#04060c">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/site.css?v=202610210838">
+<link rel="stylesheet" href="../css/site.css?v=202610210853">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%2304060c'/%3E%3Cellipse cx='32' cy='32' rx='24' ry='9' fill='none' stroke='%236fd3ff' stroke-width='3' transform='rotate(-25 32 32)'/%3E%3Ccircle cx='32' cy='32' r='7' fill='%23a98bff'/%3E%3C/svg%3E">
 </head>
 <body class="sub">
@@ -39,14 +39,14 @@ def nav(active):
 FOOT = f"""<footer class="pm-foot">
   <div class="wrap foot-grid">
     <div><a class="pm-logo" href="../"><svg viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="32" rx="27" ry="10" fill="none" stroke="#6fd3ff" stroke-width="3" transform="rotate(-25 32 32)"/><circle cx="32" cy="32" r="8" fill="#a98bff"/></svg><span>PiMagic <b>Studio</b></span></a>
-      <p class="small">Automatic processing for PixInsight.<br>By Dr. Christian Sasse and Craig Stocks.</p></div>
+      <p class="small">Astrophotography, made simple. The creativity is yours.<br>By Dr. Christian Sasse and Craig Stocks.</p></div>
     <nav class="small"><a href="../shop/">Shop</a><a href="../tutorials/">Tutorials</a><a href="../testimonials/">Testimonials</a><a href="{LIVE}/contact/">Contact</a><a href="https://www.facebook.com/profile.php?id=61585927683743">Facebook</a></nav>
     <p class="small">Images: Craig Stocks · Utah Desert Remote Observatories (<a href="https://utahdesertremote.com">utahdesertremote.com</a>) and real PiMagic results from our users' data.<br>© 2026 Dr. Christian Sasse and Craig Stocks · <a href="{LIVE}/privacy-policy/">Privacy</a> · <a href="{LIVE}/terms/">Terms</a></p>
   </div>
 </footer>
 <div class="modal" id="filmModal" hidden><div class="modal-in"><button class="modal-x" aria-label="Close">✕</button><video controls playsinline preload="none"></video></div></div>
 <div class="modal" id="lightbox" hidden><div class="modal-in lb"><button class="modal-x" aria-label="Close">✕</button><img alt=""><p class="mono"></p></div></div>
-<script src="../js/site.js?v=202610210838" defer></script>
+<script src="../js/site.js?v=202610210853" defer></script>
 </body>
 </html>
 """
@@ -182,7 +182,7 @@ def testimonials():
 
 # ------------------------------------------------------------------ shop (EDD products on the live site)
 def shop():
-    body = page_hero("// shop", "Get <span class=\"grad\">PiMagic Studio 3</span>", "Everything you need to go from a folder of raw frames to finished images — in one licence.")
+    body = page_hero("// shop", "Get <span class=\"grad\">PiMagic Studio 3</span>", "Astrophotography, made simple: the routine processing done for you, from a folder of raw frames to finished images — so your time goes into the creative part. One licence.")
     body += f"""<section class="sec sec-tight"><div class="wrap">
   <div class="plans">
     <article class="plan plan-main glass reveal">
