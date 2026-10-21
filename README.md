@@ -22,3 +22,8 @@ Downloads/"Rosette Final from CraIg") vs PiMagic's Final_Preview_Rosette_2_SHO (
 LaCie4TB-1/M5-Archive-2026-09-21/PiMagic-Archive/runs-2026-09-06). Fit tools/align_craig_refine.py -> craig_fit.txt (3.8125 PiMagic
 px per Craig px, origin -38,-34; corr 0.89; red/cyan star overlay checked centre + corners); pair by tools/make_craig_pair.py.
 The Rosette_2 run kept no linear mosaic, so step 1 stays the single-field Rosette run (raw stack -> PiMagic).
+
+21 Oct 2026, later: PiMagic's layers shown (tools/build_layers.py): step 1 = full frame with switchable Names & grid / Metadata /
+Sky map layers from the NGC2244 run (census left out - that run's census reads Gal. Lat -60 for the Rosette, a bug); step 2 = Craig's
+clean / metadata / annotated versions. A switch slides the comparison line to open the side that carries the layer. Shop: PiMagic
+Studio only (no stand-alone PiSolver for now - Christian). New contact/ page (mailto form; WordPress: WPForms #63).

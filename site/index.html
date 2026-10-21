@@ -12,7 +12,7 @@
 <meta name="theme-color" content="#04060c">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=202610211000">
+<link rel="stylesheet" href="css/site.css?v=202610211049">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%2304060c'/%3E%3Cellipse cx='32' cy='32' rx='24' ry='9' fill='none' stroke='%236fd3ff' stroke-width='3' transform='rotate(-25 32 32)'/%3E%3Ccircle cx='32' cy='32' r='7' fill='%23a98bff'/%3E%3C/svg%3E">
 </head>
 <body>
@@ -26,7 +26,7 @@
     <span>PiMagic <b>Studio</b></span>
   </a>
   <nav class="pm-menu" aria-label="Main">
-    <a href="#how">How it works</a><a href="#features">Features</a><a href="#gallery">Gallery</a><a href="tutorials/">Tutorials</a><a href="testimonials/">Testimonials</a><a href="shop/">Shop</a><a href="https://pimagicstudio.com/contact/">Contact</a>
+    <a href="#how">How it works</a><a href="#features">Features</a><a href="#gallery">Gallery</a><a href="tutorials/">Tutorials</a><a href="testimonials/">Testimonials</a><a href="shop/">Shop</a><a href="contact/">Contact</a>
   </nav>
   <div class="pm-nav-cta">
     <a class="pm-login" href="https://pimagicstudio.com/checkout/order-history/">Customer</a>
@@ -111,13 +111,16 @@
       <p>Two steps. PiMagic does the first one for you — the routine. The second one is yours — the creativity.</p>
     </div>
     <p class="stepline mono reveal"><b>1</b> Raw stack <i>→</i> PiMagic, automatically</p>
-    <figure class="ba glass reveal" data-start="0.5">
-      <img class="ba-after" src="assets/img/ba_rosette_final.webp" alt="Rosette Nebula, finished SHO by PiMagic" loading="lazy">
-      <div class="ba-before"><img src="assets/img/ba_rosette_raw.webp" alt="Rosette Nebula, linear stacked H-alpha master" loading="lazy"></div>
+    <div class="layerbar reveal" role="group" aria-label="PiMagic layers"><span class="mono">PiMagic layers:</span>
+      <button class="lchip" data-layer="l1-annot" aria-pressed="false">Names &amp; grid</button><button class="lchip" data-layer="l1-meta" aria-pressed="false">Metadata</button><button class="lchip" data-layer="l1-sky" aria-pressed="false">Sky map</button><button class="lchip lall" data-all="l1" aria-pressed="false">All layers</button></div>
+    <figure class="ba ba-full glass reveal" data-start="0.5">
+      <img class="ba-after" src="assets/img/l1_final.webp" alt="Rosette Nebula, finished SHO by PiMagic" loading="lazy">
+      <img class="layer" id="l1-annot" src="assets/img/l1_annot.webp" alt="" loading="lazy"><img class="layer" id="l1-sky" src="assets/img/l1_skymap.webp" alt="" loading="lazy"><img class="layer" id="l1-meta" src="assets/img/l1_meta.webp" alt="" loading="lazy">
+      <div class="ba-before"><img src="assets/img/l1_raw.webp" alt="Rosette Nebula, linear stacked H-alpha master" loading="lazy"></div>
       <div class="ba-handle" role="slider" tabindex="0" aria-label="Compare raw and finished" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><span></span></div>
       <span class="ba-tag ba-tag-l mono">Stacked master · linear</span><span class="ba-tag ba-tag-r mono">PiMagic · finished SHO</span>
     </figure>
-    <p class="ba-cap small reveal">Drag the line. Left: the run's own stacked Hα master, linear, exactly as it comes out of stacking. Right: PiMagic's finished SHO from the same run — same pixels, same framing.</p>
+    <p class="ba-cap small reveal">Drag the line. Left: the run's own stacked Hα master, linear, exactly as it comes out of stacking. Right: PiMagic's finished SHO from the same run — same pixels, same framing. Switch on the layers PiMagic delivers with it: every object named on a coordinate grid, the image's own metadata (filters, exposures, camera, date, place) and a sky map — each a separate layer you can show, hide or restyle.</p>
     <div class="stats reveal">
       <div><b data-count="146">146</b><span>raw files in the folder</span></div>
       <div><b>~15<small>min</small></b><span>to finished, on a Mac</span></div>
@@ -128,15 +131,16 @@
     <p class="stepline mono reveal"><b>2</b> PiMagic <i>→</i> your creativity</p>
     <div class="art-grid">
       <figure class="ba ba-art glass reveal" data-start="0.5">
-        <img class="ba-after" src="assets/img/ba2_rosette_craig.webp" alt="Rosette Nebula mosaic, finished in Photoshop by Craig Stocks" loading="lazy">
+        <img class="ba-after" id="craigImg" src="assets/img/ba2_rosette_craig.webp" alt="Rosette Nebula mosaic, finished in Photoshop by Craig Stocks" loading="lazy">
         <div class="ba-before"><img src="assets/img/ba2_rosette_pimagic.webp" alt="Rosette Nebula mosaic as it comes out of PiMagic" loading="lazy"></div>
         <div class="ba-handle" role="slider" tabindex="0" aria-label="Compare PiMagic's result with Craig Stocks' finished image" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><span></span></div>
         <span class="ba-tag ba-tag-l mono">PiMagic · ready for you</span><span class="ba-tag ba-tag-r mono">Craig's finish</span>
       </figure>
       <div class="art-copy reveal">
         <h3>The routine is done.<br><span class="grad">Now the art begins.</span></h3>
-        <p>This two-pane Rosette mosaic came out of PiMagic on the left — calibrated, stacked, assembled, coloured and ready. Craig Stocks took that very file into Photoshop with AstroMagic and made it his own on the right.</p>
-        <p>Same data, same pixels. No hours of routine work in between — just his creative choices: colour, contrast, mood.</p>
+        <p>On the left, this two-pane Rosette mosaic as it comes out of PiMagic — calibrated, stacked, assembled, coloured and ready. On the right, Craig Stocks took PiMagic's result of the same mosaic into Photoshop with AstroMagic and made it his own.</p>
+        <p>Same data, same framing. No hours of routine work in between — just his creative choices: colour, contrast, mood. And PiMagic's layers come along: show his finish clean, with its metadata, or with the full annotation.</p>
+        <div class="layerbar" role="radiogroup" aria-label="Craig's version"><button class="lchip on" data-craig="ba2_rosette_craig" aria-pressed="true">Clean</button><button class="lchip" data-craig="ba2_rosette_craig_meta" aria-pressed="false">+ Metadata</button><button class="lchip" data-craig="ba2_rosette_craig_annot" aria-pressed="false">+ Annotations</button></div>
         <p class="mono small">Finished in Photoshop by Craig Stocks · Utah Desert Remote Observatories</p>
       </div>
     </div>
@@ -328,7 +332,7 @@
       <h2>More nights imaging.<br>More time creating.</h2>
       <ul class="ticks">
         <li>PiMagic 3.2 for PixInsight — Smart and Expert mode</li>
-        <li>PiSolver — blind solving and annotation, also stand-alone</li>
+        <li>PiSolver — blind solving and annotation, also usable on its own inside PixInsight</li>
         <li>AstroMagic for Photoshop</li>
         <li>Installs through the PixInsight repository · Mac, Windows, Linux</li>
         <li>Requires PixInsight 1.9.5. RC-Astro tools optional.</li>
@@ -361,7 +365,7 @@
   <div class="wrap foot-grid">
     <div><a class="pm-logo" href="#top"><svg viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="32" rx="27" ry="10" fill="none" stroke="#6fd3ff" stroke-width="3" transform="rotate(-25 32 32)"/><circle cx="32" cy="32" r="8" fill="#a98bff"/></svg><span>PiMagic <b>Studio</b></span></a>
       <p class="small">Astrophotography, made simple. The creativity is yours.<br>By Dr. Christian Sasse and Craig Stocks.</p></div>
-    <nav class="small"><a href="shop/">Shop</a><a href="tutorials/">Tutorials</a><a href="testimonials/">Testimonials</a><a href="https://pimagicstudio.com/contact/">Contact</a><a href="https://www.facebook.com/profile.php?id=61585927683743">Facebook</a></nav>
+    <nav class="small"><a href="shop/">Shop</a><a href="tutorials/">Tutorials</a><a href="testimonials/">Testimonials</a><a href="contact/">Contact</a><a href="https://www.facebook.com/profile.php?id=61585927683743">Facebook</a></nav>
     <p class="small">Images: Craig Stocks · Utah Desert Remote Observatories (<a href="https://utahdesertremote.com">utahdesertremote.com</a>) and real PiMagic results from our users' data.<br>© 2026 Dr. Christian Sasse and Craig Stocks · <a href="https://pimagicstudio.com/privacy-policy/">Privacy</a> · <a href="https://pimagicstudio.com/terms/">Terms</a></p>
   </div>
 </footer>
@@ -369,6 +373,6 @@
 <div class="modal" id="filmModal" hidden><div class="modal-in"><button class="modal-x" aria-label="Close">✕</button><video controls playsinline preload="none"></video></div></div>
 <div class="modal" id="lightbox" hidden><div class="modal-in lb"><button class="modal-x" aria-label="Close">✕</button><img alt=""><p class="mono"></p></div></div>
 
-<script src="js/site.js?v=202610211000" defer></script>
+<script src="js/site.js?v=202610211049" defer></script>
 </body>
 </html>

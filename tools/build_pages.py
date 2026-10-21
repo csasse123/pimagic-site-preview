@@ -17,7 +17,7 @@ def head(title, desc):
 <meta name="theme-color" content="#04060c">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/site.css?v=202610211000">
+<link rel="stylesheet" href="../css/site.css?v=202610211049">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%2304060c'/%3E%3Cellipse cx='32' cy='32' rx='24' ry='9' fill='none' stroke='%236fd3ff' stroke-width='3' transform='rotate(-25 32 32)'/%3E%3Ccircle cx='32' cy='32' r='7' fill='%23a98bff'/%3E%3C/svg%3E">
 </head>
 <body class="sub">
@@ -27,7 +27,7 @@ def head(title, desc):
 LOGO = """<svg viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="32" rx="27" ry="10" fill="none" stroke="url(#lg)" stroke-width="3" transform="rotate(-25 32 32)"/><circle cx="32" cy="32" r="8" fill="url(#lg)"/><circle cx="54" cy="21" r="2.6" fill="#e7edf7"/><defs><linearGradient id="lg" x1="0" x2="1"><stop offset="0" stop-color="#6fd3ff"/><stop offset="1" stop-color="#a98bff"/></linearGradient></defs></svg>"""
 def nav(active):
     items = [("../#how", "How it works", ""), ("../#features", "Features", ""), ("../#gallery", "Gallery", ""), ("../tutorials/", "Tutorials", "tutorials"),
-             ("../testimonials/", "Testimonials", "testimonials"), ("../shop/", "Shop", "shop"), (LIVE + "/contact/", "Contact", "")]
+             ("../testimonials/", "Testimonials", "testimonials"), ("../shop/", "Shop", "shop"), ("../contact/", "Contact", "contact")]
     links = "".join(f'<a href="{h}"{" aria-current=\"page\"" if k == active else ""}>{t}</a>' for h, t, k in items)
     return f"""<header class="pm-nav scrolled" id="top">
   <a class="pm-logo" href="../" aria-label="PiMagic Studio home">{LOGO}<span>PiMagic <b>Studio</b></span></a>
@@ -40,13 +40,13 @@ FOOT = f"""<footer class="pm-foot">
   <div class="wrap foot-grid">
     <div><a class="pm-logo" href="../"><svg viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="32" rx="27" ry="10" fill="none" stroke="#6fd3ff" stroke-width="3" transform="rotate(-25 32 32)"/><circle cx="32" cy="32" r="8" fill="#a98bff"/></svg><span>PiMagic <b>Studio</b></span></a>
       <p class="small">Astrophotography, made simple. The creativity is yours.<br>By Dr. Christian Sasse and Craig Stocks.</p></div>
-    <nav class="small"><a href="../shop/">Shop</a><a href="../tutorials/">Tutorials</a><a href="../testimonials/">Testimonials</a><a href="{LIVE}/contact/">Contact</a><a href="https://www.facebook.com/profile.php?id=61585927683743">Facebook</a></nav>
+    <nav class="small"><a href="../shop/">Shop</a><a href="../tutorials/">Tutorials</a><a href="../testimonials/">Testimonials</a><a href="../contact/">Contact</a><a href="https://www.facebook.com/profile.php?id=61585927683743">Facebook</a></nav>
     <p class="small">Images: Craig Stocks · Utah Desert Remote Observatories (<a href="https://utahdesertremote.com">utahdesertremote.com</a>) and real PiMagic results from our users' data.<br>© 2026 Dr. Christian Sasse and Craig Stocks · <a href="{LIVE}/privacy-policy/">Privacy</a> · <a href="{LIVE}/terms/">Terms</a></p>
   </div>
 </footer>
 <div class="modal" id="filmModal" hidden><div class="modal-in"><button class="modal-x" aria-label="Close">✕</button><video controls playsinline preload="none"></video></div></div>
 <div class="modal" id="lightbox" hidden><div class="modal-in lb"><button class="modal-x" aria-label="Close">✕</button><img alt=""><p class="mono"></p></div></div>
-<script src="../js/site.js?v=202610211000" defer></script>
+<script src="../js/site.js?v=202610211049" defer></script>
 </body>
 </html>
 """
@@ -175,7 +175,7 @@ def testimonials():
   </figure>
   <div class="tq-grid">{cards}</div>
   <div class="cta-band glass reveal"><div><h2>Your turn.</h2><p>We take away the hard work. The creativity is yours.</p></div>
-    <div class="hero-cta"><a class="btn btn-glow" href="../shop/">Get PiMagic 3.2</a><a class="btn btn-ghost" href="{LIVE}/contact/">Share your story</a></div></div>
+    <div class="hero-cta"><a class="btn btn-glow" href="../shop/">Get PiMagic 3.2</a><a class="btn btn-ghost" href="../contact/">Share your story</a></div></div>
 </div></section>
 """
     return head("Testimonials — PiMagic Studio", "What astrophotographers say about PiMagic Studio and AstroMagic.") + nav("testimonials") + "<main>" + body + "</main>" + FOOT
@@ -199,11 +199,6 @@ def shop():
       <p class="price-f">Secure checkout on pimagicstudio.com · instant download · licence key by email</p>
     </article>
     <div class="plan-side">
-      <article class="plan glass reveal">
-        <p class="mono price-k">PiSolver only</p><p class="price-v small-v"><span>$</span>39</p>
-        <p>Blind plate solving and annotation for PixInsight — any image, linear or stretched, FITS to JPEG. Scriptable as a process.</p>
-        <a class="btn btn-ghost btn-block" href="{LIVE}/downloads/ca-solver/">Buy PiSolver</a>
-      </article>
       <article class="plan glass reveal">
         <p class="mono price-k">Already a customer?</p>
         <ul class="links">
@@ -248,7 +243,31 @@ def shop():
 """
     return head("Shop — PiMagic Studio", "Buy PiMagic Studio 3: PiMagic for PixInsight, PiSolver and AstroMagic for Photoshop.") + nav("shop") + "<main>" + body + "</main>" + FOOT
 
-for d, f in (("tutorials", tutorials), ("testimonials", testimonials), ("shop", shop)):
+
+# ------------------------------------------------------------------ contact (WP: the WPForms form #63 replaces the mailto form)
+def contact():
+    body = page_hero("// contact", "Let's <span class=\"grad\">talk</span>.", "Questions before you buy, help with an installation, an idea for PiMagic — Christian and Craig read every message.")
+    body += f"""<section class="sec sec-tight"><div class="wrap contact-grid">
+  <form class="cform glass reveal" id="cform" action="mailto:info@pimagicstudio.com" method="post" enctype="text/plain">
+    <div class="row2"><label>First name<input name="first" required autocomplete="given-name"></label><label>Last name<input name="last" autocomplete="family-name"></label></div>
+    <label>Email<input type="email" name="email" required autocomplete="email"></label>
+    <label>Topic<select name="topic"><option>A question before buying</option><option>Installation or licence</option><option>Help with my data or a result</option><option>An idea or feature request</option><option>Something else</option></select></label>
+    <label>Message<textarea name="message" rows="6" required></textarea></label>
+    <button class="btn btn-glow btn-block" type="submit">Send message</button>
+    <p class="small">Opens your email app, addressed to info@pimagicstudio.com.</p>
+  </form>
+  <div class="contact-side">
+    <article class="card glass reveal"><i class="ic">✉</i><h3>Email us directly</h3><p><a class="link-arrow" href="mailto:info@pimagicstudio.com">info@pimagicstudio.com</a></p></article>
+    <article class="card glass reveal"><i class="ic">▶</i><h3>Quick answers</h3><ul class="links">
+      <li><a href="../tutorials/">Tutorials, by topic →</a></li><li><a href="../shop/#faq">Installation &amp; licence FAQ →</a></li>
+      <li><a href="{LIVE}/checkout/order-history/">Order history &amp; licence keys →</a></li></ul></article>
+    <article class="card glass reveal"><i class="ic">✦</i><h3>Your order</h3><p>Download, installation information and your receipt arrive by email right after checkout, from info@pimagicstudio.com. Nothing there? Please check your spam folder.</p></article>
+  </div>
+</div></section>
+"""
+    return head("Contact — PiMagic Studio", "Contact PiMagic Studio: questions, installation help, ideas.") + nav("contact") + "<main>" + body + "</main>" + FOOT
+
+for d, f in (("contact", contact), ("tutorials", tutorials), ("testimonials", testimonials), ("shop", shop)):
     os.makedirs(os.path.join(SITE, d), exist_ok=True)
     open(os.path.join(SITE, d, "index.html"), "w").write(f())
 print("pages ok", len(T), "tutorials")
