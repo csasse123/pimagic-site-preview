@@ -23,7 +23,7 @@ const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x)), ease = x => (x =
 /* ---------- header ---------- */
 const nav = $(".pm-nav");
 addEventListener("scroll", () => nav.classList.toggle("scrolled", scrollY > 40), { passive: true });
-$(".pm-burger").addEventListener("click", e => { const o = nav.classList.toggle("open"); e.currentTarget.setAttribute("aria-expanded", o); });
+$(".pm-burger")?.addEventListener("click", e => { const o = nav.classList.toggle("open"); e.currentTarget.setAttribute("aria-expanded", o); });
 $$(".pm-menu a").forEach(a => a.addEventListener("click", () => nav.classList.remove("open")));
 
 /* ---------- reveal on scroll + lazy videos ---------- */
@@ -59,10 +59,17 @@ $$(".ba").forEach(ba => {
 });
 
 /* ---------- films ---------- */
-const FILMS = { long: "assets/video/film_long.mp4", short: "assets/video/film_short.mp4" };
+const BASE = document.documentElement.dataset.base || "";          // sub-pages set data-base="../"
+const FILMS = { long: BASE + "assets/video/film_long.mp4", short: BASE + "assets/video/film_short.mp4" };
 const modal = $("#filmModal"), mv = $("video", modal);
-const closeModal = m => { m.hidden = true; const v = $("video", m); if (v) { v.pause(); v.removeAttribute("src"); v.load(); } document.body.style.overflow = ""; };
-$$("[data-film]").forEach(b => b.addEventListener("click", () => { mv.src = FILMS[b.dataset.film]; modal.hidden = false; document.body.style.overflow = "hidden"; mv.play().catch(() => {}); }));
+const closeModal = m => { m.hidden = true; const v = $("video", m); if (v) { v.pause(); v.removeAttribute("src"); v.load(); v.hidden = false; } const f = $("iframe", m); if (f) { f.src = "about:blank"; f.hidden = true; } document.body.style.overflow = ""; };
+const playIn = src => { mv.src = src; modal.hidden = false; document.body.style.overflow = "hidden"; mv.play().catch(() => {}); };
+$$("[data-film]").forEach(b => b.addEventListener("click", () => playIn(FILMS[b.dataset.film])));
+// YouTube tutorials: a privacy-friendly embed, only loaded on click
+$$("[data-yt]").forEach(b => b.addEventListener("click", () => {
+  const box = $(".modal-in", modal); mv.hidden = true; let f = $("iframe", box);
+  if (!f) { f = document.createElement("iframe"); f.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen"; f.allowFullscreen = true; box.append(f); }
+  f.hidden = false; f.src = `https://www.youtube-nocookie.com/embed/${b.dataset.yt}?autoplay=1&rel=0`; modal.hidden = false; document.body.style.overflow = "hidden"; }));
 $$(".modal").forEach(m => { m.addEventListener("click", e => { if (e.target === m || e.target.classList.contains("modal-x")) closeModal(m); }); });
 addEventListener("keydown", e => { if (e.key === "Escape") $$(".modal").forEach(m => !m.hidden && closeModal(m)); });
 $$(".player[data-src]").forEach(p => $(".play", p).addEventListener("click", () => {
@@ -144,6 +151,21 @@ $$(".player[data-src]").forEach(p => $(".play", p).addEventListener("click", () 
     const open = () => { const [k, t, s] = G.find(g => g[0] === el.dataset.k); $("img", lb).src = `assets/img/g_${k}.webp`; $("img", lb).alt = t; $("p", lb).textContent = `${t} · ${s} · PiMagic`; lb.hidden = false; document.body.style.overflow = "hidden"; };
     el.addEventListener("click", open); el.addEventListener("keydown", e => e.key === "Enter" && open()); });
 })();
+
+/* ---------- tutorials: topic chips, version toggle, search ---------- */
+(() => {
+  const list = $("#tutorials"); if (!list) return;
+  const chips = $$(".chips button"), q = $("#tq"), arch = $("#archive");
+  let topic = "all";
+  const apply = () => { const s = (q.value || "").toLowerCase().trim();
+    $$(".tut", list).forEach(c => { const ok = (topic === "all" || c.dataset.topic === topic) && (!s || c.textContent.toLowerCase().includes(s)) && (arch.checked || c.dataset.v !== "2");
+      c.hidden = !ok; });
+    $$(".topic", list).forEach(t => t.hidden = !$$(".tut", t).some(c => !c.hidden));
+    const n = $$(".tut", list).filter(c => !c.hidden).length; $("#tcount").textContent = n; $("#tempty").hidden = n > 0; };
+  chips.forEach(b => b.addEventListener("click", () => { topic = b.dataset.t; chips.forEach(x => x.classList.toggle("on", x === b)); apply(); }));
+  q.addEventListener("input", apply); arch.addEventListener("change", apply); apply();
+})();
+$$(".more").forEach(b => b.addEventListener("click", () => { const c = b.closest(".tq"); c.classList.toggle("open"); b.textContent = c.classList.contains("open") ? "Show less" : "Read the full story"; }));
 
 /* ---------- counters ---------- */
 $$("[data-count]").forEach(el => new IntersectionObserver((es, o) => { if (!es[0].isIntersecting || reduce) return; o.disconnect();
