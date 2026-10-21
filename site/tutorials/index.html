@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en" data-base="../">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tutorials — PiMagic Studio</title><meta name="description" content="PiMagic Studio tutorials by topic: installation, Smart and Expert mode, mosaics, colour, AstroMagic for Photoshop, walkthroughs and Photoshop 101.">
+<meta name="robots" content="noindex, nofollow"><!-- sandbox: remove at launch -->
+<meta name="theme-color" content="#04060c">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/site.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%2304060c'/%3E%3Cellipse cx='32' cy='32' rx='24' ry='9' fill='none' stroke='%236fd3ff' stroke-width='3' transform='rotate(-25 32 32)'/%3E%3Ccircle cx='32' cy='32' r='7' fill='%23a98bff'/%3E%3C/svg%3E">
+</head>
+<body class="sub">
+<canvas id="stars" aria-hidden="true"></canvas><div class="nebula" aria-hidden="true"></div>
+<header class="pm-nav scrolled" id="top">
+  <a class="pm-logo" href="../" aria-label="PiMagic Studio home"><svg viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="32" rx="27" ry="10" fill="none" stroke="url(#lg)" stroke-width="3" transform="rotate(-25 32 32)"/><circle cx="32" cy="32" r="8" fill="url(#lg)"/><circle cx="54" cy="21" r="2.6" fill="#e7edf7"/><defs><linearGradient id="lg" x1="0" x2="1"><stop offset="0" stop-color="#6fd3ff"/><stop offset="1" stop-color="#a98bff"/></linearGradient></defs></svg><span>PiMagic <b>Studio</b></span></a>
+  <nav class="pm-menu" aria-label="Main"><a href="../#how">How it works</a><a href="../#features">Features</a><a href="../#gallery">Gallery</a><a href="../tutorials/" aria-current="page">Tutorials</a><a href="../testimonials/">Testimonials</a><a href="../shop/">Shop</a><a href="https://pimagicstudio.com/contact/">Contact</a></nav>
+  <div class="pm-nav-cta"><a class="pm-login" href="https://pimagicstudio.com/checkout/order-history/">Customer</a><a class="btn btn-sm btn-glow" href="../shop/">Get PiMagic 3.2</a>
+  <button class="pm-burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button></div>
+</header>
+<main><section class="page-hero"><div class="wrap reveal">
+  <p class="eyebrow mono">// learn</p><h1>Tutorials</h1><p class="lede">Short videos, organised by topic. Every one plays right here.</p>
+</div></section>
+<section class="sec sec-tight"><div class="wrap">
+  <div class="new32 glass reveal">
+    <div><p class="eyebrow mono">// new · PiMagic 3.2</p><h2>Start here</h2>
+      <p>The 3.2 tutorial series is being recorded. Until then: the two films show 3.2 at work, and the steps on the right get you installed.</p>
+      <div class="hero-cta"><button class="btn btn-glow" data-film="short"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>PiMagic in 30 s</button>
+      <button class="btn btn-ghost" data-film="long"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>The 75-second tour</button></div></div>
+    <ol class="install mono">
+      <li><b>Add two repositories</b> in PixInsight (Resources › Manage Repositories):<code>https://pixinsight.pimagicstudio.com/pm3/</code><code>https://pixinsight.pimagicstudio.com/pisolver/</code></li>
+      <li><b>Check for updates</b> and restart PixInsight.</li>
+      <li><b>Enter your licence key</b> — switch to Expert mode for the Tools tab. The same key activates PiSolver.</li>
+      <li><b>Install AstroMagic</b> from the Tools tab: Install Plugin, then Install Actions.</li>
+    </ol>
+  </div>
+</div></section>
+<section class="sec sec-tight"><div class="wrap" id="tutorials">
+  <div class="tut-tools">
+    <div class="chips" role="toolbar" aria-label="Topics"><button class="on" data-t="all">All topics</button><button data-t="start">Getting started</button><button data-t="modes">Smart &amp; Expert mode</button><button data-t="mosaic">Mosaics &amp; nightscapes</button><button data-t="colour">Colour</button><button data-t="layers">AstroMagic: the layer structure</button><button data-t="walk">Walkthroughs by camera &amp; filter</button><button data-t="ps101">Photoshop 101</button></div>
+    <div class="tut-row"><label class="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input id="tq" type="search" placeholder="Search tutorials"></label>
+      <label class="toggle mono"><input id="archive" type="checkbox" checked><span></span>Show PiMagic 2 archive</label>
+      <span class="count mono"><b id="tcount">26</b> videos</span></div>
+    <p class="archive-note small">These videos were recorded with PiMagic Studio 2 and are kept as an archive. The PixInsight window looks different in 3.2.</p>
+  </div>
+  <section class="topic" id="t-start"><div class="topic-head"><h2>Getting started</h2><p>Install PiMagic Studio and meet the workflow.</p></div><div class="tut-grid"><article class="tut glass" data-topic="start" data-v="2">
+  <button class="tut-thumb" data-yt="oV9ObVXRDPY" aria-label="Play: Introduction to PiMagic Studio V2"><img src="https://i.ytimg.com/vi/oV9ObVXRDPY/hqdefault.jpg" alt="" loading="lazy"><span class="tut-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></button>
+  <div class="tut-body"><p class="tut-meta mono"><span class="badge">PiMagic 2</span>Apr 2026</p><h3>Introduction to PiMagic Studio V2</h3><p>The whole idea: PiMagic does the PixInsight work, AstroMagic sets up Photoshop for your creative finish.</p>
+  <a class="tut-link" href="https://pimagicstudio.com/introduction-to-pimagic-studio-v2/">Read the post →</a></div>
+</article><article class="tut glass" data-topic="start" data-v="2">
+  <button class="tut-thumb" data-yt="5Yk_vRFzyd4" aria-label="Play: Installation (V2.2 for PixInsight 1.9.4)"><img src="https://i.ytimg.com/vi/5Yk_vRFzyd4/hqdefault.jpg" alt="" loading="lazy"><span class="tut-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></button>
+  <div class="tut-body"><p class="tut-meta mono"><span class="badge">PiMagic 2</span>Jun 2026</p><h3>Installation (V2.2 for PixInsight 1.9.4)</h3><p>Installing V2.2: a streamlined interface and a much better deep-sky mosaic workflow.</p>
+  <a class="tut-link" href="https://pimagicstudio.com/installation-3/">Read the post →</a></div>
+</article><article class="tut glass" data-topic="start" data-v="2">
+  <button class="tut-thumb" data-yt="PJfhtt3QLlo" aria-label="Play: Installation (V2)"><img src="https://i.ytimg.com/vi/PJfhtt3QLlo/hqdefault.jpg" alt="" loading="lazy"><span class="tut-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></button>
+  <div class="tut-body"><p class="tut-meta mono"><span class="badge">PiMagic 2</span>Apr 2026</p><h3>Installation (V2)</h3><p>Installing through the PixInsight repository, step by step.</p>
+  <a class="tut-link" href="https://pimagicstudio.com/installation/">Read the post →</a></div>
+</article></div></section>
+<section class="topic" id="t-modes"><div class="topic-head"><h2>Smart &amp; Expert mode</h2><p>Let PiMagic decide, or take control.</p></div><div class="tut-grid"><article class="tut glass" data-topic="modes" data-v="2">
+  <button class="tut-thumb" data-yt="FV1ZQ3JVFYs" aria-label="Play: Smart Mode"><img src="https://i.ytimg.com/vi/FV1ZQ3JVFYs/hqdefault.jpg" alt="" loading="lazy"><span class="tut-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></button>
+  <div class="tut-body"><p class="tut-meta mono"><span class="badge">PiMagic 2</span>Apr 2026</p><h3>Smart Mode</h3><p>Smart mode knows the best settings for your kind of data. Load your files and start.</p>
+  <a class="tut-link" href="https://pimagicstudio.com/smart-mode/">Read the post →</a></div>
+</article><article class="tut glass" data-topic="modes" data-v="2">
+  <button class="tut-thumb" data-yt="bxBqzyOlXw4" aria-label="Play: Expert Mode"><img src="https://i.ytimg.com/vi/bxBqzyOlXw4/hqdefault.jpg" alt="" loading="lazy"><span class="tut-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></button>
+  <div class="tut-body"><p class="tut-meta mono"><span class="badge">PiMagic 2</span>Apr 2026</p><h3>Expert Mode</h3><p>Open up every control and set the process and parameters yourself.</p>
+  <a class="tut-link" href="https://pimagicstudio.com/expert-mode/">Read the post →</a></div>
+</article></div></section>
+<section class="topic" id="t-mosaic"><div class="topic-head"><h2>Mosaics &amp; nightscapes</h2><p>Multi-pane mosaics and wide-field landscapes.</p></div><div class="tut-grid"><article class="tut glass" data-topic="mosaic" data-v="2">
+  <button class="tut-thumb" data-yt="dwVPENorFSY" aria-label="Play: Mosaics"><img src="https://i.ytimg.com/vi/dwVPENorFSY/hqdefault.jpg" alt="" loading="lazy"><span class="tut-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></button>
+  <div class="tut-body"><p class="tut-meta mono"><span class="badge">PiMagic 2</span>Apr 2026</p><h3>Mosaics</h3><p>Mosaic processing with PiMagic and AstroMagic, from panes to a finished mosaic.</p>
+  <a class="tut-link" href="https://pimagicstudio.com/installation-2/">Read the post →</a></div>
+</article><article class="tut glass" data-topic="mosaic" data-v="2">
+  <button class="tut-thumb" data-yt="mmb9T0s3TUc" aria-label="Play: Nightscapes"><img src="https://i.ytimg.com/vi/mmb9T0s3TUc/hqdefault.jpg" alt="" loading="lazy"><span class="tut-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></button>
+  <div class="tut-body"><p class="tut-meta mono"><span class="badge">PiMagic 2</span>Apr 2026</p><h3>Nightscapes</h3><p>Processing a nightscape with PiMagic Studio and AstroMagic.</p>
+  <a class="tut-link" href="https://pimagicstudio.com/nightscapes/">Read the post →</a></div>
+</article></div></section>
+<section class="topic" id="t-colour"><div class="topic-head"><h2>Colour</h2><p>Colour calibration and narrowband palettes.</p></div><div class="tut-grid"><article class="tut glass" data-topic="colour" data-v="2">
+  <button class="tut-thumb" data-yt="G12Ny35ZLKc" aria-label="Play: How Important are SPCC Settings?"><img src="https://i.ytimg.com/vi/G12Ny35ZLKc/hqdefault.jpg" alt="" loading="lazy"><span class="tut-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></button>
+  <div class="tut-body"><p class="tut-meta mono"><span class="badge">PiMagic 2</span>Jan 2026</p><h3>How Important are SPCC Settings?</h3><p>Generic versus exact filter and sensor settings for colour calibration — tested.</p>
+  <a class="tut-link" href="https://pimagicstudio.com/how-important-are-spcc-settings/">Read the post →</a></div>
+</article><article class="tut glass" data-topic="colour" data-v="2">
+  <button class="tut-thumb" data-yt="tOVkoOCI0HM" aria-label="Play: Monochrome Narrowband Color Mapping"><img src="https://i.ytimg.com/vi/tOVkoOCI0HM/hqdefault.jpg" alt="" loading="lazy"><span class="tut-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></button>
+  <div class="tut-body"><p class="tut-meta mono"><span class="badge">PiMagic 2</span>Apr 2026</p><h3>Monochrome Narrowband Color Mapping</h3><p>Choosing a narrowband palette — SHO (Hubble) is AstroMagic&#x27;s default.</p>
+  <a class="tut-link" href="https://pimagicstudio.com/monochrome-narrowband-color-mapping/">Read the post →</a></div>
+</article></div></section>
+<section class="topic" id="t-layers"><div class="topic-head"><h2>AstroMagic: the layer structure</h2><p>Every group and layer AstroMagic builds in Photoshop, explained.</p></div><div class="tut-grid"><article class="tut glass" data-topic="layers" data-v="2">
+  <button class="tut-thumb" data-yt="TM3jfj0psJY" aria-label="Play: AstroMagic Panel Overview"><img src="https://i.ytimg.com/vi/TM3jfj0psJY/hqdefault.jpg" alt="" loading="lazy"><span class="tut-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></button>
+  <div class="tut-body"><p class="tut-meta mono"><span class="badge">PiMagic 2</span>Jan 2026</p><h3>AstroMagic Panel Overview</h3><p>The tools built into the AstroMagic panel for Photoshop.</p>
+  <a class="tut-link" href="https://pimagicstudio.com/astromagic-panel-overview/">Read the post →</a></div>
+</article><article class="tut glass" data-topic="layers" data-v="2">
+  <button class="tut-thumb" data-yt="8r36oWO_5nY" aria-label="Play: AstroMagic Standard Layer Structure"><img src="https://i.ytimg.com/vi/8r36oWO_5nY/hqdefault.jpg" alt="" loading="lazy"><span class="tut-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></button>
+  <div class="tut-body"><p class="tut-meta mono"><span class="badge">PiMagic 2</span>Jan 2026</p><h3>AstroMagic Standard Layer Structure</h3><p>The Photoshop layer structure AstroMagic creates for you.</p>
+  <a class="tut-link" href="https://pimagicstudio.com/astromagic-standard-layer-structure/">Read the post →</a></div>
+</article><article class="tut glass" data-topic="layers" data-v="2">
+  <button class="tut-thumb" data-yt="YCUfd7zgOTw" aria-label="Play: Layer Groups"><img src="https://i.ytimg.com/vi/YCUfd7zgOTw/hqdefault.jpg" alt="" loading="lazy"><span class="tut-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></button>
+  <div class="tut-body"><p class="tut-meta mono"><span class="badge">PiMagic 2</span>Apr 2026</p><h3>Layer Groups</h3><p>The same layer structure in every image, so you always find your way around.</p>
+  <a class="tut-link" href="https://pimagicstudio.com/layer-groups/">Read the post →</a></div>
+</article><article class="tut glass" data-topic="layers" data-v="2">
+  <button class="tut-thumb" data-yt="PJK_hBoeXrY" aria-label="Play: Global Adjustments"><img src="https://i.ytimg.com/vi/PJK_hBoeXrY/hqdefault.jpg" alt="" loading="lazy"><span class="tut-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></button>
+  <div class="tut-body"><p class="tut-meta mono"><span class="badge">PiMagic 2</span>Apr 2026</p><h3>Global Adjustments</h3><p>Brightness, contrast and colour for the whole image — without touching the stars.</p>
+  <a class="tut-link" href="https://pimagicstudio.com/global-adjustments/">Read the post →</a></div>
+</article><article class="tut glass" data-topic="layers" data-v="2">
+  <button class="tut-thumb" data-yt="2xv7tY2Chys" aria-label="Play: Color Adjustments"><img src="https://i.ytimg.com/vi/2xv7tY2Chys/hqdefault.jpg" alt="" loading="lazy"><span class="tut-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></button>
+  <div class="tut-body"><p class="tut-meta mono"><span class="badge">PiMagic 2</span>Apr 2026</p><h3>Color Adjustments</h3><p>Every colour layer group shares one structure, so adjustments feel familiar.</p>
+  <a class="tut-link" href="https://pimagicstudio.com/color-adjustments/">Read the post →</a></div>
+</article><article class="tut glass" data-topic="layers" data-v="2">
+  <button class="tut-thumb" data-yt="3QpG8jKmpBI" aria-label="Play: Stars"><img src="https://i.ytimg.com/vi/3QpG8jKmpBI/hqdefault.jpg" alt="" loading="lazy"><span class="tut-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></button>
+  <div class="tut-body"><p class="tut-meta mono"><span class="badge">PiMagic 2</span>Apr 2026</p><h3>Stars</h3><p>Stars live in their own group: balance them against everything else.</p>
+  <a class="tut-link" href="https://pimagicstudio.com/stars/">Read the post →</a></div>
+</article><article class="tut glass" data-topic="layers" data-v="2">
+  <button class="tut-thumb" data-yt="GL7a9DlGBA4" aria-label="Play: Annotation Layers"><img src="https://i.ytimg.com/vi/GL7a9DlGBA4/hqdefault.jpg" alt="" loading="lazy"><span class="tut-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></button>
+  <div class="tut-body"><p class="tut-meta mono"><span class="badge">PiMagic 2</span>Apr 2026</p><h3>Annotation Layers</h3><p>The three annotation layers and how to fine-tune them.</p>
+  <a class="tut-link" href="https://pimagicstudio.com/annotation-layers/">Read the post →</a></div>
+</article><article class="tut glass" data-topic="layers" data-v="2">
+  <button class="tut-thumb" data-yt="ylpB4B8FvHc" aria-label="Play: Metadata Text Panel"><img src="https://i.ytimg.com/vi/ylpB4B8FvHc/hqdefault.jpg" alt="" loading="lazy"><span class="tut-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></button>
+  <div class="tut-body"><p class="tut-meta mono"><span class="badge">PiMagic 2</span>Apr 2026</p><h3>Metadata Text Panel</h3><p>Filters, integration time and more, in an editable metadata group.</p>
+  <a class="tut-link" href="https://pimagicstudio.com/metadata-text-panel/">Read the post →</a></div>
+</article></div></section>
+<section class="topic" id="t-walk"><div class="topic-head"><h2>Walkthroughs by camera &amp; filter</h2><p>Follow along from raw data to a finished image.</p></div><div class="tut-grid"><article class="tut glass" data-topic="walk" data-v="2">
+  <button class="tut-thumb" data-yt="rTkf21V_ETI" aria-label="Play: One-Shot Color"><img src="https://i.ytimg.com/vi/rTkf21V_ETI/hqdefault.jpg" alt="" loading="lazy"><span class="tut-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></button>
+  <div class="tut-body"><p class="tut-meta mono"><span class="badge">PiMagic 2</span>Jan 2026</p><h3>One-Shot Color</h3><p>A simple image from a one-shot colour camera, start to finish.</p>
+  <a class="tut-link" href="https://pimagicstudio.com/astromagic-one-shot-color/">Read the post →</a></div>
+</article><article class="tut glass" data-topic="walk" data-v="2">
+  <button class="tut-thumb" data-yt="65hFFslXmDI" aria-label="Play: Dual-Narrowband"><img src="https://i.ytimg.com/vi/65hFFslXmDI/hqdefault.jpg" alt="" loading="lazy"><span class="tut-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></button>
+  <div class="tut-body"><p class="tut-meta mono"><span class="badge">PiMagic 2</span>Jan 2026</p><h3>Dual-Narrowband</h3><p>One-shot colour with a clear filter plus a dual-narrowband filter.</p>
+  <a class="tut-link" href="https://pimagicstudio.com/astromagic-dual-narrowband/">Read the post →</a></div>
+</article><article class="tut glass" data-topic="walk" data-v="2">
+  <button class="tut-thumb" data-yt="BTbZtp0AwME" aria-label="Play: LRGB"><img src="https://i.ytimg.com/vi/BTbZtp0AwME/hqdefault.jpg" alt="" loading="lazy"><span class="tut-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></button>
+  <div class="tut-body"><p class="tut-meta mono"><span class="badge">PiMagic 2</span>Jan 2026</p><h3>LRGB</h3><p>A monochrome camera with a typical LRGB filter set.</p>
+  <a class="tut-link" href="https://pimagicstudio.com/astromagic-lrgb/">Read the post →</a></div>
+</article><article class="tut glass" data-topic="walk" data-v="2">
+  <button class="tut-thumb" data-yt="HaRSE1Gi7IU" aria-label="Play: SHO"><img src="https://i.ytimg.com/vi/HaRSE1Gi7IU/hqdefault.jpg" alt="" loading="lazy"><span class="tut-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></button>
+  <div class="tut-body"><p class="tut-meta mono"><span class="badge">PiMagic 2</span>Jan 2026</p><h3>SHO</h3><p>SHO filters on a monochrome camera: a Hubble-palette image.</p>
+  <a class="tut-link" href="https://pimagicstudio.com/astromagic-sho/">Read the post →</a></div>
+</article><article class="tut glass" data-topic="walk" data-v="2">
+  <button class="tut-thumb" data-yt="2CNh6D64DPk" aria-label="Play: LRGB + Hα with Continuum Subtraction"><img src="https://i.ytimg.com/vi/2CNh6D64DPk/hqdefault.jpg" alt="" loading="lazy"><span class="tut-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></button>
+  <div class="tut-body"><p class="tut-meta mono"><span class="badge">PiMagic 2</span>Jan 2026</p><h3>LRGB + Hα with Continuum Subtraction</h3><p>LRGB plus Hα, with red continuum subtraction to clean up the Hα.</p>
+  <a class="tut-link" href="https://pimagicstudio.com/astromagic-lrgbha-continuum-subtraction/">Read the post →</a></div>
+</article></div></section>
+<section class="topic" id="t-ps101"><div class="topic-head"><h2>Photoshop 101</h2><p>The Photoshop basics behind a non-destructive astro workflow.</p></div><div class="tut-grid"><article class="tut glass" data-topic="ps101" data-v="2">
+  <button class="tut-thumb" data-yt="DWEC38h3e0E" aria-label="Play: The Photoshop Advantage"><img src="https://i.ytimg.com/vi/DWEC38h3e0E/hqdefault.jpg" alt="" loading="lazy"><span class="tut-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></button>
+  <div class="tut-body"><p class="tut-meta mono"><span class="badge">PiMagic 2</span>Dec 2025</p><h3>The Photoshop Advantage</h3><p>Why Photoshop&#x27;s tools are so useful for astro images.</p>
+  <a class="tut-link" href="https://pimagicstudio.com/the-photoshop-advantage/">Read the post →</a></div>
+</article><article class="tut glass" data-topic="ps101" data-v="2">
+  <button class="tut-thumb" data-yt="yAf7ZRzzXyE" aria-label="Play: Workspace"><img src="https://i.ytimg.com/vi/yAf7ZRzzXyE/hqdefault.jpg" alt="" loading="lazy"><span class="tut-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></button>
+  <div class="tut-body"><p class="tut-meta mono"><span class="badge">PiMagic 2</span>Jan 2026</p><h3>Workspace</h3><p>Organising the Photoshop workspace to fit your workflow.</p>
+  <a class="tut-link" href="https://pimagicstudio.com/photoshop-101-workspace/">Read the post →</a></div>
+</article><article class="tut glass" data-topic="ps101" data-v="2">
+  <button class="tut-thumb" data-yt="-BXdf0hwBtc" aria-label="Play: Layers and Groups"><img src="https://i.ytimg.com/vi/-BXdf0hwBtc/hqdefault.jpg" alt="" loading="lazy"><span class="tut-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></button>
+  <div class="tut-body"><p class="tut-meta mono"><span class="badge">PiMagic 2</span>Jan 2026</p><h3>Layers and Groups</h3><p>The two most fundamental features in Photoshop.</p>
+  <a class="tut-link" href="https://pimagicstudio.com/photoshop-101-layers-and-groups/">Read the post →</a></div>
+</article><article class="tut glass" data-topic="ps101" data-v="2">
+  <button class="tut-thumb" data-yt="PR5OajddzKg" aria-label="Play: Advanced Tools"><img src="https://i.ytimg.com/vi/PR5OajddzKg/hqdefault.jpg" alt="" loading="lazy"><span class="tut-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></button>
+  <div class="tut-body"><p class="tut-meta mono"><span class="badge">PiMagic 2</span>Jan 2026</p><h3>Advanced Tools</h3><p>Blending modes, smart objects and more.</p>
+  <a class="tut-link" href="https://pimagicstudio.com/photoshop-101-advanced-tools/">Read the post →</a></div>
+</article></div></section>
+
+  <div class="tut-empty glass" id="tempty" hidden><h3>PiMagic 3.2 tutorials are on their way.</h3><p>They are being recorded now. Meanwhile, switch the PiMagic 2 archive back on to browse the earlier videos.</p></div>
+</div></section>
+</main><footer class="pm-foot">
+  <div class="wrap foot-grid">
+    <div><a class="pm-logo" href="../"><svg viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="32" rx="27" ry="10" fill="none" stroke="#6fd3ff" stroke-width="3" transform="rotate(-25 32 32)"/><circle cx="32" cy="32" r="8" fill="#a98bff"/></svg><span>PiMagic <b>Studio</b></span></a>
+      <p class="small">Automatic processing for PixInsight.<br>By Dr. Christian Sasse and Craig Stocks.</p></div>
+    <nav class="small"><a href="../shop/">Shop</a><a href="../tutorials/">Tutorials</a><a href="../testimonials/">Testimonials</a><a href="https://pimagicstudio.com/contact/">Contact</a><a href="https://www.facebook.com/profile.php?id=61585927683743">Facebook</a></nav>
+    <p class="small">Images: Craig Stocks · Utah Desert Remote Observatories (<a href="https://utahdesertremote.com">utahdesertremote.com</a>) and real PiMagic results from our users' data.<br>© 2026 Dr. Christian Sasse and Craig Stocks · <a href="https://pimagicstudio.com/privacy-policy/">Privacy</a> · <a href="https://pimagicstudio.com/terms/">Terms</a></p>
+  </div>
+</footer>
+<div class="modal" id="filmModal" hidden><div class="modal-in"><button class="modal-x" aria-label="Close">✕</button><video controls playsinline preload="none"></video></div></div>
+<div class="modal" id="lightbox" hidden><div class="modal-in lb"><button class="modal-x" aria-label="Close">✕</button><img alt=""><p class="mono"></p></div></div>
+<script src="../js/site.js" defer></script>
+</body>
+</html>
