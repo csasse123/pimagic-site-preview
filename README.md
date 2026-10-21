@@ -12,3 +12,7 @@ Buy buttons / Contact / order history point at the live WordPress pages (EDD dow
 
 To WordPress later: header/footer = template parts (pm-nav, pm-foot), each <section> = a block pattern (Custom HTML),
 css/js = child-theme enqueue; the pricing card's button becomes the EDD buy button. The sandbox has <meta robots noindex>.
+
+Message (Christian, 21 Oct 2026): "Astrophotography. Made simple." - routine processing automatic, complex made simple, the
+creativity is yours (Photoshop or any tool). Never "PixInsight made simple"; PixInsight only where it is a fact (requirements).
+Open: three-stage slider raw -> PiMagic -> Craig's Photoshop finish of the same Rosette data (Christian has asked Craig).
