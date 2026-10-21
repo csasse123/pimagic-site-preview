@@ -149,9 +149,9 @@ $$(".player[data-src]").forEach(p => $(".play", p).addEventListener("click", () 
     ["tarantula_nebula", "Tarantula Nebula", "SHO narrowband"], ["bode_s_galaxy", "Bode's Galaxy", "LRGB · mono"],
     ["comet_12p_pons_brooks", "Comet 12P/Pons-Brooks", "RGB"], ["lambs_knoll", "Lambs Knoll", "Milky Way nightscape"]];
   const m = $("#masonry"), lb = $("#lightbox"); if (!m) return;
-  m.innerHTML = G.map(([k, t, s]) => `<figure class="tile reveal" tabindex="0" data-k="${k}"><img src="assets/img/g_${k}_t.webp" alt="${t} — ${s}, processed by PiMagic" loading="lazy"><figcaption><b>${t}</b><span>${s}</span></figcaption></figure>`).join("");
+  m.innerHTML = G.map(([k, t, s]) => `<figure class="tile reveal" tabindex="0" data-k="${k}"><img src="${BASE}assets/img/g_${k}_t.webp" alt="${t} — ${s}, processed by PiMagic" loading="lazy"><figcaption><b>${t}</b><span>${s}</span></figcaption></figure>`).join("");
   $$(".tile", m).forEach(el => { io.observe(el);
-    const open = () => { const [k, t, s] = G.find(g => g[0] === el.dataset.k); $("img", lb).src = `assets/img/g_${k}.webp`; $("img", lb).alt = t; $("p", lb).textContent = `${t} · ${s} · PiMagic`; lb.hidden = false; document.body.style.overflow = "hidden"; };
+    const open = () => { const [k, t, s] = G.find(g => g[0] === el.dataset.k); $("img", lb).src = `${BASE}assets/img/g_${k}.webp`; $("img", lb).alt = t; $("p", lb).textContent = `${t} · ${s} · PiMagic`; lb.hidden = false; document.body.style.overflow = "hidden"; };
     el.addEventListener("click", open); el.addEventListener("keydown", e => e.key === "Enter" && open()); });
 })();
 

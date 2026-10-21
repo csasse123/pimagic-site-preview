@@ -27,3 +27,10 @@ The Rosette_2 run kept no linear mosaic, so step 1 stays the single-field Rosett
 Sky map layers from the NGC2244 run (census left out - that run's census reads Gal. Lat -60 for the Rosette, a bug); step 2 = Craig's
 clean / metadata / annotated versions. A switch slides the comparison line to open the side that carries the layer. Shop: PiMagic
 Studio only (no stand-alone PiSolver for now - Christian). New contact/ page (mailto form; WordPress: WPForms #63).
+
+WordPress plugin (21 Oct 2026, after Craig's own WordPress page lost the design): tools/build_wp.py -> wp/pimagic-site/ and
+exports/pimagic-site-1.0.0.zip (Dropbox s4:/Christian Sasse/PiMagicStudio/PiMagic Studio - Website Plugin, with INSTALL txt).
+The plugin serves pages/*.html (the sandbox pages with {{BASE}}/{{HOME}}/{{WP_HEAD}}/{{WP_FOOTER}}/{{CONTACT_FORM}} tokens) on the
+front page, about|tutorials, testimonials, shop, contact; theme styles dequeued; WPForms form (option pms_form_id, default 63) in
+the contact card. Preview for editors until Settings > PiMagic Site > Live. Tested in WordPress Playground (wp-test/blueprint.json,
+wp-test/mu = test-only form maker; launch config "wp-playground"): editor preview, ?pimagic=0, visitor old/new, other pages untouched.
