@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PiMagic Studio 3.2 — PixInsight. Made simple.</title>
+<meta name="description" content="PiMagic Studio turns a folder of raw astro frames into calibrated, stacked, finished images — automatically, inside PixInsight. Smart mode decides for you. Expert mode lets you take control.">
+<meta name="robots" content="noindex, nofollow"><!-- sandbox: remove at launch -->
+<meta property="og:title" content="PiMagic Studio 3.2 — PixInsight. Made simple.">
+<meta property="og:description" content="From a folder of raw frames to finished art. Automatic processing for PixInsight.">
+<meta property="og:image" content="assets/img/og.jpg">
+<meta name="theme-color" content="#04060c">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%2304060c'/%3E%3Cellipse cx='32' cy='32' rx='24' ry='9' fill='none' stroke='%236fd3ff' stroke-width='3' transform='rotate(-25 32 32)'/%3E%3Ccircle cx='32' cy='32' r='7' fill='%23a98bff'/%3E%3C/svg%3E">
+</head>
+<body>
+<canvas id="stars" aria-hidden="true"></canvas>
+<div class="nebula" aria-hidden="true"></div>
+
+<!-- ============ header (WP: site header template part) ============ -->
+<header class="pm-nav" id="top">
+  <a class="pm-logo" href="#top" aria-label="PiMagic Studio home">
+    <svg viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="32" rx="27" ry="10" fill="none" stroke="url(#lg)" stroke-width="3" transform="rotate(-25 32 32)"/><circle cx="32" cy="32" r="8" fill="url(#lg)"/><circle cx="54" cy="21" r="2.6" fill="#e7edf7"/><defs><linearGradient id="lg" x1="0" x2="1"><stop offset="0" stop-color="#6fd3ff"/><stop offset="1" stop-color="#a98bff"/></linearGradient></defs></svg>
+    <span>PiMagic <b>Studio</b></span>
+  </a>
+  <nav class="pm-menu" aria-label="Main">
+    <a href="#how">How it works</a><a href="#features">Features</a><a href="#mosaics">Mosaics</a><a href="#pisolver">PiSolver</a><a href="#gallery">Gallery</a><a href="https://pimagicstudio.com/about/">Tutorials</a><a href="https://pimagicstudio.com/contact/">Contact</a>
+  </nav>
+  <div class="pm-nav-cta">
+    <a class="pm-login" href="https://pimagicstudio.com/checkout/order-history/">Customer</a>
+    <a class="btn btn-sm btn-glow" href="#pricing">Get PiMagic 3.2</a>
+    <button class="pm-burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+<!-- ============ hero ============ -->
+<section class="hero">
+  <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="assets/img/hero_poster.webp">
+    <source src="assets/video/hero_loop_m.mp4" type="video/mp4" media="(max-width: 900px)">
+    <source src="assets/video/hero_loop.mp4" type="video/mp4">
+  </video>
+  <div class="hero-shade"></div>
+  <div class="hud-corners" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <div class="hero-inner wrap">
+    <div class="hero-copy">
+      <p class="chip"><span class="dot"></span>New · PiMagic 3.2 for PixInsight 1.9.5</p>
+      <h1>PixInsight.<br><span class="grad">Made simple.</span></h1>
+      <p class="lede">Point PiMagic Studio at a folder of raw frames. Press Start. It calibrates, stacks and finishes your images — automatically, inside PixInsight.</p>
+      <div class="hero-cta">
+        <a class="btn btn-glow" href="#pricing">Get PiMagic 3.2</a>
+        <button class="btn btn-ghost" data-film="long"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Watch the film <small>75 s</small></button>
+      </div>
+      <p class="hero-meta mono">Mac · Windows · Linux &nbsp;/&nbsp; Smart mode + Expert mode &nbsp;/&nbsp; AstroMagic for Photoshop included</p>
+    </div>
+    <aside class="console glass" aria-label="A PiMagic run, step by step">
+      <div class="console-head mono"><span>PIMAGIC · RUN</span><span class="blink">● LIVE</span></div>
+      <ol class="console-steps mono">
+        <li>Reading 146 files</li><li>Sorting lights · flats · darks · bias</li><li>Calibration</li><li>Stacking</li><li>PiSolver · blind solve</li>
+        <li>Gradient</li><li>Star Color Tuning</li><li>Deblur · Denoise</li><li>Star separation</li><li>RGB · SHO · HOO finished</li>
+      </ol>
+      <div class="console-bar"><i></i></div>
+    </aside>
+  </div>
+  <p class="hero-credit mono">Time-lapse: Craig Stocks · Utah Desert Remote Observatories</p>
+  <a class="scroll-cue" href="#film" aria-label="Scroll down"><span></span></a>
+</section>
+
+<div class="ticker mono" aria-hidden="true"><div class="ticker-track">
+  <span>Calibration</span><span>Stacking</span><span>PiSolver</span><span>Image Analyzer</span><span>Gradient</span><span>Star Color Tuning</span><span>Deblur</span><span>Denoise</span><span>Star Separation</span><span>Mosaic Blend</span><span>Annotation</span>
+  <span>Calibration</span><span>Stacking</span><span>PiSolver</span><span>Image Analyzer</span><span>Gradient</span><span>Star Color Tuning</span><span>Deblur</span><span>Denoise</span><span>Star Separation</span><span>Mosaic Blend</span><span>Annotation</span>
+</div></div>
+
+<!-- ============ film ============ -->
+<section class="sec" id="film">
+  <div class="wrap film-grid">
+    <div class="reveal">
+      <p class="eyebrow mono">// 30 seconds</p>
+      <h2>See it work.<br>One press of Start.</h2>
+      <p>The real PiMagic window, a real run on Craig Stocks' Rosette data from Utah Desert Remote Observatories, and the finished images it made — no staging, no hand edits.</p>
+      <button class="link-arrow" data-film="long">Watch the 75-second deep dive →</button>
+    </div>
+    <div class="player glass reveal" data-src="assets/video/film_short.mp4">
+      <img src="assets/img/poster_film.webp" alt="PiMagic Studio — raw stack to finished Rosette Nebula" loading="lazy">
+      <button class="play" aria-label="Play the 30-second film"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+      <span class="player-tag mono">PiMagic Studio · 0:30</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ before / after ============ -->
+<section class="sec sec-tight" id="result">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow mono">// raw stack → finished</p>
+      <h2>From the stack to the <span class="grad">finished image</span>.</h2>
+      <p>Drag the line. Left: the run's own stacked Hα master, linear, exactly as it comes out of stacking. Right: PiMagic's finished SHO from the same run — same pixels, same framing.</p>
+    </div>
+    <figure class="ba glass reveal" data-start="0.5">
+      <img class="ba-after" src="assets/img/ba_rosette_final.webp" alt="Rosette Nebula, finished SHO by PiMagic" loading="lazy">
+      <div class="ba-before"><img src="assets/img/ba_rosette_raw.webp" alt="Rosette Nebula, linear stacked H-alpha master" loading="lazy"></div>
+      <div class="ba-handle" role="slider" tabindex="0" aria-label="Compare raw and finished" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><span></span></div>
+      <span class="ba-tag ba-tag-l mono">Stacked master · linear</span><span class="ba-tag ba-tag-r mono">PiMagic · finished SHO</span>
+    </figure>
+    <div class="stats reveal">
+      <div><b data-count="146">146</b><span>raw files in the folder</span></div>
+      <div><b>~15<small>min</small></b><span>to finished, on a Mac</span></div>
+      <div><b data-count="6">6</b><span>finished images: RGB, SHO, HOO, Hα, OIII, SII</span></div>
+      <div><b data-count="1">1</b><span>press of Start</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ how it works ============ -->
+<section class="sec" id="how">
+  <div class="wrap">
+    <div class="sec-head reveal"><p class="eyebrow mono">// how it works</p><h2>Three steps. That's the whole workflow.</h2></div>
+    <div class="steps">
+      <article class="step glass reveal">
+        <span class="step-n mono">01</span>
+        <h3>Point it at a folder</h3>
+        <p>Lights, flats, darks and bias — PiMagic reads every file, sorts it by itself and understands what you shot: camera, filters, exposures, target.</p>
+        <img src="assets/img/ui_window.webp" alt="The PiMagic window with 146 files loaded and sorted" loading="lazy">
+      </article>
+      <article class="step glass reveal">
+        <span class="step-n mono">02</span>
+        <h3>Smart or Expert</h3>
+        <p>Smart mode decides everything from your data. Expert mode opens every control. One switch at the top of the window.</p>
+        <img src="assets/img/ui_mapping.webp" alt="Calibration frames detected and every filter mapped automatically" loading="lazy">
+      </article>
+      <article class="step glass reveal">
+        <span class="step-n mono">03</span>
+        <h3>Press Start</h3>
+        <p>Calibrated, stacked and finished — all by itself, inside PixInsight. Here a real 15-minute run, sped up.</p>
+        <video class="lazyvid" muted loop playsinline preload="none" data-src="assets/video/run_timelapse.mp4" poster="assets/img/ui_window.webp"></video>
+      </article>
+    </div>
+
+    <div class="modes glass reveal" id="modes">
+      <div class="mode-switch" role="tablist" aria-label="Mode">
+        <button role="tab" aria-selected="true" data-mode="smart">Smart</button><button role="tab" aria-selected="false" data-mode="expert">Expert</button><i></i>
+      </div>
+      <div class="mode-body" data-mode="smart">
+        <h3>Smart mode <span class="mono">· decides for you</span></h3>
+        <ul class="ticks">
+          <li>Reads your data and picks the right route: deep sky, nightscape, mosaic, narrowband or broadband</li>
+          <li>Matches calibration frames — from the folder or your calibration library, same camera, nearest in time</li>
+          <li>Recognises every filter and builds the right colour images (RGB, LRGB, SHO, HOO, dual-band)</li>
+          <li>Ideal if you are new to PixInsight — and a huge time-saver if you are not</li>
+        </ul>
+      </div>
+      <div class="mode-body" data-mode="expert" hidden>
+        <h3>Expert mode <span class="mono">· you take control</span></h3>
+        <ul class="ticks">
+          <li>Every stage and parameter is open: calibration, stacking, gradients, colour, stretching, star handling</li>
+          <li>Edit the filter mapping, choose palettes, blend options and mosaic projection</li>
+          <li>Run the same data with different settings and compare — without repeating any step by hand</li>
+          <li>"Reset to Recommended" brings back Smart's choices at any time</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ features ============ -->
+<section class="sec" id="features">
+  <div class="wrap">
+    <div class="sec-head reveal"><p class="eyebrow mono">// what's inside</p><h2>Everything PixInsight can do.<br><span class="grad">None of the complexity.</span></h2></div>
+    <div class="bento">
+      <article class="card glass reveal span2"><i class="ic">◎</i><h3>Automatic calibration</h3><p>Bias, darks and flats found and matched for every light — even across nights and filters. Keep a calibration library and PiMagic picks the right masters by itself.</p></article>
+      <article class="card glass reveal"><i class="ic">≋</i><h3>Any filter, any palette</h3><p>L, R, G, B, Hα, OIII, SII and dual-band recognised automatically. RGB, LRGB, SHO and HOO combined for you.</p></article>
+      <article class="card glass reveal"><i class="ic">▦</i><h3>Mosaics, automatic</h3><p>Deep-sky mosaics and landscape panoramas: every pane found, placed, matched and blended.</p></article>
+      <article class="card glass reveal"><i class="ic">✶</i><h3>PiSolver blind solving</h3><p>Our own blind solver: linear or stretched, any format. Knows where you pointed and names what it sees.</p></article>
+      <article class="card glass reveal"><i class="ic">◐</i><h3>Star Color Tuning</h3><p>True star colours, calibrated against star catalogues — no colour casts, no guesswork.</p></article>
+      <article class="card glass reveal"><i class="ic">⌁</i><h3>Gradients gone</h3><p>Light pollution and sky gradients removed, nebula glow kept.</p></article>
+      <article class="card glass reveal span2"><i class="ic">✦</i><h3>Deblur · Denoise · Star separation</h3><p>Sharper detail, cleaner backgrounds, and a starless layer plus a stars layer for your own finishing. Uses RC-Astro's BlurXTerminator, NoiseXTerminator and StarXTerminator when they are installed.</p></article>
+      <article class="card glass reveal"><i class="ic">▣</i><h3>Ready for Photoshop</h3><p>Finished TIFFs, and AstroMagic builds the layer groups for you.</p></article>
+      <article class="card glass reveal"><i class="ic">≡</i><h3>Every run documented</h3><p>A report and previews for every run, so you always know what was done.</p></article>
+      <article class="card glass reveal"><i class="ic">⌘</i><h3>Inside PixInsight</h3><p>Runs as a script in PixInsight 1.9.5 on Mac, Windows and Linux. Your data never leaves your computer.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ engine ============ -->
+<section class="sec engine" id="engine">
+  <canvas id="engineCanvas" aria-hidden="true"></canvas>
+  <div class="wrap engine-copy reveal">
+    <p class="eyebrow mono">// the engine underneath</p>
+    <h2>All the power of PixInsight.<br><span class="grad">New tools, unique to PiMagic.</span></h2>
+    <p>Eleven stages, one button. PiMagic chains PixInsight's processes with its own tools — and makes every decision a seasoned imager would.</p>
+  </div>
+</section>
+
+<!-- ============ mosaics (scroll story) ============ -->
+<section class="mosaic-story" id="mosaics">
+  <div class="mosaic-sticky">
+    <div class="wrap mosaic-grid">
+      <div class="mosaic-copy">
+        <p class="eyebrow mono">// mosaics, fully automatic</p>
+        <h2>Six raw panes.<br><span class="grad">One seamless mosaic.</span></h2>
+        <ol class="mstep mono"><li data-k="0">Found</li><li data-k="1">Placed</li><li data-k="2">Matched</li><li data-k="3">Blended</li></ol>
+        <p class="mosaic-cap">Scroll: six linear panes of Rho Ophiuchi, each with its own brightness, become one mosaic. Every pane found, placed, matched and blended by PiMagic.</p>
+      </div>
+      <div class="mosaic-stage" aria-label="Six panes assembling into the Rho Ophiuchi mosaic">
+        <img class="pane" src="assets/img/pane1.webp" alt=""><img class="pane" src="assets/img/pane2.webp" alt=""><img class="pane" src="assets/img/pane3.webp" alt="">
+        <img class="pane" src="assets/img/pane4.webp" alt=""><img class="pane" src="assets/img/pane5.webp" alt=""><img class="pane" src="assets/img/pane6.webp" alt="">
+        <img class="mosaic-final" src="assets/img/mosaic_rho.webp" alt="Rho Ophiuchi mosaic by PiMagic">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PiSolver ============ -->
+<section class="sec" id="pisolver">
+  <div class="wrap solver-grid">
+    <div class="reveal">
+      <p class="eyebrow mono">// PiSolver</p>
+      <h2>It knows where you were pointing.</h2>
+      <p>PiSolver, our own blind solver, takes any image — linear or stretched, any format — finds where in the sky it is within seconds, and names what it sees.</p>
+      <ul class="formats mono"><li>Linear</li><li>Stretched</li><li>FITS</li><li>XISF</li><li>Camera RAW</li><li>TIFF</li><li>PNG</li><li>JPEG</li></ul>
+      <p class="small">Left: PiSolver live in PixInsight on a finished JPEG of the Witch Head by Craig Stocks.</p>
+    </div>
+    <div class="player glass reveal"><video class="lazyvid" muted loop playsinline preload="none" data-src="assets/video/pisolver_live.mp4" poster="assets/img/solve_orion.webp"></video><span class="player-tag mono">PiSolver · live</span></div>
+  </div>
+  <div class="wrap">
+    <figure class="ba ba-solve glass reveal" data-start="0.5">
+      <img class="ba-after" src="assets/img/solve_orion_annot.webp" alt="Orion mosaic annotated by PiSolver" loading="lazy">
+      <div class="ba-before"><img src="assets/img/solve_orion.webp" alt="Orion mosaic" loading="lazy"></div>
+      <div class="ba-handle" role="slider" tabindex="0" aria-label="Show the annotation" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><span></span></div>
+      <span class="ba-tag ba-tag-l mono">Orion mosaic</span><span class="ba-tag ba-tag-r mono">Solved &amp; annotated</span>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ cameras ============ -->
+<section class="sec" id="cameras">
+  <div class="wrap">
+    <div class="sec-head reveal"><p class="eyebrow mono">// any camera</p><h2>From a fisheye lens to a deep-sky telescope.</h2><p>Real PiMagic results, one per camera type.</p></div>
+    <div class="cams">
+      <figure class="cam reveal"><img src="assets/img/g_all_sky_t.webp" alt="All-sky fisheye image" loading="lazy"><figcaption class="mono">Fisheye</figcaption></figure>
+      <figure class="cam reveal"><img src="assets/img/g_milky_way_nightscape_t.webp" alt="Milky Way nightscape" loading="lazy"><figcaption class="mono">DSLR · Mirrorless</figcaption></figure>
+      <figure class="cam reveal"><img src="assets/img/g_pleiades_t.webp" alt="Pleiades" loading="lazy"><figcaption class="mono">One-shot colour</figcaption></figure>
+      <figure class="cam reveal"><img src="assets/img/g_horsehead_nebula_t.webp" alt="Horsehead Nebula" loading="lazy"><figcaption class="mono">OSC + dual-band</figcaption></figure>
+      <figure class="cam reveal"><img src="assets/img/g_m78_t.webp" alt="M78" loading="lazy"><figcaption class="mono">Mono</figcaption></figure>
+      <figure class="cam reveal"><img src="assets/img/g_dumbbell_nebula_t.webp" alt="Dumbbell Nebula" loading="lazy"><figcaption class="mono">Large telescope</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ gallery ============ -->
+<section class="sec" id="gallery">
+  <div class="wrap">
+    <div class="sec-head reveal"><p class="eyebrow mono">// gallery</p><h2>Made by PiMagic.</h2><p>Every image here is a real PiMagic result, straight out of a run. Click to enlarge.</p></div>
+    <div class="masonry" id="masonry"></div>
+  </div>
+</section>
+
+<!-- ============ AstroMagic ============ -->
+<section class="sec" id="astromagic">
+  <div class="wrap am-grid">
+    <figure class="am-img glass reveal"><img src="assets/img/am_gunlock.webp" alt="Gunlock panorama — blended by PiMagic, finished in Photoshop by Craig Stocks" loading="lazy"><figcaption class="mono">Blended by PiMagic · finished in Photoshop by Craig Stocks</figcaption></figure>
+    <div class="reveal">
+      <p class="eyebrow mono">// AstroMagic for Photoshop · included</p>
+      <h2>We take away the hard work.<br><span class="grad">The creativity is yours.</span></h2>
+      <ul class="ticks">
+        <li>Loads every PiMagic TIFF into Photoshop in one go</li>
+        <li>Organises them into the same, familiar layer groups for every image</li>
+        <li>Creates the standard adjustment layers — non-destructive from the start</li>
+        <li>Global adjustments that leave the stars alone, so background and stars balance easily</li>
+      </ul>
+      <p>Prefer to finish in PixInsight, or any tool you love? Every result is yours to take further.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ testimonials ============ -->
+<section class="sec" id="voices">
+  <div class="wrap">
+    <div class="sec-head reveal"><p class="eyebrow mono">// astrophotographers on PiMagic</p><h2>Real users. Real results.</h2></div>
+    <div class="quotes">
+      <blockquote class="quote glass reveal"><p>“In mere minutes, I produced stunning results that would have otherwise demanded years of trial and error.”</p><cite>Julian Segal</cite></blockquote>
+      <blockquote class="quote glass reveal"><p>“Probably one of the greatest contributions to processing since RC-Astro's AI tools!!”</p><cite>Josep Drudis</cite></blockquote>
+      <blockquote class="quote glass reveal"><p>“PiMagic replaces years of training and experimentation with PixInsight and creates a structured workflow with just a few clicks.”</p><cite>Matt Shetzer</cite></blockquote>
+      <blockquote class="quote glass reveal"><p>“It has sped up my post processing by magnitudes and improved my final images immeasurably.”</p><cite>Mark Killion</cite></blockquote>
+      <blockquote class="quote glass reveal"><p>“Pixinsight can be a giant pain. I'm sure you all agree. Well PI magic changes all of that.”</p><cite>Hawk Wolinski · astrohawk</cite></blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ============ pricing (WP: EDD buy button goes here) ============ -->
+<section class="sec" id="pricing">
+  <div class="wrap price-grid">
+    <div class="reveal">
+      <p class="eyebrow mono">// get PiMagic Studio</p>
+      <h2>Start processing tonight.</h2>
+      <ul class="ticks">
+        <li>PiMagic 3.2 for PixInsight — Smart and Expert mode</li>
+        <li>AstroMagic for Photoshop</li>
+        <li>Installs through the PixInsight repository · Mac, Windows, Linux</li>
+        <li>Requires PixInsight 1.9.5. RC-Astro tools optional.</li>
+      </ul>
+    </div>
+    <div class="price glass reveal">
+      <p class="mono price-k">PiMagic Studio 3.2</p>
+      <p class="price-v"><span>$</span>89</p>
+      <p class="price-s">PiMagic for PixInsight + AstroMagic for Photoshop</p>
+      <a class="btn btn-glow btn-block" href="https://pimagicstudio.com/shop/">Buy PiMagic Studio</a>
+      <p class="price-f">Instant download · licence key by email</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="sec sec-tight" id="faq">
+  <div class="wrap"><div class="faq">
+    <div class="sec-head reveal"><p class="eyebrow mono">// questions</p><h2>Good to know.</h2></div>
+    <details class="glass"><summary>What do I need?</summary><p>PixInsight 1.9.5 on Mac, Windows or Linux. RC-Astro's BlurXTerminator, NoiseXTerminator and StarXTerminator are used when installed (on Mac also the free RC-Astro command-line tool). Photoshop is needed only for AstroMagic.</p></details>
+    <details class="glass"><summary>How is it installed?</summary><p>PiMagic installs through the PixInsight repository; the download email has the details and an installation guide. If a download or licence activation is blocked, your firewall or antivirus is the usual cause — pause it briefly to complete the installation.</p></details>
+    <details class="glass"><summary>Which cameras and filters work?</summary><p>Mono and one-shot-colour astro cameras, DSLRs and mirrorless cameras, smart telescopes and fisheye lenses; L, R, G, B, Hα, OIII, SII and dual-band filters.</p></details>
+    <details class="glass"><summary>Do I lose control?</summary><p>No. Smart mode decides for you; Expert mode opens every setting. And the results are layered files you finish as you like.</p></details>
+    <details class="glass"><summary>How do I receive my order?</summary><p>By email, with the download and installation information and your receipt. Nothing arrived? Check your spam folder.</p></details>
+  </div></div>
+</section>
+</main>
+
+<footer class="pm-foot">
+  <div class="wrap foot-grid">
+    <div><a class="pm-logo" href="#top"><svg viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="32" rx="27" ry="10" fill="none" stroke="#6fd3ff" stroke-width="3" transform="rotate(-25 32 32)"/><circle cx="32" cy="32" r="8" fill="#a98bff"/></svg><span>PiMagic <b>Studio</b></span></a>
+      <p class="small">Automatic processing for PixInsight.<br>By Dr. Christian Sasse and Craig Stocks.</p></div>
+    <nav class="small"><a href="https://pimagicstudio.com/shop/">Shop</a><a href="https://pimagicstudio.com/about/">Tutorials</a><a href="https://pimagicstudio.com/testimonials/">Testimonials</a><a href="https://pimagicstudio.com/contact/">Contact</a><a href="https://www.facebook.com/profile.php?id=61585927683743">Facebook</a></nav>
+    <p class="small">Images: Craig Stocks · Utah Desert Remote Observatories (<a href="https://utahdesertremote.com">utahdesertremote.com</a>) and real PiMagic results from our users' data.<br>© 2026 Dr. Christian Sasse and Craig Stocks · <a href="https://pimagicstudio.com/privacy-policy/">Privacy</a> · <a href="https://pimagicstudio.com/terms/">Terms</a></p>
+  </div>
+</footer>
+
+<div class="modal" id="filmModal" hidden><div class="modal-in"><button class="modal-x" aria-label="Close">✕</button><video controls playsinline preload="none"></video></div></div>
+<div class="modal" id="lightbox" hidden><div class="modal-in lb"><button class="modal-x" aria-label="Close">✕</button><img alt=""><p class="mono"></p></div></div>
+
+<script src="js/site.js" defer></script>
+</body>
+</html>
