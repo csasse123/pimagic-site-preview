@@ -7,7 +7,7 @@ import os, re, shutil, subprocess, json, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import build_pages
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = os.path.join(HERE, "site"); OUT = os.path.join(HERE, "wp", "pimagic-site")
-VERSION = "1.1.0"
+VERSION = "1.2.0"
 PAGES = {"home": "index.html", "details": "details/index.html", "gallery": "gallery/index.html", "tutorials": "tutorials/index.html", "testimonials": "testimonials/index.html", "shop": "shop/index.html", "contact": "contact/index.html"}
 LINKS = {"details": "details/", "gallery": "gallery/", "shop": "shop/", "tutorials": "about/", "testimonials": "testimonials/", "contact": "contact/"}
 
