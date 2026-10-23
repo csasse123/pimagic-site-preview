@@ -119,7 +119,7 @@ $$(".player[data-src]").forEach(p => $(".play", p).addEventListener("click", () 
   }
 })();
 
-/* ---------- mosaic story: scroll drives found -> placed -> matched -> blended ---------- */
+/* ---------- mosaic story: plays by itself like a GIF (Craig, 23 Oct 2026: no scroll-driving, never stalls the page) ---------- */
 (() => {
   const sec = $(".mosaic-story"); if (!sec) return;
   const panes = $$(".pane", sec), fin = $(".mosaic-final", sec), steps = $$(".mstep li", sec);
@@ -128,8 +128,7 @@ $$(".player[data-src]").forEach(p => $(".play", p).addEventListener("click", () 
   const SCAT = [[17, 15, -9], [83, 13, 7], [13, 55, 5], [86, 50, -6], [33, 88, 8], [69, 90, -4]];
   const GAIN = [1.45, .62, 1.2, .78, 1.32, .7];
   fin.style.cssText += `left:${50 - .97 * PW}%;top:${50 - 1.44 * PH}%;width:${.97 * PW * 2}%;height:${1.44 * PH * 2}%;object-fit:cover`;
-  const render = () => {
-    const r = sec.getBoundingClientRect(), p = reduce ? 1 : clamp(-r.top / (r.height - innerHeight));
+  const render = p => {
     const kp = seg(p, .24, .5), km = seg(p, .5, .66), kb = seg(p, .68, .84);
     panes.forEach((el, i) => { const k = seg(p, .02 + i * .03, .12 + i * .03), [sx, sy, a] = SCAT[i], [gx, gy] = GRID[i];
       const x = sx + (gx - sx) * kp, y = sy + (gy - sy) * kp, z = .58 + .42 * kp, gn = GAIN[i] + (1 - GAIN[i]) * km;
@@ -139,7 +138,11 @@ $$(".player[data-src]").forEach(p => $(".play", p).addEventListener("click", () 
     fin.style.opacity = kb; fin.style.transform = `scale(${1 + .03 * seg(p, .84, 1)})`;
     const on = [p > .06, p > .3, p > .53, p > .72]; steps.forEach((s, i) => s.classList.toggle("on", on[i]));
   };
-  addEventListener("scroll", () => requestAnimationFrame(render), { passive: true }); addEventListener("resize", render); render();
+  const RUN = 9000, HOLD = 3200; let vis = false, t0 = 0;              // 9 s found -> placed -> matched -> blended, 3 s on the mosaic, loop
+  const tick = now => { if (!vis) return; const u = (now - t0) % (RUN + HOLD); render(Math.min(1, u / RUN)); requestAnimationFrame(tick); };
+  new IntersectionObserver(es => { const v = es[0].isIntersecting; if (v && !vis) { vis = true; t0 = performance.now(); requestAnimationFrame(tick); } else if (!v) vis = false; },
+    { threshold: .3 }).observe(sec);
+  render(reduce ? 1 : 0);
 })();
 
 /* ---------- gallery (gallery page: one masonry per section) + lightbox ---------- */
