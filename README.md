@@ -34,3 +34,21 @@ The plugin serves pages/*.html (the sandbox pages with {{BASE}}/{{HOME}}/{{WP_HE
 front page, about|tutorials, testimonials, shop, contact; theme styles dequeued; WPForms form (option pms_form_id, default 63) in
 the contact card. Preview for editors until Settings > PiMagic Site > Live. Tested in WordPress Playground (wp-test/blueprint.json,
 wp-test/mu = test-only form maker; launch config "wp-playground"): editor preview, ?pimagic=0, visitor old/new, other pages untouched.
+
+## 22 Oct 2026 - focused home page (Christian + Craig meeting, recording Downloads/"Craig Christian Website.mp4")
+Home = hero + four blocks, consistent "two clicks" (select a folder, press Start; no "three steps" / "eleven stages"):
+hero (kept; Watch-the-film button -> "See how it works"; credibility row 3.2 / hundreds of licences / 1 year+ of PiMagic 2 / 2.6 still
+supported) - 1 two clicks: Craig's GIF (Downloads/PIMagic---AstroMagic-Animation-copy.gif, real IC 405 run) as a zoomed stepper
+(tools/build_assets2.py full frames -> sources/craig_gif_frames, tools/build_wf_zoom.py 16:10 crops, click ripples on Add Folders
+and Start) + the 30 s film - 2 it configures itself: what PiMagic found in that folder, line by line, + Smart/Expert - 3 the mosaic
+scroll story + "not a one-trick pony" strip -> gallery - 4 Elephant Trunk journey (Masterclass SSD run PiMagic-Elephant_Trunk-
+2026-09-27-14-02-08): stacked Ha master (linear, offset 40,48 in the master) -> Start -> Final SHO -> AstroMagic layers in 3D
+(Starless SHO, Stars RGB with own alpha, Annotation, ImageInfo metadata; like Craig's Pleiades layer graphic) -> sliders -> Craig's
+Photoshop finish (fit tools/align_elephant.py -> elephant_fit.txt: rot 270, 5.66 px, origin 458.5,0) - Craig's 2023-vs-2026 speed
+run (census text in the 2026 half removed: its Gal. Lat line reads -60, the known census bug) - 3 quotes - $119.
+Moved off the home page to details/ (tools/pages/details_body.html): features, Rosette layers + Craig's Rosette, engine (no stage
+count), PiSolver, cameras, AstroMagic + Craig's Pleiades PSD before/after (psd-tools, scratch venv) + his layer graphic, FAQ.
+New gallery/ by kind (site.js G list). Plugin 1.1.0: /details/ and /gallery/ as rewrite routes (404 for visitors until Live),
+Tutorials built from the WordPress posts (known slugs keep their topic from pages/tutorials.json, new posts go under their
+category, uncategorised last; posts from Settings > "PiMagic 3.2 tutorials from" on get the 3.2 badge). Tested in Playground.
+Placeholders until Craig sends better images: the Rosette step on details/ (magenta stars, too bright/green), gallery tiles.

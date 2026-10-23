@@ -142,17 +142,91 @@ $$(".player[data-src]").forEach(p => $(".play", p).addEventListener("click", () 
   addEventListener("scroll", () => requestAnimationFrame(render), { passive: true }); addEventListener("resize", render); render();
 })();
 
-/* ---------- gallery + lightbox ---------- */
+/* ---------- gallery (gallery page: one masonry per section) + lightbox ---------- */
 (() => {
-  const G = [["veil_nebula", "Veil Nebula", "SHO narrowband"], ["wizard_nebula", "Wizard Nebula", "SHO narrowband · mono"], ["m8", "M8 · Lagoon & Trifid", "Milky Way core"],
-    ["elephant_s_trunk", "Elephant's Trunk", "SHO narrowband"], ["soul_nebula", "Soul Nebula", "mosaic"], ["andromeda_galaxy", "Andromeda Galaxy", "RGB"],
-    ["tarantula_nebula", "Tarantula Nebula", "SHO narrowband"], ["bode_s_galaxy", "Bode's Galaxy", "LRGB · mono"],
-    ["comet_12p_pons_brooks", "Comet 12P/Pons-Brooks", "RGB"], ["lambs_knoll", "Lambs Knoll", "Milky Way nightscape"]];
-  const m = $("#masonry"), lb = $("#lightbox"); if (!m) return;
-  m.innerHTML = G.map(([k, t, s]) => `<figure class="tile reveal" tabindex="0" data-k="${k}"><img src="${BASE}assets/img/g_${k}_t.webp" alt="${t} — ${s}, processed by PiMagic" loading="lazy"><figcaption><b>${t}</b><span>${s}</span></figcaption></figure>`).join("");
-  $$(".tile", m).forEach(el => { io.observe(el);
-    const open = () => { const [k, t, s] = G.find(g => g[0] === el.dataset.k); $("img", lb).src = `${BASE}assets/img/g_${k}.webp`; $("img", lb).alt = t; $("p", lb).textContent = `${t} · ${s} · PiMagic`; lb.hidden = false; document.body.style.overflow = "hidden"; };
-    el.addEventListener("click", open); el.addEventListener("keydown", e => e.key === "Enter" && open()); });
+  const G = [  // k: g_<k>.webp + g_<k>_t.webp ; src: one file for both
+    { c: "mosaics", src: "mosaic_rho", t: "Rho Ophiuchi", s: "six-pane deep-sky mosaic" }, { c: "mosaics", k: "soul_nebula", t: "Soul Nebula", s: "deep-sky mosaic" },
+    { c: "mosaics", k: "gunlock_panorama", t: "Gunlock", s: "landscape panorama" }, { c: "mosaics", src: "solve_orion", t: "Orion", s: "deep-sky mosaic" },
+    { c: "narrowband", k: "veil_nebula", t: "Veil Nebula", s: "SHO narrowband" }, { c: "narrowband", k: "wizard_nebula", t: "Wizard Nebula", s: "SHO narrowband · mono" },
+    { c: "narrowband", k: "elephant_s_trunk", t: "Elephant's Trunk", s: "SHO narrowband" }, { c: "narrowband", k: "tarantula_nebula", t: "Tarantula Nebula", s: "SHO narrowband" },
+    { c: "narrowband", k: "heart_nebula", t: "Heart Nebula", s: "narrowband" }, { c: "narrowband", k: "horsehead_nebula", t: "Horsehead Nebula", s: "one-shot colour + dual-band" },
+    { c: "broadband", k: "andromeda_galaxy", t: "Andromeda Galaxy", s: "RGB" }, { c: "broadband", k: "bode_s_galaxy", t: "Bode's Galaxy", s: "LRGB · mono" },
+    { c: "broadband", k: "pleiades", t: "Pleiades", s: "one-shot colour" }, { c: "broadband", k: "m78", t: "M78", s: "mono" },
+    { c: "broadband", k: "dumbbell_nebula", t: "Dumbbell Nebula", s: "large telescope" }, { c: "broadband", k: "comet_12p_pons_brooks", t: "Comet 12P/Pons-Brooks", s: "RGB" },
+    { c: "nightscapes", k: "m8", t: "M8 · Lagoon & Trifid", s: "Milky Way core" }, { c: "nightscapes", k: "lambs_knoll", t: "Lambs Knoll", s: "Milky Way nightscape" },
+    { c: "nightscapes", k: "milky_way_nightscape", t: "Milky Way", s: "nightscape · mirrorless" }, { c: "nightscapes", k: "all_sky", t: "All-sky", s: "fisheye" },
+    { c: "solved", src: "solve_orion_annot", t: "Orion", s: "solved & annotated by PiSolver" }, { c: "solved", src: "ba2_rosette_craig_annot", t: "Rosette Nebula", s: "PiMagic's annotation on Craig Stocks' finish" }];
+  const lb = $("#lightbox"), thumb = g => `${BASE}assets/img/${g.k ? `g_${g.k}_t` : g.src}.webp`, full = g => `${BASE}assets/img/${g.k ? `g_${g.k}` : g.src}.webp`;
+  $$(".masonry[data-cat]").forEach(m => {
+    const L = G.filter(g => g.c === m.dataset.cat);
+    m.innerHTML = L.map((g, i) => `<figure class="tile reveal" tabindex="0" data-i="${i}"><img src="${thumb(g)}" alt="${g.t} — ${g.s}, processed by PiMagic" loading="lazy"><figcaption><b>${g.t}</b><span>${g.s}</span></figcaption></figure>`).join("");
+    $$(".tile", m).forEach(el => { io.observe(el); const g = L[+el.dataset.i];
+      const open = () => { $("img", lb).src = full(g); $("img", lb).alt = g.t; $("p", lb).textContent = `${g.t} · ${g.s} · PiMagic`; lb.hidden = false; document.body.style.overflow = "hidden"; };
+      el.addEventListener("click", open); el.addEventListener("keydown", e => e.key === "Enter" && open()); }); });
+})();
+
+/* ---------- two clicks: Craig's recorded run, frame by frame ---------- */
+(() => {
+  const wf = $(".wf"); if (!wf) return;
+  const F = $$(".wf-screen img", wf), rip = $(".wf-ripple", wf), cap = $(".wf-text", wf), dots = $(".wf-dots", wf), C = $$(".click");
+  const DUR = [2800, 3200, 2600, 2400, 2400, 3600];
+  dots.innerHTML = F.map(() => "<i></i>").join(""); const D = $$("i", dots);
+  let i = 0, tm = [], vis = false;
+  const show = k => { i = k; F.forEach((f, j) => f.classList.toggle("on", j === k)); D.forEach((d, j) => d.classList.toggle("on", j === k));
+    cap.textContent = F[k].dataset.cap; C.forEach(c => c.classList.toggle("on", +c.dataset.c === +F[k].dataset.c)); };
+  const clear = () => { tm.forEach(clearTimeout); tm = []; };
+  const run = () => { clear(); show(i); const f = F[i], d = DUR[i];
+    if (f.dataset.click) { const [x, y] = f.dataset.click.split(","); rip.style.left = x + "%"; rip.style.top = y + "%";
+      tm.push(setTimeout(() => { rip.classList.remove("go"); void rip.offsetWidth; rip.classList.add("go"); }, d - 1000)); }
+    if (vis && !reduce) tm.push(setTimeout(() => { i = (i + 1) % F.length; run(); }, d)); };
+  D.forEach((d, j) => d.addEventListener("click", () => { i = j; run(); }));
+  new IntersectionObserver(es => { vis = es[0].isIntersecting; if (vis) run(); else clear(); }, { threshold: .35 }).observe(wf);
+  show(0);
+})();
+
+/* ---------- it configures itself: what PiMagic found, line by line ---------- */
+(() => {
+  const d = $(".detect"); if (!d) return;
+  const L = $$(".det li", d), go = $(".det-go", d), st = $(".det-state", d); let tm = [];
+  const play = () => { tm.forEach(clearTimeout); tm = []; L.forEach(l => l.classList.remove("on", "now")); go.classList.remove("on"); st.textContent = "READING…";
+    if (reduce) { L.forEach(l => l.classList.add("on")); go.classList.add("on"); st.textContent = "● READY"; return; }
+    L.forEach((l, k) => tm.push(setTimeout(() => { L.forEach(x => x.classList.remove("now")); l.classList.add("on", "now"); }, 400 + k * 520)));
+    tm.push(setTimeout(() => { L.forEach(x => x.classList.remove("now")); go.classList.add("on"); st.textContent = "● READY"; }, 400 + L.length * 520 + 300)); };
+  new IntersectionObserver(es => { if (es[0].isIntersecting) play(); }, { threshold: .5 }).observe(d);
+})();
+
+/* ---------- the Elephant Trunk journey: scroll drives raw -> Start -> PiMagic -> layers in 3D -> sliders -> Craig's finish ---------- */
+(() => {
+  const sec = $(".journey"); if (!sec) return;
+  const stack = $(".jstack", sec), raw = $(".j-raw", sec), pm = $(".j-pm", sec), craig = $(".j-craig", sec), base = $(".jl-base", sec);
+  const Ls = ["neb", "stars", "annot", "meta"].map(n => $(".jl-" + n, sec)), labs = $$(".jlab", sec);
+  const start = $(".jstart", sec), sl = $(".jsliders", sec), knobs = $$(".jsliders b", sec), tag = $(".jtag", sec), steps = $$(".jsteps li", sec);
+  const TAGS = ["Stacked Hα master · linear", "PiMagic · finished SHO", "AstroMagic · four layers", "Photoshop · a few sliders", "Finished by Craig Stocks"];
+  const KN = [[30, 64], [30, 72], [30, 46]];
+  const render = () => {
+    const r = sec.getBoundingClientRect(), p = reduce ? 1 : clamp(-r.top / (r.height - innerHeight));
+    const k = p < .08 ? 0 : p < .30 ? 1 : p < .64 ? 2 : p < .86 ? 3 : 4;
+    steps.forEach((s, j) => { s.classList.toggle("on", j === k); s.classList.toggle("done", j < k); });
+    if (tag.textContent !== TAGS[k]) tag.textContent = TAGS[k];
+    // Start: appears, gets pressed, leaves
+    const sa = seg(p, .06, .11) * (1 - seg(p, .16, .2)), press = seg(p, .13, .145) * (1 - seg(p, .145, .16));
+    start.style.opacity = sa; start.style.transform = `translate(-50%,-50%) scale(${.9 + .1 * seg(p, .06, .11) - .12 * press})`;
+    // raw -> PiMagic -> (layers) -> Craig
+    raw.style.opacity = 1 - seg(p, .15, .23); pm.style.opacity = seg(p, .15, .23); craig.style.opacity = seg(p, .70, .86);
+    base.style.opacity = 1 - seg(p, .34, .38) + seg(p, .66, .70);
+    const lin = seg(p, .30, .34), lout = 1 - seg(p, .70, .86), ov = seg(p, .37, .43) * (1 - seg(p, .58, .64));
+    const ex = seg(p, .36, .48) * (1 - seg(p, .58, .68)), a = 58 * ex, b = -9 * ex, H = stack.offsetHeight, gap = .2 * H * ex;
+    stack.classList.toggle("exploded", ex > .02);
+    const pop = seg(p, .86, .96);
+    stack.style.transform = `translateY(${7 * ex}vh) scale(${(1 - .2 * ex) * (1 + .045 * pop)}) rotateX(${a}deg) rotateZ(${b}deg)`;
+    stack.style.filter = pop > 0 ? `drop-shadow(0 0 ${40 * pop}px rgba(111,211,255,${.35 * pop}))` : "";
+    Ls.forEach((L, j) => { L.style.opacity = (j < 2 ? lin * lout : ov); L.style.transform = `translateZ(${(j - 1.5) * gap + (j + 1) * .6}px)`; });
+    labs.forEach(l => { l.style.opacity = ex; l.style.transform = `translateY(-50%) rotateZ(${-b}deg) rotateX(${-a}deg)`; });
+    // a few sliders
+    sl.style.opacity = seg(p, .64, .69) * (1 - seg(p, .9, .95)); sl.style.transform = `translateY(${16 * (1 - seg(p, .64, .69))}px)`;
+    knobs.forEach((kb, j) => { kb.style.left = KN[j][0] + (KN[j][1] - KN[j][0]) * seg(p, .70 + j * .03, .80 + j * .03) + "%"; });
+  };
+  addEventListener("scroll", () => requestAnimationFrame(render), { passive: true }); addEventListener("resize", render); render();
 })();
 
 /* ---------- tutorials: topic chips, version toggle, search ---------- */

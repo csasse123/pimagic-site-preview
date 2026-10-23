@@ -1,4 +1,4 @@
-# Sub-pages of the PiMagic Studio sandbox: tutorials/, testimonials/, shop/. Shared header + footer, same css/js as the home page.
+# Sub-pages of the PiMagic Studio sandbox: details/, gallery/, tutorials/, testimonials/, shop/, contact/. Shared header + footer, same css/js as the home page.
 # Content comes from the live WordPress site (REST API, 21 Oct 2026): 26 tutorial posts with their YouTube videos, the six
 # testimonials verbatim, the EDD products (PiMagic Studio Version 3 = download 611, $119, PiSolver included).
 #   python3 tools/build_pages.py
@@ -17,7 +17,7 @@ def head(title, desc):
 <meta name="theme-color" content="#04060c">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/site.css?v=202610211634">
+<link rel="stylesheet" href="../css/site.css?v=202610222200">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%2304060c'/%3E%3Cellipse cx='32' cy='32' rx='24' ry='9' fill='none' stroke='%236fd3ff' stroke-width='3' transform='rotate(-25 32 32)'/%3E%3Ccircle cx='32' cy='32' r='7' fill='%23a98bff'/%3E%3C/svg%3E">
 </head>
 <body class="sub">
@@ -26,7 +26,7 @@ def head(title, desc):
 
 LOGO = """<svg viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="32" rx="27" ry="10" fill="none" stroke="url(#lg)" stroke-width="3" transform="rotate(-25 32 32)"/><circle cx="32" cy="32" r="8" fill="url(#lg)"/><circle cx="54" cy="21" r="2.6" fill="#e7edf7"/><defs><linearGradient id="lg" x1="0" x2="1"><stop offset="0" stop-color="#6fd3ff"/><stop offset="1" stop-color="#a98bff"/></linearGradient></defs></svg>"""
 def nav(active):
-    items = [("../#how", "How it works", ""), ("../#features", "Features", ""), ("../#gallery", "Gallery", ""), ("../tutorials/", "Tutorials", "tutorials"),
+    items = [("../#start", "How it works", ""), ("../details/", "Details", "details"), ("../gallery/", "Gallery", "gallery"), ("../tutorials/", "Tutorials", "tutorials"),
              ("../testimonials/", "Testimonials", "testimonials"), ("../shop/", "Shop", "shop"), ("../contact/", "Contact", "contact")]
     links = "".join(f'<a href="{h}"{" aria-current=\"page\"" if k == active else ""}>{t}</a>' for h, t, k in items)
     return f"""<header class="pm-nav scrolled" id="top">
@@ -40,13 +40,13 @@ FOOT = f"""<footer class="pm-foot">
   <div class="wrap foot-grid">
     <div><a class="pm-logo" href="../"><svg viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="32" rx="27" ry="10" fill="none" stroke="#6fd3ff" stroke-width="3" transform="rotate(-25 32 32)"/><circle cx="32" cy="32" r="8" fill="#a98bff"/></svg><span>PiMagic <b>Studio</b></span></a>
       <p class="small">Astrophotography, made simple. The creativity is yours.<br>By Dr. Christian Sasse and Craig Stocks.</p></div>
-    <nav class="small"><a href="../shop/">Shop</a><a href="../tutorials/">Tutorials</a><a href="../testimonials/">Testimonials</a><a href="../contact/">Contact</a><a href="https://www.facebook.com/profile.php?id=61585927683743">Facebook</a></nav>
+    <nav class="small"><a href="../shop/">Shop</a><a href="../details/">Details</a><a href="../gallery/">Gallery</a><a href="../tutorials/">Tutorials</a><a href="../testimonials/">Testimonials</a><a href="../contact/">Contact</a><a href="https://www.facebook.com/profile.php?id=61585927683743">Facebook</a></nav>
     <p class="small">Images: Craig Stocks · Utah Desert Remote Observatories (<a href="https://utahdesertremote.com">utahdesertremote.com</a>) and real PiMagic results from our users' data.<br>© 2026 Dr. Christian Sasse and Craig Stocks · <a href="{LIVE}/privacy-policy/">Privacy</a> · <a href="{LIVE}/terms/">Terms</a></p>
   </div>
 </footer>
 <div class="modal" id="filmModal" hidden><div class="modal-in"><button class="modal-x" aria-label="Close">✕</button><video controls playsinline preload="none"></video></div></div>
 <div class="modal" id="lightbox" hidden><div class="modal-in lb"><button class="modal-x" aria-label="Close">✕</button><img alt=""><p class="mono"></p></div></div>
-<script src="../js/site.js?v=202610211634" defer></script>
+<script src="../js/site.js?v=202610222200" defer></script>
 </body>
 </html>
 """
@@ -125,13 +125,13 @@ def tutorials():
 </div></section>
 <section class="sec sec-tight"><div class="wrap" id="tutorials">
   <div class="tut-tools">
-    <div class="chips" role="toolbar" aria-label="Topics">{chips}</div>
+    <div class="chips" role="toolbar" aria-label="Topics"><!--PMS:CHIPS-->{chips}<!--/PMS:CHIPS--></div>
     <div class="tut-row"><label class="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input id="tq" type="search" placeholder="Search tutorials"></label>
       <label class="toggle mono"><input id="archive" type="checkbox" checked><span></span>Show PiMagic 2 archive</label>
       <span class="count mono"><b id="tcount">26</b> videos</span></div>
     <p class="archive-note small">These videos were recorded with PiMagic Studio 2 and are kept as an archive. The PixInsight window looks different in 3.2.</p>
   </div>
-  {sections}
+  <!--PMS:TUT-->{sections}<!--/PMS:TUT-->
   <div class="tut-empty glass" id="tempty" hidden><h3>PiMagic 3.2 tutorials are on their way.</h3><p>They are being recorded now. Meanwhile, switch the PiMagic 2 archive back on to browse the earlier videos.</p></div>
 </div></section>
 """
@@ -267,7 +267,35 @@ def contact():
 """
     return head("Contact — PiMagic Studio", "Contact PiMagic Studio: questions, installation help, ideas.") + nav("contact") + "<main>" + body + "</main>" + FOOT
 
-for d, f in (("contact", contact), ("tutorials", tutorials), ("testimonials", testimonials), ("shop", shop)):
-    os.makedirs(os.path.join(SITE, d), exist_ok=True)
-    open(os.path.join(SITE, d, "index.html"), "w").write(f())
-print("pages ok", len(T), "tutorials")
+# ------------------------------------------------------------------ details (everything the focused home page leaves out; body in tools/pages/details_body.html)
+CTA = """<section class="sec sec-tight"><div class="wrap"><div class="cta-band glass reveal"><div><h2>Two clicks. Then it's yours.</h2><p>Select a folder, press Start. The creativity is yours.</p></div>
+  <div class="hero-cta"><a class="btn btn-glow" href="../shop/">Get PiMagic 3.2 <small>$119</small></a><a class="btn btn-ghost" href="../gallery/">See the gallery</a></div></div></div></section>
+"""
+def details():
+    jump = "".join(f'<a href="#{k}">{t}</a>' for k, t in (("features", "Features"), ("result", "Layers"), ("engine", "Engine"), ("pisolver", "PiSolver"),
+                                                       ("cameras", "Cameras"), ("astromagic", "AstroMagic"), ("faq", "FAQ")))
+    body = page_hero("// more details", "Everything <span class=\"grad\">inside</span>.", "The home page is two clicks. This is what happens inside them — and what you get to play with afterwards.",
+                     f'<nav class="jump" aria-label="On this page">{jump}</nav><div class="hero-cta" style="margin-top:22px"><a class="btn btn-glow" href="../shop/">Get PiMagic 3.2 <small>$119</small></a></div>')
+    body += open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "pages/details_body.html")).read() + CTA
+    return head("Details — PiMagic Studio", "Everything inside PiMagic Studio: automatic calibration, any filter and palette, mosaics, PiSolver, Star Color Tuning, layers, AstroMagic for Photoshop.") + nav("details") + "<main>" + body + "</main>" + FOOT
+
+# ------------------------------------------------------------------ gallery (tiles come from site.js, one masonry per section)
+GSECS = [("mosaics", "Mosaics & panoramas", "Deep-sky mosaics and landscape panoramas, every pane found, placed, matched and blended."),
+         ("narrowband", "Narrowband", "SHO, HOO and dual-band — mono or one-shot colour."),
+         ("broadband", "Galaxies & broadband", "RGB, LRGB and one-shot colour, from comets to galaxies."),
+         ("nightscapes", "Nightscapes & wide field", "Milky Way, nightscapes and all-sky fisheye."),
+         ("solved", "Solved & annotated", "PiSolver knows where you were pointing and names what it sees.")]
+def gallery():
+    jump = "".join(f'<a href="#{k}">{n}</a>' for k, n, _ in GSECS)
+    body = page_hero("// gallery", "Made by <span class=\"grad\">PiMagic Studio</span>.", "Real PiMagic results, straight out of a run — by kind of night. Click any image to enlarge.",
+                     f'<nav class="jump" aria-label="Sections">{jump}</nav>')
+    body += '<section class="sec sec-tight"><div class="wrap">' + "".join(
+        f'<section class="gsec" id="{k}"><div class="topic-head"><h2>{E(n)}</h2><p>{E(sub)}</p></div><div class="masonry" data-cat="{k}"></div></section>' for k, n, sub in GSECS) + "</div></section>" + CTA
+    return head("Gallery — PiMagic Studio", "Images made with PiMagic Studio: mosaics, narrowband, galaxies, nightscapes, solved and annotated.") + nav("gallery") + "<main>" + body + "</main>" + FOOT
+
+
+if __name__ == "__main__":
+    for d, f in (("details", details), ("gallery", gallery), ("contact", contact), ("tutorials", tutorials), ("testimonials", testimonials), ("shop", shop)):
+        os.makedirs(os.path.join(SITE, d), exist_ok=True)
+        open(os.path.join(SITE, d, "index.html"), "w").write(f())
+    print("pages ok", len(T), "tutorials")
