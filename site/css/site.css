@@ -521,3 +521,11 @@ p{margin:0 0 1em;color:var(--mute)} .small{font-size:14px;color:var(--dim)}
 .duo-copy p:not(.eyebrow){font-size:15.5px} .duo-copy .ticks li{font-size:15px}
 .mosaic-story.duo-card{height:auto;padding:0}
 @media (max-width:900px){.duo{grid-template-columns:1fr}}
+
+/* details: the menu starts the page (Overview first) */
+.dtab-top{margin-top:58px}
+.ov-h1{font-size:clamp(44px,6vw,80px)} #overview .lede{max-width:640px}
+.ov-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px;margin-top:36px}
+.ov-tile{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:6px;padding:20px 44px 20px 20px;text-align:left;transition:border-color .2s,transform .2s}
+.ov-tile:hover{border-color:var(--cyan);transform:translateY(-2px)} .ov-tile b{font:600 19px var(--head);color:var(--text)} .ov-tile span{font-size:14px;color:var(--mute)}
+.ov-tile i{position:absolute;right:18px;top:20px;font-style:normal;color:var(--cyan)}

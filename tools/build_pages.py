@@ -17,7 +17,7 @@ def head(title, desc):
 <meta name="theme-color" content="#04060c">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/site.css?v=202610231330">
+<link rel="stylesheet" href="../css/site.css?v=202610231400">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%2304060c'/%3E%3Cellipse cx='32' cy='32' rx='24' ry='9' fill='none' stroke='%236fd3ff' stroke-width='3' transform='rotate(-25 32 32)'/%3E%3Ccircle cx='32' cy='32' r='7' fill='%23a98bff'/%3E%3C/svg%3E">
 </head>
 <body class="sub">
@@ -46,7 +46,7 @@ FOOT = f"""<footer class="pm-foot">
 </footer>
 <div class="modal" id="filmModal" hidden><div class="modal-in"><button class="modal-x" aria-label="Close">✕</button><video controls playsinline preload="none"></video></div></div>
 <div class="modal" id="lightbox" hidden><div class="modal-in lb"><button class="modal-x" aria-label="Close">✕</button><img alt=""><p class="mono"></p></div></div>
-<script src="../js/site.js?v=202610231330" defer></script>
+<script src="../js/site.js?v=202610231400" defer></script>
 </body>
 </html>
 """
@@ -271,20 +271,34 @@ def contact():
 CTA = """<section class="sec sec-tight"><div class="wrap"><div class="cta-band glass reveal"><div><h2>Two clicks, then it's yours</h2><p>Select a folder, press Start. The creativity is yours.</p></div>
   <div class="hero-cta"><a class="btn btn-glow" href="../shop/">Get PiMagic 3.2 <small>$119</small></a><a class="btn btn-ghost" href="../gallery/">See the gallery</a></div></div></div></section>
 """
-DTABS = (("features", "Features"), ("result", "Layers"), ("engine", "Engine"), ("pisolver", "PiSolver"), ("cameras", "Cameras"),
-         ("astromagic", "AstroMagic"), ("faq", "FAQ"))
+DTABS = (("overview", "Overview"), ("features", "Features"), ("result", "Layers"), ("engine", "Engine"), ("pisolver", "PiSolver"),
+         ("cameras", "Cameras"), ("astromagic", "AstroMagic"), ("faq", "FAQ"))
+OVERVIEW = (("features", "Features", "Calibration, every filter and palette, gradients, deblur, denoise, star separation"),
+            ("result", "Layers", "PiMagic's layers on the Rosette, and Craig's Photoshop finish of it"),
+            ("engine", "Engine", "Every routine step, one button"),
+            ("pisolver", "PiSolver", "Our blind solver: any image, linear or stretched, named and annotated"),
+            ("cameras", "Cameras", "From a fisheye lens to a deep-sky telescope"),
+            ("astromagic", "AstroMagic", "The auto-loader for Photoshop: layers and groups built for you"),
+            ("faq", "FAQ", "Requirements, installation, your order"))
 def details():
-    # one section at a time under a menu that stays (Craig, 23 Oct 2026: "each section just opens as a block ... keep the menu available")
+    # a menu that stays put: it starts the page, "Overview" first; each section opens as a block under it
+    # (Craig, 23 Oct 2026: "each section just opens as a block ... keep the menu available"; then: Overview button, eight in all)
     body_src = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "pages/details_body.html")).read()
     panels = {}
     for chunk in re.split(r"(?=<!-- ============)", body_src):
         m = re.search(r'<section[^>]*\bid="(\w+)"', chunk)
         if m: panels[m.group(1)] = chunk
+    tiles = "".join(f'<button class="ov-tile glass" data-goto="{k}"><b>{t}</b><span>{E(d)}</span><i>→</i></button>' for k, t, d in OVERVIEW)
+    panels["overview"] = f'''<section class="sec sec-tight" id="overview"><div class="wrap">
+  <p class="eyebrow mono">// more details</p><h1 class="ov-h1"><span class="grad">Everything inside</span></h1>
+  <p class="lede">Workflow automation for PixInsight, with an auto-loader for Photoshop. The home page is two clicks — this is what happens inside them, and what you get to play with afterwards.</p>
+  <div class="hero-cta"><a class="btn btn-glow" href="../shop/">Get PiMagic 3.2 <small>$119</small></a></div>
+  <div class="ov-grid">{tiles}</div>
+</div></section>
+'''
     assert set(panels) == {k for k, _ in DTABS}, sorted(panels)
     tabs = "".join(f'<button role="tab" id="tb-{k}" aria-controls="{k}" aria-selected="{str(i == 0).lower()}" data-tab="{k}">{t}</button>' for i, (k, t) in enumerate(DTABS))
-    body = page_hero("// more details", "<span class=\"grad\">Everything inside</span>", "Workflow automation for PixInsight, with an auto-loader for Photoshop. The home page is two clicks — this is what happens inside them, and what you get to play with afterwards.",
-                     '<div class="hero-cta" style="margin-top:22px"><a class="btn btn-glow" href="../shop/">Get PiMagic 3.2 <small>$119</small></a></div>')
-    body += f'<nav class="dtab-nav" aria-label="Details sections"><div class="wrap" role="tablist">{tabs}</div></nav>\n<div class="dtabs" id="dtabs">'
+    body = f'<nav class="dtab-nav dtab-top" aria-label="Details sections"><div class="wrap" role="tablist">{tabs}</div></nav>\n<div class="dtabs" id="dtabs">'
     body += "".join(f'<div class="dtab-panel" role="tabpanel" aria-labelledby="tb-{k}"{"" if i == 0 else " hidden"}>{panels[k]}</div>' for i, (k, _) in enumerate(DTABS))
     body += "</div>" + CTA
     return head("Details — PiMagic Studio", "Everything inside PiMagic Studio: automatic calibration, any filter and palette, mosaics, PiSolver, Star Color Tuning, layers, AstroMagic for Photoshop.") + nav("details") + "<main>" + body + "</main>" + FOOT

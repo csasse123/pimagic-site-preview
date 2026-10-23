@@ -89,3 +89,5 @@ $119. Headings without full stops everywhere (the hero reads "Astrophotography /
 films keep "Astrophotography. Made simple.").
 
 Headings (23 Oct, Craig): the coloured part always starts its own line (<br> before .grad; very short headings fully coloured). The layers block is now "the hybrid workflow · try it", right after "It configures itself".
+
+Details (23 Oct, Craig): the menu starts the page, "Overview" first (eight buttons); Overview holds "Everything inside" + tiles that open each section (data-goto). The page stays at the top when switching.
