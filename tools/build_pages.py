@@ -17,7 +17,7 @@ def head(title, desc):
 <meta name="theme-color" content="#04060c">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/site.css?v=202610231300">
+<link rel="stylesheet" href="../css/site.css?v=202610231330">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%2304060c'/%3E%3Cellipse cx='32' cy='32' rx='24' ry='9' fill='none' stroke='%236fd3ff' stroke-width='3' transform='rotate(-25 32 32)'/%3E%3Ccircle cx='32' cy='32' r='7' fill='%23a98bff'/%3E%3C/svg%3E">
 </head>
 <body class="sub">
@@ -46,7 +46,7 @@ FOOT = f"""<footer class="pm-foot">
 </footer>
 <div class="modal" id="filmModal" hidden><div class="modal-in"><button class="modal-x" aria-label="Close">✕</button><video controls playsinline preload="none"></video></div></div>
 <div class="modal" id="lightbox" hidden><div class="modal-in lb"><button class="modal-x" aria-label="Close">✕</button><img alt=""><p class="mono"></p></div></div>
-<script src="../js/site.js?v=202610231300" defer></script>
+<script src="../js/site.js?v=202610231330" defer></script>
 </body>
 </html>
 """
@@ -166,7 +166,7 @@ def testimonials():
   <div class="tq-full{'' if long else ' tq-short'}">{paras}</div>{'<button class="more link-arrow">Read the full story</button>' if long else ''}
   <p class="tq-who"><span class="ava">{E(ini)}</span><b>{E(who)}</b></p>
 </article>"""
-    body = page_hero("// astrophotographers on PiMagic", "Real users, <span class=\"grad\">real results</span>",
+    body = page_hero("// astrophotographers on PiMagic", "Real users,<br><span class=\"grad\">real results</span>",
                      "Beginners and decades-long PixInsight users, in their own words.")
     body += f"""<section class="sec sec-tight"><div class="wrap">
   <figure class="feature-quote glass reveal">
@@ -182,7 +182,7 @@ def testimonials():
 
 # ------------------------------------------------------------------ shop (EDD products on the live site)
 def shop():
-    body = page_hero("// shop", "Get <span class=\"grad\">PiMagic Studio 3</span>", "Astrophotography, made simple: the routine processing done for you, from a folder of raw frames to finished images — so your time goes into the creative part. One licence.")
+    body = page_hero("// shop", "Get<br><span class=\"grad\">PiMagic Studio 3</span>", "Astrophotography, made simple: the routine processing done for you, from a folder of raw frames to finished images — so your time goes into the creative part. One licence.")
     body += f"""<section class="sec sec-tight"><div class="wrap">
   <div class="plans">
     <article class="plan plan-main glass reveal">
@@ -246,7 +246,7 @@ def shop():
 
 # ------------------------------------------------------------------ contact (WP: the WPForms form #63 replaces the mailto form)
 def contact():
-    body = page_hero("// contact", "Let's <span class=\"grad\">talk</span>", "Questions before you buy, help with an installation, an idea for PiMagic — Christian and Craig read every message.")
+    body = page_hero("// contact", "<span class=\"grad\">Let's talk</span>", "Questions before you buy, help with an installation, an idea for PiMagic — Christian and Craig read every message.")
     body += f"""<section class="sec sec-tight"><div class="wrap contact-grid">
   <form class="cform glass reveal" id="cform" action="mailto:info@pimagicstudio.com" method="post" enctype="text/plain">
     <div class="row2"><label>First name<input name="first" required autocomplete="given-name"></label><label>Last name<input name="last" autocomplete="family-name"></label></div>
@@ -282,7 +282,7 @@ def details():
         if m: panels[m.group(1)] = chunk
     assert set(panels) == {k for k, _ in DTABS}, sorted(panels)
     tabs = "".join(f'<button role="tab" id="tb-{k}" aria-controls="{k}" aria-selected="{str(i == 0).lower()}" data-tab="{k}">{t}</button>' for i, (k, t) in enumerate(DTABS))
-    body = page_hero("// more details", "Everything <span class=\"grad\">inside</span>", "Workflow automation for PixInsight, with an auto-loader for Photoshop. The home page is two clicks — this is what happens inside them, and what you get to play with afterwards.",
+    body = page_hero("// more details", "<span class=\"grad\">Everything inside</span>", "Workflow automation for PixInsight, with an auto-loader for Photoshop. The home page is two clicks — this is what happens inside them, and what you get to play with afterwards.",
                      '<div class="hero-cta" style="margin-top:22px"><a class="btn btn-glow" href="../shop/">Get PiMagic 3.2 <small>$119</small></a></div>')
     body += f'<nav class="dtab-nav" aria-label="Details sections"><div class="wrap" role="tablist">{tabs}</div></nav>\n<div class="dtabs" id="dtabs">'
     body += "".join(f'<div class="dtab-panel" role="tabpanel" aria-labelledby="tb-{k}"{"" if i == 0 else " hidden"}>{panels[k]}</div>' for i, (k, _) in enumerate(DTABS))
@@ -297,7 +297,7 @@ GSECS = [("mosaics", "Mosaics & panoramas", "Deep-sky mosaics and landscape pano
          ("solved", "Solved & annotated", "PiSolver knows where you were pointing and names what it sees.")]
 def gallery():
     jump = "".join(f'<a href="#{k}">{n}</a>' for k, n, _ in GSECS)
-    body = page_hero("// gallery", "Made by <span class=\"grad\">PiMagic Studio</span>", "Real PiMagic results, straight out of a run — by kind of night. Click any image to enlarge.",
+    body = page_hero("// gallery", "Made by<br><span class=\"grad\">PiMagic Studio</span>", "Real PiMagic results, straight out of a run — by kind of night. Click any image to enlarge.",
                      f'<nav class="jump" aria-label="Sections">{jump}</nav>')
     body += '<section class="sec sec-tight"><div class="wrap">' + "".join(
         f'<section class="gsec" id="{k}"><div class="topic-head"><h2>{E(n)}</h2><p>{E(sub)}</p></div><div class="masonry" data-cat="{k}"></div></section>' for k, n, sub in GSECS) + "</div></section>" + CTA

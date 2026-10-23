@@ -87,3 +87,5 @@ PiSolver, solved/annotated slider, side by side in .duo cards; Christian: keep b
 player - why layers (now labelled a simulation of a simplified, generic photo editor, not PiMagic controls) - speed run - quotes -
 $119. Headings without full stops everywhere (the hero reads "Astrophotography / Made simple" on two lines; page titles, meta and
 films keep "Astrophotography. Made simple.").
+
+Headings (23 Oct, Craig): the coloured part always starts its own line (<br> before .grad; very short headings fully coloured). The layers block is now "the hybrid workflow · try it", right after "It configures itself".
