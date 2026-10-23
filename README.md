@@ -80,3 +80,10 @@ Player trimmed to three steps (run film, layers into Photoshop in 3D, Craig's fi
 Green-Hydrogen, Blue-Oxygen, Stars, Annotations, made to be combined in Screen mode; tools/build_layers_demo.py -> ly_*.webp
 1152x1440 + thumbnails). Layers palette: show checkbox + name, indented "Intensity" slider 0-200 % (CSS brightness on that layer,
 mix-blend-mode screen over black), Reset. On phones the picture stays pinned while you scroll the palette.
+
+## 23 Oct 2026 - shorter home (Craig)
+Order now: hero - two clicks - it configures itself - variety strip - "two standout features" (Mosaics, playing by itself, and
+PiSolver, solved/annotated slider, side by side in .duo cards; Christian: keep both clearly presented as great features) - Elephant
+player - why layers (now labelled a simulation of a simplified, generic photo editor, not PiMagic controls) - speed run - quotes -
+$119. Headings without full stops everywhere (the hero reads "Astrophotography / Made simple" on two lines; page titles, meta and
+films keep "Astrophotography. Made simple.").

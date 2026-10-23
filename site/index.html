@@ -12,7 +12,7 @@
 <meta name="theme-color" content="#04060c">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=202610231200">
+<link rel="stylesheet" href="css/site.css?v=202610231300">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%2304060c'/%3E%3Cellipse cx='32' cy='32' rx='24' ry='9' fill='none' stroke='%236fd3ff' stroke-width='3' transform='rotate(-25 32 32)'/%3E%3Ccircle cx='32' cy='32' r='7' fill='%23a98bff'/%3E%3C/svg%3E">
 </head>
 <body>
@@ -48,7 +48,7 @@
     <div class="hero-copy">
       <p class="chip"><span class="dot"></span>New · PiMagic Studio 3.2</p>
       <p class="what mono">Workflow automation for PixInsight <i>+</i> an auto-loader for Photoshop</p>
-      <h1>Astrophotography.<br><span class="grad">Made simple.</span></h1>
+      <h1>Astrophotography<br><span class="grad">Made simple</span></h1>
       <p class="lede">Select a folder. Press Start. PiMagic Studio runs the whole PixInsight workflow for you — calibration, stacking, colour, mosaics, plate solving and annotation — then hands your layers to Photoshop. Your time goes where it matters: <b class="hl">the creativity.</b></p>
       <div class="hero-cta">
         <a class="btn btn-glow" href="shop/">Get PiMagic 3.2 <small>$119</small></a>
@@ -77,7 +77,7 @@
 <!-- ============ 1 · two clicks ============ -->
 <section class="sec" id="start">
   <div class="wrap">
-    <div class="sec-head reveal"><p class="eyebrow mono">// how it works</p><h2>Two clicks. <span class="grad">Then it's all yours.</span></h2></div>
+    <div class="sec-head reveal"><p class="eyebrow mono">// how it works</p><h2>Two clicks — <span class="grad">then it's all yours</span></h2></div>
     <div class="clicks reveal" aria-hidden="true">
       <div class="click" data-c="0"><b>1</b><span>Select a folder</span></div>
       <div class="click" data-c="1"><b>2</b><span>Press Start</span></div>
@@ -131,7 +131,7 @@
     </div>
     <div class="reveal">
       <p class="eyebrow mono">// Smart mode</p>
-      <h2>It configures <span class="grad">itself</span>.</h2>
+      <h2>It configures <span class="grad">itself</span></h2>
       <p>Other tools hand you dozens of options. PiMagic reads your data first — camera, filters, frames, target — and decides the best processing path by itself. Deep sky or nightscape, mosaic or single field, narrowband or broadband: you don't set it up, it sets itself up.</p>
       <div class="modes modes-in" id="modes">
         <div class="mode-switch" role="tablist" aria-label="Mode">
@@ -156,27 +156,9 @@
   </div>
 </section>
 
-<!-- ============ 3 · mosaics (scroll story) + variety ============ -->
-<section class="mosaic-story" id="mosaics">
-  <div class="mosaic-sticky">
-    <div class="wrap mosaic-grid">
-      <div class="mosaic-copy">
-        <p class="eyebrow mono">// mosaics, fully automatic</p>
-        <h2>Six raw panes.<br><span class="grad">One seamless mosaic.</span></h2>
-        <ol class="mstep mono"><li data-k="0">Found</li><li data-k="1">Placed</li><li data-k="2">Matched</li><li data-k="3">Blended</li></ol>
-        <p class="mosaic-cap">Six linear panes of Rho Ophiuchi, each with its own brightness, become one mosaic. Same two clicks — PiMagic finds, places, matches and blends every pane.</p>
-      </div>
-      <div class="mosaic-stage" aria-label="Six panes assembling into the Rho Ophiuchi mosaic">
-        <img class="pane" src="assets/img/pane1.webp" alt=""><img class="pane" src="assets/img/pane2.webp" alt=""><img class="pane" src="assets/img/pane3.webp" alt="">
-        <img class="pane" src="assets/img/pane4.webp" alt=""><img class="pane" src="assets/img/pane5.webp" alt=""><img class="pane" src="assets/img/pane6.webp" alt="">
-        <img class="mosaic-final" src="assets/img/mosaic_rho.webp" alt="Rho Ophiuchi mosaic by PiMagic">
-      </div>
-    </div>
-  </div>
-</section>
 <section class="sec sec-tight" id="variety">
   <div class="wrap">
-    <div class="sec-head reveal"><p class="eyebrow mono">// not a one-trick pony</p><h2>One workflow. <span class="grad">Every kind of night.</span></h2><p>From a fisheye lens to a deep-sky telescope, mono or colour camera — the same two clicks.</p></div>
+    <div class="sec-head reveal"><p class="eyebrow mono">// not a one-trick pony</p><h2>One workflow, <span class="grad">every kind of night</span></h2><p>From a fisheye lens to a deep-sky telescope, mono or colour camera — the same two clicks.</p></div>
     <div class="variety">
       <a class="vt reveal" href="gallery/#mosaics"><img src="assets/img/mosaic_rho.webp" alt="" loading="lazy"><span class="mono">Deep-sky mosaics</span></a>
       <a class="vt reveal" href="gallery/#mosaics"><img src="assets/img/g_gunlock_panorama_t.webp" alt="" loading="lazy"><span class="mono">Landscape panoramas</span></a>
@@ -190,24 +172,44 @@
   </div>
 </section>
 
-<!-- ============ PiSolver + annotation, a result of every run ============ -->
-<section class="sec sec-tight" id="solver">
-  <div class="wrap solver-home">
-    <figure class="ba ba-solve-h glass reveal" data-start="0.5">
-      <img class="ba-after" src="assets/img/solve_orion_annot.webp" alt="Orion mosaic, solved and annotated by PiSolver" loading="lazy">
-      <div class="ba-before"><img src="assets/img/solve_orion.webp" alt="Orion mosaic" loading="lazy"></div>
-      <div class="ba-handle" role="slider" tabindex="0" aria-label="Show the annotation" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><span></span></div>
-      <span class="ba-tag ba-tag-l mono">Your image</span><span class="ba-tag ba-tag-r mono">Solved &amp; annotated</span>
-    </figure>
-    <div class="reveal">
-      <p class="eyebrow mono">// PiSolver · included</p>
-      <h2>It knows where you pointed.<br><span class="grad">And names what it sees.</span></h2>
-      <ul class="ticks">
-        <li>Our own blind solver: no target, telescope or camera details needed — it finds the field in seconds</li>
-        <li>Linear or stretched, any format: FITS, XISF, camera RAW, TIFF, PNG, JPEG</li>
-        <li>Every run delivers the annotation as its own layer: object names, coordinate grid and the image's metadata</li>
-      </ul>
-      <a class="link-arrow" href="details/#pisolver">More about PiSolver →</a>
+<!-- ============ 3 · two standout features, side by side: mosaics (plays by itself) + PiSolver ============ -->
+<section class="sec sec-tight" id="standout">
+  <div class="wrap">
+    <div class="sec-head reveal"><p class="eyebrow mono">// two standout features</p><h2>Mosaics and blind solving, <span class="grad">built in</span></h2>
+      <p>Two things that usually mean extra software and hours of work. In PiMagic they are part of the same two clicks.</p></div>
+    <div class="duo">
+      <article class="duo-card glass reveal mosaic-story" id="mosaics">
+        <div class="mosaic-stage" aria-label="Six panes assembling into the Rho Ophiuchi mosaic">
+          <img class="pane" src="assets/img/pane1.webp" alt=""><img class="pane" src="assets/img/pane2.webp" alt=""><img class="pane" src="assets/img/pane3.webp" alt="">
+          <img class="pane" src="assets/img/pane4.webp" alt=""><img class="pane" src="assets/img/pane5.webp" alt=""><img class="pane" src="assets/img/pane6.webp" alt="">
+          <img class="mosaic-final" src="assets/img/mosaic_rho.webp" alt="Rho Ophiuchi mosaic by PiMagic">
+        </div>
+        <div class="duo-copy">
+          <p class="eyebrow mono">// mosaics, fully automatic</p>
+          <h3>Six raw panes, <span class="grad">one seamless mosaic</span></h3>
+          <ol class="mstep mono"><li data-k="0">Found</li><li data-k="1">Placed</li><li data-k="2">Matched</li><li data-k="3">Blended</li></ol>
+          <p>Deep-sky mosaics and landscape panoramas: PiMagic finds every pane, places it, matches its brightness and blends the seams — no separate mosaic tool, no manual stitching.</p>
+          <a class="link-arrow" href="gallery/#mosaics">See mosaics in the gallery →</a>
+        </div>
+      </article>
+      <article class="duo-card glass reveal" id="solver">
+        <figure class="ba ba-duo" data-start="0.5">
+          <img class="ba-after" src="assets/img/solve_orion_annot.webp" alt="Orion mosaic, solved and annotated by PiSolver" loading="lazy">
+          <div class="ba-before"><img src="assets/img/solve_orion.webp" alt="Orion mosaic" loading="lazy"></div>
+          <div class="ba-handle" role="slider" tabindex="0" aria-label="Show the annotation" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><span></span></div>
+          <span class="ba-tag ba-tag-l mono">Your image</span><span class="ba-tag ba-tag-r mono">Solved &amp; annotated</span>
+        </figure>
+        <div class="duo-copy">
+          <p class="eyebrow mono">// PiSolver · our own blind solver</p>
+          <h3>It knows where you pointed — <span class="grad">and names what it sees</span></h3>
+          <ul class="ticks">
+            <li>No target, telescope or camera details needed — it finds the field in seconds</li>
+            <li>Linear or stretched, any format: FITS, XISF, camera RAW, TIFF, PNG, JPEG</li>
+            <li>Every run delivers the annotation as its own layer: names, grid and metadata</li>
+          </ul>
+          <a class="link-arrow" href="details/#pisolver">More about PiSolver →</a>
+        </div>
+      </article>
     </div>
   </div>
 </section>
@@ -215,7 +217,7 @@
 <!-- ============ 4 · Elephant Trunk: a real run, then Photoshop (plays by itself) ============ -->
 <section class="sec" id="journey">
   <div class="wrap">
-    <div class="sec-head reveal"><p class="eyebrow mono">// one image, start to finish</p><h2>From Start to <span class="grad">your finish</span>.</h2>
+    <div class="sec-head reveal"><p class="eyebrow mono">// one image, start to finish</p><h2>From Start to <span class="grad">your finish</span></h2>
       <p>A real PiMagic run on Craig Stocks' Elephant Trunk data, sped up — then into Photoshop and on to Craig's finish. It plays by itself; click any step.</p></div>
     <div class="jr reveal" id="jr">
       <ol class="jr-steps mono">
@@ -254,7 +256,7 @@
         </div>
         <div class="jr-scene jr-fin">
           <img src="assets/img/el_craig.webp" alt="The Elephant Trunk, finished in Photoshop by Craig Stocks" loading="lazy">
-          <div class="jr-fin-copy"><p class="eyebrow mono">// your finish</p><h3>Finished by Craig Stocks.</h3>
+          <div class="jr-fin-copy"><p class="eyebrow mono">// your finish</p><h3>Finished by Craig Stocks</h3>
             <p>Same data, same layers — a few minutes of sliders in Photoshop. The routine took no effort; the time went into the art.</p>
             <a class="btn btn-ghost btn-sm" href="#layers">Try the layers yourself ↓</a></div>
         </div>
@@ -266,10 +268,11 @@
 <!-- ============ why layers: a simplified Photoshop with Craig's Elephant Trunk layers (Screen mode) ============ -->
 <section class="sec" id="layers">
   <div class="wrap">
-    <div class="sec-head reveal"><p class="eyebrow mono">// why layers</p><h2>Every part of the image, <span class="grad">on its own layer</span>.</h2>
-      <p>This is the idea behind PiMagic and AstroMagic: each filter, the stars and the annotation arrive as separate layers, combined in Screen mode. Switch any of them off, turn its intensity up or down — and see why processing in layers gives you control.</p></div>
+    <div class="sec-head reveal"><p class="eyebrow mono">// why layers · try it</p><h2>Every part of the image, <span class="grad">on its own layer</span></h2>
+      <p>PiMagic delivers your image as separate layers — each filter, the stars, the annotation. Below is a simulation of a simplified, generic photo editor (the same idea works in Photoshop, Affinity Photo and others) to show why that matters: switch a layer off, change its intensity, and watch the image respond.</p>
+      <p class="small">A teaching illustration only — these are not PiMagic controls. In your own editor you get the full tools; AstroMagic loads the layers into Photoshop for you.</p></div>
     <div class="lyps glass reveal">
-      <div class="ps-bar mono"><i></i><i></i><i></i><span>Elephant_Trunk_SHO.psd — Layers</span></div>
+      <div class="ps-bar mono"><i></i><i></i><i></i><span>Simulation — a simplified photo editor</span></div>
       <div class="lyps-body">
         <div class="lyps-canvas"><div class="ly-stack"><img class="ly ly-sii" src="assets/img/ly_sii.webp" alt="" loading="lazy"><img class="ly ly-ha" src="assets/img/ly_ha.webp" alt="" loading="lazy"><img class="ly ly-oiii" src="assets/img/ly_oiii.webp" alt="" loading="lazy"><img class="ly ly-stars" src="assets/img/ly_stars.webp" alt="" loading="lazy"><img class="ly ly-annot" src="assets/img/ly_annot.webp" alt="" loading="lazy"></div></div>
         <div class="lyps-panel">
@@ -290,7 +293,7 @@
         </div>
       </div>
     </div>
-    <p class="mono small reveal" style="margin-top:12px">Layers prepared by Craig Stocks · Elephant Trunk, SHO · Utah Desert Remote Observatories</p>
+    <p class="mono small reveal" style="margin-top:12px">Simulated editor · layers prepared by Craig Stocks · Elephant Trunk, SHO · Utah Desert Remote Observatories</p>
   </div>
 </section>
 
@@ -299,7 +302,7 @@
     <figure class="speed glass reveal"><img src="assets/img/speedrun.webp" alt="Craig Stocks' speed run: in 2023, about fifteen manual steps before processing could begin; in 2026, blink the subs, PiMagic Studio, begin processing" loading="lazy"><figcaption class="mono">Craig Stocks' speed run · Elephant Trunk · Utah Desert Remote Observatories</figcaption></figure>
     <div class="reveal">
       <p class="eyebrow mono">// 2023 vs 2026</p>
-      <h2>Same fifteen minutes.<br><span class="grad">All of it on the fun part.</span></h2>
+      <h2>Same fifteen minutes<br><span class="grad">All of it on the fun part</span></h2>
       <p>In 2023 Craig worked through about fifteen manual steps before the creative work could even begin. In 2026: blink the subs, run PiMagic Studio, begin processing.</p>
       <div class="hero-cta"><a class="btn btn-glow" href="shop/">Get PiMagic 3.2 <small>$119</small></a><a class="btn btn-ghost" href="details/">More details →</a></div>
     </div>
@@ -309,7 +312,7 @@
 <!-- ============ voices + get it ============ -->
 <section class="sec" id="voices">
   <div class="wrap">
-    <div class="sec-head reveal"><p class="eyebrow mono">// astrophotographers on PiMagic</p><h2>Real users. Real results.</h2><a class="link-arrow" href="testimonials/">Read their full stories →</a></div>
+    <div class="sec-head reveal"><p class="eyebrow mono">// astrophotographers on PiMagic</p><h2>Real users, real results</h2><a class="link-arrow" href="testimonials/">Read their full stories →</a></div>
     <div class="quotes">
       <blockquote class="quote glass reveal"><p>“In mere minutes, I produced stunning results that would have otherwise demanded years of trial and error.”</p><cite>Julian Segal</cite></blockquote>
       <blockquote class="quote glass reveal"><p>“Probably one of the greatest contributions to processing since RC-Astro's AI tools!!”</p><cite>Josep Drudis</cite></blockquote>
@@ -323,7 +326,7 @@
   <div class="wrap price-grid">
     <div class="reveal">
       <p class="eyebrow mono">// get PiMagic Studio</p>
-      <h2>More nights imaging.<br>More time creating.</h2>
+      <h2>More nights imaging<br>More time creating</h2>
       <ul class="ticks">
         <li>PiMagic 3.2 — select a folder, press Start · Smart and Expert mode</li>
         <li>PiSolver — our blind solver and annotator, built in</li>
@@ -355,6 +358,6 @@
 <div class="modal" id="filmModal" hidden><div class="modal-in"><button class="modal-x" aria-label="Close">✕</button><video controls playsinline preload="none"></video></div></div>
 <div class="modal" id="lightbox" hidden><div class="modal-in lb"><button class="modal-x" aria-label="Close">✕</button><img alt=""><p class="mono"></p></div></div>
 
-<script src="js/site.js?v=202610231200" defer></script>
+<script src="js/site.js?v=202610231300" defer></script>
 </body>
 </html>
