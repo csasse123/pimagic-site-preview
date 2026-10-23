@@ -71,3 +71,5 @@ Details page: one section at a time under a sticky menu (site.js "details page" 
 build_pages.details() wraps each section of tools/pages/details_body.html in a .dtab-panel). Home: "Workflow automation for
 PixInsight + an auto-loader for Photoshop" above the headline, lede names plate solving and annotation; new #solver block (Orion
 plain vs solved & annotated, PiSolver points) before the Elephant player. "Select a folder" everywhere (never "point it at").
+
+Mosaic block (23 Oct, Craig): no longer scroll-driven - it plays by itself like a GIF (9 s found -> placed -> matched -> blended, 3 s hold, loop, only while in view); the section is normal height, so the page scrolls straight past it.

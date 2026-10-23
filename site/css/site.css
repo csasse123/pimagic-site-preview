@@ -479,3 +479,9 @@ p{margin:0 0 1em;color:var(--mute)} .small{font-size:14px;color:var(--dim)}
 @media (max-width:700px){.dtab-nav .wrap{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none} .dtab-nav button{flex:0 0 auto}}
 .dtab-nav{background:rgba(4,6,12,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
 .solver-home h2{font-size:clamp(30px,3.4vw,46px)}
+
+/* mosaics: a normal section now - the animation runs by itself (no 320vh scroll track) */
+.mosaic-story{height:auto;padding:clamp(56px,7vw,100px) 0}
+.mosaic-sticky{position:relative;height:auto;overflow:visible}
+.mosaic-stage{max-height:72vh;max-width:72vh;margin-inline:auto}
+@media (max-width:900px){.mosaic-story{height:auto}.mosaic-stage{max-height:none;max-width:100%}.mosaic-cap{display:block}}
