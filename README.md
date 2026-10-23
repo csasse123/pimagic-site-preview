@@ -91,3 +91,5 @@ films keep "Astrophotography. Made simple.").
 Headings (23 Oct, Craig): the coloured part always starts its own line (<br> before .grad; very short headings fully coloured). The layers block is now "the hybrid workflow · try it", right after "It configures itself".
 
 Details (23 Oct, Craig): the menu starts the page, "Overview" first (eight buttons); Overview holds "Everything inside" + tiles that open each section (data-goto). The page stays at the top when switching.
+
+PixInsight message (23 Oct, Christian: "PixInsight is the engine under the hood, but you don't need to know PixInsight at all"): hero note "Runs on PixInsight. No PixInsight knowledge needed. It's the engine under the hood — PiMagic drives it for you.", a short line under Smart/Expert, first FAQ "Do I need to know PixInsight?" on details/ and shop/, Details overview lede.

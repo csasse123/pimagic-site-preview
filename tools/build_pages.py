@@ -17,7 +17,7 @@ def head(title, desc):
 <meta name="theme-color" content="#04060c">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/site.css?v=202610231400">
+<link rel="stylesheet" href="../css/site.css?v=202610231430">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%2304060c'/%3E%3Cellipse cx='32' cy='32' rx='24' ry='9' fill='none' stroke='%236fd3ff' stroke-width='3' transform='rotate(-25 32 32)'/%3E%3Ccircle cx='32' cy='32' r='7' fill='%23a98bff'/%3E%3C/svg%3E">
 </head>
 <body class="sub">
@@ -46,7 +46,7 @@ FOOT = f"""<footer class="pm-foot">
 </footer>
 <div class="modal" id="filmModal" hidden><div class="modal-in"><button class="modal-x" aria-label="Close">✕</button><video controls playsinline preload="none"></video></div></div>
 <div class="modal" id="lightbox" hidden><div class="modal-in lb"><button class="modal-x" aria-label="Close">✕</button><img alt=""><p class="mono"></p></div></div>
-<script src="../js/site.js?v=202610231400" defer></script>
+<script src="../js/site.js?v=202610231430" defer></script>
 </body>
 </html>
 """
@@ -235,6 +235,7 @@ def shop():
 
 <section class="sec sec-tight" id="faq"><div class="wrap"><div class="faq">
   <div class="sec-head reveal"><p class="eyebrow mono">// questions</p><h2>Before you buy</h2></div>
+  <details class="glass" open><summary>Do I need to know PixInsight?</summary><p>No. PixInsight is the engine under the hood — PiMagic runs it for you. Select a folder, press Start. (Know PixInsight already? Expert mode opens every setting.)</p></details>
   <details class="glass"><summary>What do I need?</summary><p>PixInsight 1.9.5 on Mac, Windows or Linux. RC-Astro's BlurXTerminator, NoiseXTerminator and StarXTerminator are used when installed. Photoshop only for AstroMagic — PiMagic's TIFF and JPEG results open in just about any image editor.</p></details>
   <details class="glass"><summary>The download or licence activation is blocked.</summary><p>By far the most common cause is a firewall or antivirus program. Pause both briefly to complete the installation.</p></details>
   <details class="glass"><summary>Do I need my own stacking software?</summary><p>No. Select the folder with your lights, flats, darks and bias — it calibrates and stacks for you. You can also keep a calibration library and let PiMagic pick the matching masters.</p></details>
@@ -291,7 +292,7 @@ def details():
     tiles = "".join(f'<button class="ov-tile glass" data-goto="{k}"><b>{t}</b><span>{E(d)}</span><i>→</i></button>' for k, t, d in OVERVIEW)
     panels["overview"] = f'''<section class="sec sec-tight" id="overview"><div class="wrap">
   <p class="eyebrow mono">// more details</p><h1 class="ov-h1"><span class="grad">Everything inside</span></h1>
-  <p class="lede">Workflow automation for PixInsight, with an auto-loader for Photoshop. The home page is two clicks — this is what happens inside them, and what you get to play with afterwards.</p>
+  <p class="lede">Workflow automation for PixInsight, with an auto-loader for Photoshop. Runs on PixInsight — no PixInsight knowledge needed. The home page is two clicks; this is what happens inside them, and what you get to play with afterwards.</p>
   <div class="hero-cta"><a class="btn btn-glow" href="../shop/">Get PiMagic 3.2 <small>$119</small></a></div>
   <div class="ov-grid">{tiles}</div>
 </div></section>
