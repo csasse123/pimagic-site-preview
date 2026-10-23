@@ -12,7 +12,7 @@
 <meta name="theme-color" content="#04060c">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=202610231300">
+<link rel="stylesheet" href="css/site.css?v=202610231330">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%2304060c'/%3E%3Cellipse cx='32' cy='32' rx='24' ry='9' fill='none' stroke='%236fd3ff' stroke-width='3' transform='rotate(-25 32 32)'/%3E%3Ccircle cx='32' cy='32' r='7' fill='%23a98bff'/%3E%3C/svg%3E">
 </head>
 <body>
@@ -77,7 +77,7 @@
 <!-- ============ 1 · two clicks ============ -->
 <section class="sec" id="start">
   <div class="wrap">
-    <div class="sec-head reveal"><p class="eyebrow mono">// how it works</p><h2>Two clicks — <span class="grad">then it's all yours</span></h2></div>
+    <div class="sec-head reveal"><p class="eyebrow mono">// how it works</p><h2>Two clicks<br><span class="grad">Then it's all yours</span></h2></div>
     <div class="clicks reveal" aria-hidden="true">
       <div class="click" data-c="0"><b>1</b><span>Select a folder</span></div>
       <div class="click" data-c="1"><b>2</b><span>Press Start</span></div>
@@ -131,7 +131,7 @@
     </div>
     <div class="reveal">
       <p class="eyebrow mono">// Smart mode</p>
-      <h2>It configures <span class="grad">itself</span></h2>
+      <h2><span class="grad">It configures itself</span></h2>
       <p>Other tools hand you dozens of options. PiMagic reads your data first — camera, filters, frames, target — and decides the best processing path by itself. Deep sky or nightscape, mosaic or single field, narrowband or broadband: you don't set it up, it sets itself up.</p>
       <div class="modes modes-in" id="modes">
         <div class="mode-switch" role="tablist" aria-label="Mode">
@@ -156,9 +156,41 @@
   </div>
 </section>
 
+<!-- ============ why layers: a simplified Photoshop with Craig's Elephant Trunk layers (Screen mode) ============ -->
+<section class="sec" id="layers">
+  <div class="wrap">
+    <div class="sec-head reveal"><p class="eyebrow mono">// the hybrid workflow · try it</p><h2>Every part of the image,<br><span class="grad">on its own layer</span></h2>
+      <p>PiMagic does the PixInsight work and delivers your image as separate layers — each filter, the stars, the annotation. You finish in a layer-based photo editor: Photoshop, where AstroMagic loads the layers for you, or Affinity Photo and others. Below is a simulation of a simplified, generic editor to show why that matters: switch a layer off, change its intensity, and watch the image respond.</p>
+      <p class="small">A teaching illustration only — these are not PiMagic controls. In your own editor you get the full tools.</p></div>
+    <div class="lyps glass reveal">
+      <div class="ps-bar mono"><i></i><i></i><i></i><span>Simulation — a simplified photo editor</span></div>
+      <div class="lyps-body">
+        <div class="lyps-canvas"><div class="ly-stack"><img class="ly ly-sii" src="assets/img/ly_sii.webp" alt="" loading="lazy"><img class="ly ly-ha" src="assets/img/ly_ha.webp" alt="" loading="lazy"><img class="ly ly-oiii" src="assets/img/ly_oiii.webp" alt="" loading="lazy"><img class="ly ly-stars" src="assets/img/ly_stars.webp" alt="" loading="lazy"><img class="ly ly-annot" src="assets/img/ly_annot.webp" alt="" loading="lazy"></div></div>
+        <div class="lyps-panel">
+          <div class="lyps-head mono"><span>Layers</span><span>Screen</span></div>
+          <ul class="ly-list">
+            <li data-ly="annot"><label class="ly-name"><input type="checkbox" checked aria-label="Show Annotations"><img src="assets/img/ly_annot_t.webp" alt=""><span>Annotations</span></label>
+              <label class="ly-int"><span>Intensity</span><input type="range" min="0" max="200" value="100" aria-label="Annotations intensity"><output>100%</output></label></li>
+            <li data-ly="stars"><label class="ly-name"><input type="checkbox" checked aria-label="Show Stars"><img src="assets/img/ly_stars_t.webp" alt=""><span>Stars</span></label>
+              <label class="ly-int"><span>Intensity</span><input type="range" min="0" max="200" value="100" aria-label="Stars intensity"><output>100%</output></label></li>
+            <li data-ly="oiii"><label class="ly-name"><input type="checkbox" checked aria-label="Show Blue · Oxygen (OIII)"><img src="assets/img/ly_oiii_t.webp" alt=""><span>Blue · Oxygen (OIII)</span></label>
+              <label class="ly-int"><span>Intensity</span><input type="range" min="0" max="200" value="100" aria-label="Blue · Oxygen (OIII) intensity"><output>100%</output></label></li>
+            <li data-ly="ha"><label class="ly-name"><input type="checkbox" checked aria-label="Show Green · Hydrogen (Hα)"><img src="assets/img/ly_ha_t.webp" alt=""><span>Green · Hydrogen (Hα)</span></label>
+              <label class="ly-int"><span>Intensity</span><input type="range" min="0" max="200" value="100" aria-label="Green · Hydrogen (Hα) intensity"><output>100%</output></label></li>
+            <li data-ly="sii"><label class="ly-name"><input type="checkbox" checked aria-label="Show Red · Sulfur (SII)"><img src="assets/img/ly_sii_t.webp" alt=""><span>Red · Sulfur (SII)</span></label>
+              <label class="ly-int"><span>Intensity</span><input type="range" min="0" max="200" value="100" aria-label="Red · Sulfur (SII) intensity"><output>100%</output></label></li>
+          </ul>
+          <button class="ly-reset mono">↺ Reset</button>
+        </div>
+      </div>
+    </div>
+    <p class="mono small reveal" style="margin-top:12px">Simulated editor · layers prepared by Craig Stocks · Elephant Trunk, SHO · Utah Desert Remote Observatories</p>
+  </div>
+</section>
+
 <section class="sec sec-tight" id="variety">
   <div class="wrap">
-    <div class="sec-head reveal"><p class="eyebrow mono">// not a one-trick pony</p><h2>One workflow, <span class="grad">every kind of night</span></h2><p>From a fisheye lens to a deep-sky telescope, mono or colour camera — the same two clicks.</p></div>
+    <div class="sec-head reveal"><p class="eyebrow mono">// not a one-trick pony</p><h2>One workflow,<br><span class="grad">every kind of night</span></h2><p>From a fisheye lens to a deep-sky telescope, mono or colour camera — the same two clicks.</p></div>
     <div class="variety">
       <a class="vt reveal" href="gallery/#mosaics"><img src="assets/img/mosaic_rho.webp" alt="" loading="lazy"><span class="mono">Deep-sky mosaics</span></a>
       <a class="vt reveal" href="gallery/#mosaics"><img src="assets/img/g_gunlock_panorama_t.webp" alt="" loading="lazy"><span class="mono">Landscape panoramas</span></a>
@@ -175,7 +207,7 @@
 <!-- ============ 3 · two standout features, side by side: mosaics (plays by itself) + PiSolver ============ -->
 <section class="sec sec-tight" id="standout">
   <div class="wrap">
-    <div class="sec-head reveal"><p class="eyebrow mono">// two standout features</p><h2>Mosaics and blind solving, <span class="grad">built in</span></h2>
+    <div class="sec-head reveal"><p class="eyebrow mono">// two standout features</p><h2>Mosaics and blind solving,<br><span class="grad">built in</span></h2>
       <p>Two things that usually mean extra software and hours of work. In PiMagic they are part of the same two clicks.</p></div>
     <div class="duo">
       <article class="duo-card glass reveal mosaic-story" id="mosaics">
@@ -186,7 +218,7 @@
         </div>
         <div class="duo-copy">
           <p class="eyebrow mono">// mosaics, fully automatic</p>
-          <h3>Six raw panes, <span class="grad">one seamless mosaic</span></h3>
+          <h3>Six raw panes,<br><span class="grad">one seamless mosaic</span></h3>
           <ol class="mstep mono"><li data-k="0">Found</li><li data-k="1">Placed</li><li data-k="2">Matched</li><li data-k="3">Blended</li></ol>
           <p>Deep-sky mosaics and landscape panoramas: PiMagic finds every pane, places it, matches its brightness and blends the seams — no separate mosaic tool, no manual stitching.</p>
           <a class="link-arrow" href="gallery/#mosaics">See mosaics in the gallery →</a>
@@ -201,7 +233,7 @@
         </figure>
         <div class="duo-copy">
           <p class="eyebrow mono">// PiSolver · our own blind solver</p>
-          <h3>It knows where you pointed — <span class="grad">and names what it sees</span></h3>
+          <h3>It knows where you pointed<br><span class="grad">And names what it sees</span></h3>
           <ul class="ticks">
             <li>No target, telescope or camera details needed — it finds the field in seconds</li>
             <li>Linear or stretched, any format: FITS, XISF, camera RAW, TIFF, PNG, JPEG</li>
@@ -217,7 +249,7 @@
 <!-- ============ 4 · Elephant Trunk: a real run, then Photoshop (plays by itself) ============ -->
 <section class="sec" id="journey">
   <div class="wrap">
-    <div class="sec-head reveal"><p class="eyebrow mono">// one image, start to finish</p><h2>From Start to <span class="grad">your finish</span></h2>
+    <div class="sec-head reveal"><p class="eyebrow mono">// one image, start to finish</p><h2>From Start to<br><span class="grad">your finish</span></h2>
       <p>A real PiMagic run on Craig Stocks' Elephant Trunk data, sped up — then into Photoshop and on to Craig's finish. It plays by itself; click any step.</p></div>
     <div class="jr reveal" id="jr">
       <ol class="jr-steps mono">
@@ -258,45 +290,13 @@
           <img src="assets/img/el_craig.webp" alt="The Elephant Trunk, finished in Photoshop by Craig Stocks" loading="lazy">
           <div class="jr-fin-copy"><p class="eyebrow mono">// your finish</p><h3>Finished by Craig Stocks</h3>
             <p>Same data, same layers — a few minutes of sliders in Photoshop. The routine took no effort; the time went into the art.</p>
-            <a class="btn btn-ghost btn-sm" href="#layers">Try the layers yourself ↓</a></div>
+            <a class="btn btn-ghost btn-sm" href="#layers">Try the layers yourself ↑</a></div>
         </div>
       </div>
       <div class="jr-foot"><p class="jr-cap"></p><div class="jr-ctl"><button class="jr-play mono" aria-label="Pause">❚❚ Pause</button><button class="jr-replay mono">↺ Replay</button></div></div>
     </div>
   </div>
 </section>
-<!-- ============ why layers: a simplified Photoshop with Craig's Elephant Trunk layers (Screen mode) ============ -->
-<section class="sec" id="layers">
-  <div class="wrap">
-    <div class="sec-head reveal"><p class="eyebrow mono">// why layers · try it</p><h2>Every part of the image, <span class="grad">on its own layer</span></h2>
-      <p>PiMagic delivers your image as separate layers — each filter, the stars, the annotation. Below is a simulation of a simplified, generic photo editor (the same idea works in Photoshop, Affinity Photo and others) to show why that matters: switch a layer off, change its intensity, and watch the image respond.</p>
-      <p class="small">A teaching illustration only — these are not PiMagic controls. In your own editor you get the full tools; AstroMagic loads the layers into Photoshop for you.</p></div>
-    <div class="lyps glass reveal">
-      <div class="ps-bar mono"><i></i><i></i><i></i><span>Simulation — a simplified photo editor</span></div>
-      <div class="lyps-body">
-        <div class="lyps-canvas"><div class="ly-stack"><img class="ly ly-sii" src="assets/img/ly_sii.webp" alt="" loading="lazy"><img class="ly ly-ha" src="assets/img/ly_ha.webp" alt="" loading="lazy"><img class="ly ly-oiii" src="assets/img/ly_oiii.webp" alt="" loading="lazy"><img class="ly ly-stars" src="assets/img/ly_stars.webp" alt="" loading="lazy"><img class="ly ly-annot" src="assets/img/ly_annot.webp" alt="" loading="lazy"></div></div>
-        <div class="lyps-panel">
-          <div class="lyps-head mono"><span>Layers</span><span>Screen</span></div>
-          <ul class="ly-list">
-            <li data-ly="annot"><label class="ly-name"><input type="checkbox" checked aria-label="Show Annotations"><img src="assets/img/ly_annot_t.webp" alt=""><span>Annotations</span></label>
-              <label class="ly-int"><span>Intensity</span><input type="range" min="0" max="200" value="100" aria-label="Annotations intensity"><output>100%</output></label></li>
-            <li data-ly="stars"><label class="ly-name"><input type="checkbox" checked aria-label="Show Stars"><img src="assets/img/ly_stars_t.webp" alt=""><span>Stars</span></label>
-              <label class="ly-int"><span>Intensity</span><input type="range" min="0" max="200" value="100" aria-label="Stars intensity"><output>100%</output></label></li>
-            <li data-ly="oiii"><label class="ly-name"><input type="checkbox" checked aria-label="Show Blue · Oxygen (OIII)"><img src="assets/img/ly_oiii_t.webp" alt=""><span>Blue · Oxygen (OIII)</span></label>
-              <label class="ly-int"><span>Intensity</span><input type="range" min="0" max="200" value="100" aria-label="Blue · Oxygen (OIII) intensity"><output>100%</output></label></li>
-            <li data-ly="ha"><label class="ly-name"><input type="checkbox" checked aria-label="Show Green · Hydrogen (Hα)"><img src="assets/img/ly_ha_t.webp" alt=""><span>Green · Hydrogen (Hα)</span></label>
-              <label class="ly-int"><span>Intensity</span><input type="range" min="0" max="200" value="100" aria-label="Green · Hydrogen (Hα) intensity"><output>100%</output></label></li>
-            <li data-ly="sii"><label class="ly-name"><input type="checkbox" checked aria-label="Show Red · Sulfur (SII)"><img src="assets/img/ly_sii_t.webp" alt=""><span>Red · Sulfur (SII)</span></label>
-              <label class="ly-int"><span>Intensity</span><input type="range" min="0" max="200" value="100" aria-label="Red · Sulfur (SII) intensity"><output>100%</output></label></li>
-          </ul>
-          <button class="ly-reset mono">↺ Reset</button>
-        </div>
-      </div>
-    </div>
-    <p class="mono small reveal" style="margin-top:12px">Simulated editor · layers prepared by Craig Stocks · Elephant Trunk, SHO · Utah Desert Remote Observatories</p>
-  </div>
-</section>
-
 <section class="sec sec-tight" id="speedrun">
   <div class="wrap speed-grid">
     <figure class="speed glass reveal"><img src="assets/img/speedrun.webp" alt="Craig Stocks' speed run: in 2023, about fifteen manual steps before processing could begin; in 2026, blink the subs, PiMagic Studio, begin processing" loading="lazy"><figcaption class="mono">Craig Stocks' speed run · Elephant Trunk · Utah Desert Remote Observatories</figcaption></figure>
@@ -358,6 +358,6 @@
 <div class="modal" id="filmModal" hidden><div class="modal-in"><button class="modal-x" aria-label="Close">✕</button><video controls playsinline preload="none"></video></div></div>
 <div class="modal" id="lightbox" hidden><div class="modal-in lb"><button class="modal-x" aria-label="Close">✕</button><img alt=""><p class="mono"></p></div></div>
 
-<script src="js/site.js?v=202610231300" defer></script>
+<script src="js/site.js?v=202610231330" defer></script>
 </body>
 </html>
