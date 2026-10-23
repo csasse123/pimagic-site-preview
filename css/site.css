@@ -464,3 +464,18 @@ p{margin:0 0 1em;color:var(--mute)} .small{font-size:14px;color:var(--dim)}
 .jr-fin{grid-template-rows:100%} .jr-fin img{height:100%;min-height:0;max-width:52vw}
 @media (max-width:900px){.jr-fin{grid-template-rows:minmax(0,1fr) auto} .jr-fin img{max-width:80vw}}
 .ps-bar span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+/* 23 Oct (Craig/Deb): say what it is up front; the solver as an obvious result */
+.what{margin:-10px 0 18px;font-size:13.5px;color:#c3cede;letter-spacing:.06em;text-transform:uppercase} .what i{font-style:normal;color:var(--violet);margin:0 4px}
+.solver-home{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:50px;align-items:center}
+.ba-solve-h{aspect-ratio:2000/1601}
+@media (max-width:900px){.solver-home{grid-template-columns:1fr;gap:26px}}
+/* details: one section at a time under a menu that stays */
+.dtab-nav{position:sticky;top:58px;z-index:20;padding:12px 0;background:linear-gradient(var(--bg) 78%,rgba(4,6,12,0))}
+.dtab-nav .wrap{display:flex;flex-wrap:wrap;gap:8px}
+.dtab-nav button{padding:10px 16px;border-radius:999px;border:1px solid var(--line2);font-size:14px;color:var(--mute);background:rgba(10,16,30,.75);transition:all .2s}
+.dtab-nav button:hover{color:var(--text);border-color:var(--cyan)} .dtab-nav button[aria-selected=true]{color:#061018;background:var(--grad);border-color:transparent}
+.dtab-panel[hidden]{display:none!important} .dtab-panel .reveal{opacity:1;transform:none}
+.dtab-panel>section:first-child{padding-top:28px}
+@media (max-width:700px){.dtab-nav .wrap{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none} .dtab-nav button{flex:0 0 auto}}
+.dtab-nav{background:rgba(4,6,12,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.solver-home h2{font-size:clamp(30px,3.4vw,46px)}
