@@ -511,3 +511,13 @@ p{margin:0 0 1em;color:var(--mute)} .small{font-size:14px;color:var(--dim)}
 .ly-reset:hover{border-color:var(--cyan);color:#fff}
 @media (max-width:900px){.lyps-body{grid-template-columns:1fr}.lyps-panel{border-left:0;border-top:1px solid #111}.ly-stack{height:auto;width:100%;max-width:440px}.lyps-canvas{padding:12px}}
 @media (max-width:900px){.lyps{overflow:visible}.lyps-canvas{position:sticky;top:56px;z-index:3}.ly-stack{width:auto;height:44vh;max-width:none}.lyps-panel{border-radius:0 0 var(--r) var(--r)}}
+
+/* 3 · two standout features side by side (Craig, 23 Oct: shorter home page) */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:stretch}
+.duo-card{padding:0;overflow:hidden;display:flex;flex-direction:column}
+.duo-card .mosaic-stage,.duo-card .ba-duo{aspect-ratio:1;width:100%;max-width:none;max-height:none;margin:0;border-radius:0;background:#05070d}
+.duo-card .mosaic-stage{overflow:hidden}
+.duo-copy{padding:22px 26px 26px} .duo-copy h3{font-size:clamp(24px,2.3vw,32px);margin-bottom:12px} .duo-copy .mstep{margin:0 0 14px}
+.duo-copy p:not(.eyebrow){font-size:15.5px} .duo-copy .ticks li{font-size:15px}
+.mosaic-story.duo-card{height:auto;padding:0}
+@media (max-width:900px){.duo{grid-template-columns:1fr}}
