@@ -1,0 +1,11 @@
+{
+ "real_seconds": 773,
+ "video_seconds": 22,
+ "phases": {
+  "Calibrate": 0,
+  "Align & stack": 20,
+  "Process": 366,
+  "Colour": 588,
+  "Layers": 768
+ }
+}
