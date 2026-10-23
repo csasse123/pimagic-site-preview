@@ -260,6 +260,7 @@ $$(".player[data-src]").forEach(p => $(".play", p).addEventListener("click", () 
     if (scroll) scrollTo({ top: $("#dtabs").getBoundingClientRect().top + scrollY - nav.offsetHeight - parseFloat(getComputedStyle(nav).top), behavior: "instant" });   // the section starts right under the menu
     const w = $(".wrap", nav); w.scrollLeft = B[i].offsetLeft - w.offsetLeft - 16; };   // phones: the chosen tab stays in sight
   B.forEach(b => b.addEventListener("click", () => { history.replaceState(null, "", "#" + b.dataset.tab); open(b.dataset.tab, true); }));
+  $$("[data-goto]").forEach(t => t.addEventListener("click", () => { history.replaceState(null, "", "#" + t.dataset.goto); open(t.dataset.goto, true); }));   // overview tiles
   addEventListener("hashchange", () => open(location.hash.slice(1), true));
   open(location.hash.slice(1), !!location.hash);
 })();
