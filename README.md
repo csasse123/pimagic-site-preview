@@ -93,3 +93,14 @@ Headings (23 Oct, Craig): the coloured part always starts its own line (<br> bef
 Details (23 Oct, Craig): the menu starts the page, "Overview" first (eight buttons); Overview holds "Everything inside" + tiles that open each section (data-goto). The page stays at the top when switching.
 
 PixInsight message (23 Oct, Christian: "PixInsight is the engine under the hood, but you don't need to know PixInsight at all"): hero note "Runs on PixInsight. No PixInsight knowledge needed. It's the engine under the hood — PiMagic drives it for you.", a short line under Smart/Expert, first FAQ "Do I need to know PixInsight?" on details/ and shop/, Details overview lede.
+
+## 23 Oct 2026 - block kit for Craig (he builds the home page in WordPress himself, our interactive parts pasted as Custom HTML)
+tools/build_blocks.py cuts every home section (and Details, Gallery) out of the finished pages into self-contained blocks:
+CSS scoped under .pms (only the rules the block uses; keyframes renamed pms-*; full-width breakout that beats block-theme
+constrained layouts), only the script parts the block needs, images/films from the asset-only plugin pimagic-block-assets
+(/wp-content/plugins/pimagic-block-assets/assets/...). Two WordPress traps found in Playground and fixed: an "&&" after a "<" in a
+pasted script became "&#038;&#038;" -> each script travels base64 in data-pms with a loader free of "&" and "<"; observers set up
+while WordPress is still parsing never fired -> the loader runs each block after DOMContentLoaded and passes the block as ROOT.
+tools/build_blocks_docs.py: INSTRUCTIONS.html/.txt, .txt copies of every block, fonts-and-colours CSS for native blocks (Craig:
+WP uses Roboto Flex, blocks bring Inter/Space Grotesk/JetBrains Mono). Test: launch config "wp-blocks-test" (wp-test/blocks/
+blueprint.json builds Home V3.2, details, gallery from the kit). Dropbox: "PiMagic Studio - Website Blocks for Craig".

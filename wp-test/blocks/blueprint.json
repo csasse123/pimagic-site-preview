@@ -1,0 +1,9 @@
+{
+  "landingPage": "/home-v32/",
+  "preferredVersions": { "php": "8.2", "wp": "latest" },
+  "steps": [
+    { "step": "login", "username": "admin", "password": "password" },
+    { "step": "activatePlugin", "pluginPath": "pimagic-block-assets/pimagic-block-assets.php" },
+    { "step": "runPHP", "code": "<?php require '/wordpress/wp-load.php'; update_option('permalink_structure','/%postname%/'); $k='/wordpress/kit/blocks/'; $mk=function($files) use ($k){ $c=''; foreach($files as $f){ $c.=\"<!-- wp:html -->\\n\".file_get_contents($k.$f).\"\\n<!-- /wp:html -->\\n\\n\"; } return $c; }; $home=array_values(array_map('basename', glob($k.'home/*.html'))); sort($home); $home=array_map(function($f){return 'home/'.$f;}, $home); kses_remove_filters(); wp_insert_post(array('post_type'=>'page','post_name'=>'home-v32','post_title'=>'Home V3.2','post_status'=>'publish','post_content'=>$mk($home))); wp_insert_post(array('post_type'=>'page','post_name'=>'details','post_title'=>'Details','post_status'=>'publish','post_content'=>$mk(array('home/00-page-background.html','pages/details-page.html')))); wp_insert_post(array('post_type'=>'page','post_name'=>'gallery','post_title'=>'Gallery','post_status'=>'publish','post_content'=>$mk(array('home/00-page-background.html','pages/gallery-page.html')))); flush_rewrite_rules(); ?>" }
+  ]
+}
