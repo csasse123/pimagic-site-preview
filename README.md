@@ -52,3 +52,16 @@ New gallery/ by kind (site.js G list). Plugin 1.1.0: /details/ and /gallery/ as 
 Tutorials built from the WordPress posts (known slugs keep their topic from pages/tutorials.json, new posts go under their
 category, uncategorised last; posts from Settings > "PiMagic 3.2 tutorials from" on get the 3.2 badge). Tested in Playground.
 Placeholders until Craig sends better images: the Rosette step on details/ (magenta stars, too bright/green), gallery tiles.
+
+## 23 Oct 2026 - the Elephant Trunk section plays by itself (Christian: "record the whole workflow ... fast mode ... 3D ... sliders")
+A real PiMagic 3.2 run on Craig's Elephant Trunk folder (copied to 4TB Astro2/PiMagic/Test Inputs/Elephant_Trunk_SHORGB_film; run
+Runs/PiMagic-Elephant_Trunk-2026-10-23-08-28-41, 12 min 53 s, harness run32.sh with my own PixInsight) recorded with
+tools/capture/capture_run.py (PixInsight's main window by window id every ~1-3 s via tools/capture/piwins, works while PixInsight is on
+another Space; the web-drawn pipeline dialog paints white off-screen, so it is left out). tools/build_run_video.py -> 22 s
+site/assets/video/run_elephant.mp4: crossfaded frames, a strip with the current step under our names (from the run log's own
+timestamps: "Stacking Hα", "Deblur · SII", "Star separation · SHO" ...), the real clock and five phases; the green linear RGB and the
+empty desktop go by 4x faster; it ends on the run's own Final SHO. Raw frames: sources/run_capture_elephant (not in git).
+The section is a player (site.js "Elephant Trunk player"): 1 the run film - 2 the four layers (starless, stars with own alpha,
+annotation, metadata) fly into a Photoshop window in 3D and settle, the Layers panel fills - 3 global-adjustment sliders that really
+change the picture (CSS filters on the starless layer, star layer opacity), an automatic demo, then "your turn"; layer eyes work -
+4 Craig's finish. Autoplays when in view, loops; any slider touch pauses it.

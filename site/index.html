@@ -12,7 +12,7 @@
 <meta name="theme-color" content="#04060c">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=202610222200">
+<link rel="stylesheet" href="css/site.css?v=202610230900">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%2304060c'/%3E%3Cellipse cx='32' cy='32' rx='24' ry='9' fill='none' stroke='%236fd3ff' stroke-width='3' transform='rotate(-25 32 32)'/%3E%3Ccircle cx='32' cy='32' r='7' fill='%23a98bff'/%3E%3C/svg%3E">
 </head>
 <body>
@@ -189,36 +189,62 @@
   </div>
 </section>
 
-<!-- ============ 4 · Elephant Trunk: from Start to your finish (scroll story) ============ -->
-<section class="journey" id="journey">
-  <div class="journey-sticky">
-    <div class="wrap journey-grid">
-      <div class="journey-copy">
-        <p class="eyebrow mono">// one image, start to finish</p>
-        <h2>From Start to <span class="grad">your finish</span>.</h2>
-        <ol class="jsteps">
-          <li data-k="0"><b>Your data, stacked.</b><span>The run's own Hα master — linear, as stacking leaves it.</span></li>
-          <li data-k="1"><b>Press Start.</b><span>PiMagic does the routine: out comes a finished SHO image.</span></li>
-          <li data-k="2"><b>Layers, not a flat picture.</b><span>AstroMagic opens it in Photoshop: nebula, stars, annotation and metadata, each on its own.</span></li>
-          <li data-k="3"><b>A few sliders.</b><span>Colour, contrast, stars — on separate layers, nothing fights anything else.</span></li>
-          <li data-k="4"><b>Your finish.</b><span>Craig Stocks' finish of the same data. The minutes went into the art.</span></li>
-        </ol>
-        <p class="mono small journey-meta">Elephant Trunk · SHO + RGB · 3 h 46 m · Utah Desert Remote Observatories</p>
-      </div>
-      <div class="journey-stage" aria-label="The Elephant Trunk: stacked data, PiMagic's result, its layers, and Craig Stocks' finish">
-        <div class="jstack">
-          <div class="jl jl-base"><img src="assets/img/el_raw.webp" alt="" class="j-raw"><img src="assets/img/el_pimagic.webp" alt="" class="j-pm"><img src="assets/img/el_craig.webp" alt="" class="j-craig"></div>
-          <div class="jl jl-neb"><img src="assets/img/el_starless.webp" alt=""><span class="jlab mono">Nebula · starless</span></div>
-          <div class="jl jl-stars"><img src="assets/img/el_stars_a.webp" alt=""><span class="jlab mono">Stars</span></div>
-          <div class="jl jl-annot"><img src="assets/img/el_annot.webp" alt=""><span class="jlab mono">Annotation</span></div>
-          <div class="jl jl-meta"><img src="assets/img/el_meta.webp" alt=""><span class="jlab mono">Metadata</span></div>
+<!-- ============ 4 · Elephant Trunk: a real run, then Photoshop (plays by itself) ============ -->
+<section class="sec" id="journey">
+  <div class="wrap">
+    <div class="sec-head reveal"><p class="eyebrow mono">// one image, start to finish</p><h2>From Start to <span class="grad">your finish</span>.</h2>
+      <p>A real PiMagic run on Craig Stocks' Elephant Trunk data, sped up — then into Photoshop. It plays by itself; click any step, or take the sliders yourself.</p></div>
+    <div class="jr reveal" id="jr">
+      <ol class="jr-steps mono">
+        <li><button data-s="0"><b>1</b>PiMagic runs</button></li><li><button data-s="1"><b>2</b>Into Photoshop</button></li>
+        <li><button data-s="2"><b>3</b>Your sliders</button></li><li><button data-s="3"><b>4</b>Your finish</button></li>
+      </ol>
+      <div class="jr-stage glass">
+        <div class="jr-scene jr-run">
+          <video muted playsinline preload="none" data-real="773" data-src="assets/video/run_elephant.mp4" poster="assets/img/run_elephant_poster.webp"></video>
+          <span class="jr-x mono"></span>
         </div>
-        <button class="jstart" tabindex="-1" aria-hidden="true">Start</button>
-        <div class="jsliders glass mono" aria-hidden="true">
-          <label>Hue / Saturation<i><b></b></i></label><label>Curves<i><b></b></i></label><label>Stars<i><b></b></i></label>
+        <div class="jr-scene jr-ps" aria-label="Photoshop with PiMagic's layers">
+          <div class="ps-bar mono"><i></i><i></i><i></i><span>Elephant_Trunk.psd @ 33% (Global Adjustments, RGB/16)</span></div>
+          <div class="ps-body">
+            <div class="ps-tools" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="ps-canvas">
+              <div class="ps-stack">
+                <div class="pl pl-neb"><img src="assets/img/el_starless.webp" alt="Nebula layer, without stars"><span class="pl-lab mono">Nebula · starless</span></div>
+                <div class="pl pl-stars"><img src="assets/img/el_stars_a.webp" alt="Stars layer"><span class="pl-lab mono">Stars</span></div>
+                <div class="pl pl-annot"><img src="assets/img/el_annot.webp" alt="Annotation layer"><span class="pl-lab mono">Annotation</span></div>
+                <div class="pl pl-meta"><img src="assets/img/el_meta.webp" alt="Metadata layer"><span class="pl-lab mono">Metadata</span></div>
+              </div>
+            </div>
+            <div class="ps-panels">
+              <div class="ps-panel ps-props">
+                <h4 class="mono">Properties · Global adjustments</h4>
+                <label>Brightness<input type="range" min="60" max="140" value="100" data-k="b"><output>0</output></label>
+                <label>Contrast<input type="range" min="30" max="170" value="100" data-k="c"><output>0</output></label>
+                <label>Saturation<input type="range" min="0" max="200" value="100" data-k="s"><output>0</output></label>
+                <label>Stars<input type="range" min="50" max="150" value="100" data-k="st"><output>0</output></label>
+                <p class="ps-hint mono">Your turn — drag a slider</p>
+              </div>
+              <div class="ps-panel ps-layers">
+                <h4 class="mono">Layers</h4>
+                <ul>
+                  <li data-l="meta"><button aria-pressed="true" aria-label="Show metadata">●</button><span>Metadata</span></li>
+                  <li data-l="annot"><button aria-pressed="true" aria-label="Show annotation">●</button><span>Annotation</span></li>
+                  <li data-l="stars"><button aria-pressed="true" aria-label="Show stars">●</button><span>Stars</span></li>
+                  <li data-l="neb"><button aria-pressed="true" aria-label="Show nebula">●</button><span>Nebula · starless</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
-        <span class="jtag mono"></span>
+        <div class="jr-scene jr-fin">
+          <img src="assets/img/el_craig.webp" alt="The Elephant Trunk, finished in Photoshop by Craig Stocks" loading="lazy">
+          <div class="jr-fin-copy"><p class="eyebrow mono">// your finish</p><h3>Finished by Craig Stocks.</h3>
+            <p>Same data, same layers — a few minutes of sliders in Photoshop. The routine took no effort; the time went into the art.</p>
+            <button class="btn btn-ghost btn-sm" data-s="2">Try the sliders yourself</button></div>
+        </div>
       </div>
+      <div class="jr-foot"><p class="jr-cap"></p><div class="jr-ctl"><button class="jr-play mono" aria-label="Pause">❚❚ Pause</button><button class="jr-replay mono">↺ Replay</button></div></div>
     </div>
   </div>
 </section>
@@ -283,6 +309,6 @@
 <div class="modal" id="filmModal" hidden><div class="modal-in"><button class="modal-x" aria-label="Close">✕</button><video controls playsinline preload="none"></video></div></div>
 <div class="modal" id="lightbox" hidden><div class="modal-in lb"><button class="modal-x" aria-label="Close">✕</button><img alt=""><p class="mono"></p></div></div>
 
-<script src="js/site.js?v=202610222200" defer></script>
+<script src="js/site.js?v=202610230900" defer></script>
 </body>
 </html>

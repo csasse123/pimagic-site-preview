@@ -195,38 +195,64 @@ $$(".player[data-src]").forEach(p => $(".play", p).addEventListener("click", () 
   new IntersectionObserver(es => { if (es[0].isIntersecting) play(); }, { threshold: .5 }).observe(d);
 })();
 
-/* ---------- the Elephant Trunk journey: scroll drives raw -> Start -> PiMagic -> layers in 3D -> sliders -> Craig's finish ---------- */
+/* ---------- the Elephant Trunk player: real run (sped up) -> layers fly into Photoshop in 3D -> live sliders -> Craig's finish ---------- */
 (() => {
-  const sec = $(".journey"); if (!sec) return;
-  const stack = $(".jstack", sec), raw = $(".j-raw", sec), pm = $(".j-pm", sec), craig = $(".j-craig", sec), base = $(".jl-base", sec);
-  const Ls = ["neb", "stars", "annot", "meta"].map(n => $(".jl-" + n, sec)), labs = $$(".jlab", sec);
-  const start = $(".jstart", sec), sl = $(".jsliders", sec), knobs = $$(".jsliders b", sec), tag = $(".jtag", sec), steps = $$(".jsteps li", sec);
-  const TAGS = ["Stacked Hα master · linear", "PiMagic · finished SHO", "AstroMagic · four layers", "Photoshop · a few sliders", "Finished by Craig Stocks"];
-  const KN = [[30, 64], [30, 72], [30, 46]];
-  const render = () => {
-    const r = sec.getBoundingClientRect(), p = reduce ? 1 : clamp(-r.top / (r.height - innerHeight));
-    const k = p < .08 ? 0 : p < .30 ? 1 : p < .64 ? 2 : p < .86 ? 3 : 4;
-    steps.forEach((s, j) => { s.classList.toggle("on", j === k); s.classList.toggle("done", j < k); });
-    if (tag.textContent !== TAGS[k]) tag.textContent = TAGS[k];
-    // Start: appears, gets pressed, leaves
-    const sa = seg(p, .06, .11) * (1 - seg(p, .16, .2)), press = seg(p, .13, .145) * (1 - seg(p, .145, .16));
-    start.style.opacity = sa; start.style.transform = `translate(-50%,-50%) scale(${.9 + .1 * seg(p, .06, .11) - .12 * press})`;
-    // raw -> PiMagic -> (layers) -> Craig
-    raw.style.opacity = 1 - seg(p, .15, .23); pm.style.opacity = seg(p, .15, .23); craig.style.opacity = seg(p, .70, .86);
-    base.style.opacity = 1 - seg(p, .34, .38) + seg(p, .66, .70);
-    const lin = seg(p, .30, .34), lout = 1 - seg(p, .70, .86), ov = seg(p, .37, .43) * (1 - seg(p, .58, .64));
-    const ex = seg(p, .36, .48) * (1 - seg(p, .58, .68)), a = 58 * ex, b = -9 * ex, H = stack.offsetHeight, gap = .2 * H * ex;
-    stack.classList.toggle("exploded", ex > .02);
-    const pop = seg(p, .86, .96);
-    stack.style.transform = `translateY(${7 * ex}vh) scale(${(1 - .2 * ex) * (1 + .045 * pop)}) rotateX(${a}deg) rotateZ(${b}deg)`;
-    stack.style.filter = pop > 0 ? `drop-shadow(0 0 ${40 * pop}px rgba(111,211,255,${.35 * pop}))` : "";
-    Ls.forEach((L, j) => { L.style.opacity = (j < 2 ? lin * lout : ov); L.style.transform = `translateZ(${(j - 1.5) * gap + (j + 1) * .6}px)`; });
-    labs.forEach(l => { l.style.opacity = ex; l.style.transform = `translateY(-50%) rotateZ(${-b}deg) rotateX(${-a}deg)`; });
-    // a few sliders
-    sl.style.opacity = seg(p, .64, .69) * (1 - seg(p, .9, .95)); sl.style.transform = `translateY(${16 * (1 - seg(p, .64, .69))}px)`;
-    knobs.forEach((kb, j) => { kb.style.left = KN[j][0] + (KN[j][1] - KN[j][0]) * seg(p, .70 + j * .03, .80 + j * .03) + "%"; });
-  };
-  addEventListener("scroll", () => requestAnimationFrame(render), { passive: true }); addEventListener("resize", render); render();
+  const jr = $("#jr"); if (!jr) return;
+  const scenes = $$(".jr-scene", jr), steps = $$(".jr-steps button", jr), cap = $(".jr-cap", jr), playB = $(".jr-play", jr);
+  const vid = $(".jr-run video", jr), xEl = $(".jr-x", jr);
+  const stack = $(".ps-stack", jr), L = ["neb", "stars", "annot", "meta"].map(n => $(".pl-" + n, jr)), labs = $$(".pl-lab", jr), rows = $$(".ps-layers li", jr);
+  const R = $$(".ps-props input", jr), nebImg = $(".pl-neb img", jr), starImg = $(".pl-stars img", jr);
+  const CAP = ["A real PiMagic run on Craig's Elephant Trunk folder, recorded on our Mac: 49 files in, calibrated, stacked, processed and finished — unattended.",
+               "AstroMagic brings PiMagic's results into Photoshop as layers: the nebula without stars, the stars, the annotation and the metadata.",
+               "Global adjustments: brightness, contrast, colour, stars — each on its own layer. Drag them yourself.",
+               "Craig Stocks' finish of the same data. The routine was automatic; the creativity is his."];
+  const DUR = [0, 7600, 9000, 7000];                          // scene 0 lasts as long as the film
+  let k = -1, t0 = 0, playing = true, raf = 0, vis = false, user = false;
+  // ---- live adjustments (the sliders really change the picture)
+  const val = () => Object.fromEntries(R.map(r => [r.dataset.k, +r.value]));
+  const apply = () => { const v = val();
+    nebImg.style.filter = `brightness(${v.b / 100}) contrast(${v.c / 100}) saturate(${v.s / 100})`;
+    starImg.style.opacity = Math.min(1, v.st / 100); starImg.style.filter = v.st > 100 ? `brightness(${v.st / 100})` : "";
+    R.forEach(r => r.nextElementSibling.textContent = (+r.value - 100 > 0 ? "+" : "") + (+r.value - 100)); };
+  const setR = o => { R.forEach(r => { if (o[r.dataset.k] != null) r.value = o[r.dataset.k]; }); apply(); };
+  R.forEach(r => r.addEventListener("input", () => { user = true; jr.classList.remove("demo"); stop(); apply(); }));
+  rows.forEach(li => $("button", li).addEventListener("click", e => { const b = e.currentTarget, on = b.getAttribute("aria-pressed") !== "true";
+    b.setAttribute("aria-pressed", on); $(".pl-" + li.dataset.l, jr).style.visibility = on ? "" : "hidden"; user = true; stop(); }));
+  const eye = (n, on) => { const b = $(`.ps-layers li[data-l="${n}"] button`, jr); b.setAttribute("aria-pressed", on); $(".pl-" + n, jr).style.visibility = on ? "" : "hidden"; };
+  // ---- 3D: layers arrive one by one into an exploded stack, then settle into the canvas
+  const stack3d = u => {
+    const ex = seg(u, .02, .2) * (1 - seg(u, .74, .96)), H = stack.offsetHeight, nar = innerWidth < 900, sp = nar ? .2 : .3;   // phones: a tighter stack
+    stack.style.transform = `translateY(${(nar ? 16 : 4) * ex}%) scale(${1 - (nar ? .38 : .3) * ex}) rotateX(${58 * ex}deg) rotateZ(${-30 * ex}deg)`;
+    L.forEach((el, i) => { const a = seg(u, .06 + i * .13, .26 + i * .13);
+      el.style.opacity = a; el.style.transform = `translateZ(${(i * sp * H) * ex + (1 - a) * H * 1.1 + i * .5}px)`; el.style.setProperty("--edge", (.7 * ex).toFixed(3)); });
+    labs.forEach((l, i) => { l.style.opacity = ex * seg(u, .14 + i * .13, .26 + i * .13); l.style.transform = `translateY(-50%) rotateZ(${30 * ex}deg) rotateX(${-58 * ex}deg)`; });
+    rows.forEach(r => { const i = ["neb", "stars", "annot", "meta"].indexOf(r.dataset.l); r.classList.toggle("in", u > .2 + i * .13); }); };
+  const flat = () => { stack.style.transform = ""; L.forEach(el => { el.style.opacity = 1; el.style.transform = ""; el.style.setProperty("--edge", 0); }); labs.forEach(l => l.style.opacity = 0); rows.forEach(r => r.classList.add("in")); };
+  const DEMO = [[0, { b: 100, c: 100, s: 100, st: 100 }], [.16, { b: 100, c: 100, s: 100, st: 100 }], [.42, { b: 104, c: 124, s: 100, st: 100 }], [.64, { b: 104, c: 124, s: 138, st: 100 }], [.82, { b: 104, c: 124, s: 138, st: 82 }]];
+  const demo = u => { let i = 0; while (i < DEMO.length - 1 && u > DEMO[i + 1][0]) i++; const [ua, A] = DEMO[i], [ub, B] = DEMO[Math.min(i + 1, DEMO.length - 1)];
+    const f = ub > ua ? ease((u - ua) / (ub - ua)) : 1; setR(Object.fromEntries(Object.keys(A).map(q => [q, Math.round(A[q] + (B[q] - A[q]) * f)])));
+    if (u > .3 && u < .34) eye("annot", false); };
+  // ---- scenes
+  const show = n => { k = n; t0 = performance.now(); scenes.forEach((sc, i) => sc.classList.toggle("on", i === (n === 2 ? 1 : n === 3 ? 2 : n === 0 ? 0 : 1)));
+    steps.forEach((b, i) => { b.classList.toggle("on", i === n); b.classList.toggle("done", i < n); b.style.setProperty("--p", i < n ? 1 : 0); });
+    cap.textContent = CAP[n]; jr.classList.toggle("yours", n === 2 && !playing); jr.classList.toggle("demo", n === 2 && playing);
+    if (n === 0) { if (!vid.src) vid.src = vid.dataset.src; vid.currentTime = 0; if (playing) vid.play().catch(() => {}); } else vid.pause();
+    if (n === 1) { if (playing) { setR({ b: 100, c: 100, s: 100, st: 100 }); ["annot", "meta", "stars", "neb"].forEach(q => eye(q, true)); stack3d(0); } else flat(); }
+    if (n >= 2) flat(); };
+  const tick = now => { raf = requestAnimationFrame(tick); if (!playing || !vis) return;
+    let u; if (k === 0) { const d = vid.duration || 14; u = vid.currentTime / d; if (vid.ended) return next(); }
+    else { u = (now - t0) / DUR[k]; if (u >= 1) return next(); }
+    steps[k].style.setProperty("--p", clamp(u).toFixed(3));
+    if (k === 1) stack3d(clamp(u)); if (k === 2) demo(clamp(u)); };
+  const next = () => show((k + 1) % 4);
+  const stop = () => { playing = false; vid.pause(); playB.textContent = "▶ Play"; playB.setAttribute("aria-label", "Play"); jr.classList.toggle("yours", k === 2); jr.classList.remove("demo"); };
+  const go = () => { playing = true; user = false; playB.textContent = "❚❚ Pause"; playB.setAttribute("aria-label", "Pause"); t0 = performance.now(); if (k === 0) vid.play().catch(() => {}); };
+  playB.addEventListener("click", () => playing ? stop() : (k === 1 ? show(1) : 0, go()));
+  $(".jr-replay", jr).addEventListener("click", () => { go(); show(0); });
+  $$("[data-s]", jr).forEach(b => b.addEventListener("click", () => { const n = +b.dataset.s; if (n === 2) { stop(); show(2); jr.classList.add("yours"); } else { go(); show(n); } }));
+  vid.addEventListener("loadedmetadata", () => { xEl.textContent = `${Math.round(+vid.dataset.real / 60)} real minutes in ${Math.round(vid.duration)} s`; });
+  new IntersectionObserver(es => { vis = es[0].isIntersecting; if (vis && k < 0) show(0); if (!vis) vid.pause(); else if (playing && k === 0) vid.play().catch(() => {}); }, { threshold: .35 }).observe(jr);
+  if (reduce) { playing = false; show(3); } apply(); raf = requestAnimationFrame(tick);
 })();
 
 /* ---------- tutorials: topic chips, version toggle, search ---------- */
