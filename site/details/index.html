@@ -7,7 +7,7 @@
 <meta name="theme-color" content="#04060c">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/site.css?v=202610222200">
+<link rel="stylesheet" href="../css/site.css?v=202610231000">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%2304060c'/%3E%3Cellipse cx='32' cy='32' rx='24' ry='9' fill='none' stroke='%236fd3ff' stroke-width='3' transform='rotate(-25 32 32)'/%3E%3Ccircle cx='32' cy='32' r='7' fill='%23a98bff'/%3E%3C/svg%3E">
 </head>
 <body class="sub">
@@ -19,9 +19,10 @@
   <button class="pm-burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button></div>
 </header>
 <main><section class="page-hero"><div class="wrap reveal">
-  <p class="eyebrow mono">// more details</p><h1>Everything <span class="grad">inside</span>.</h1><p class="lede">The home page is two clicks. This is what happens inside them — and what you get to play with afterwards.</p><nav class="jump" aria-label="On this page"><a href="#features">Features</a><a href="#result">Layers</a><a href="#engine">Engine</a><a href="#pisolver">PiSolver</a><a href="#cameras">Cameras</a><a href="#astromagic">AstroMagic</a><a href="#faq">FAQ</a></nav><div class="hero-cta" style="margin-top:22px"><a class="btn btn-glow" href="../shop/">Get PiMagic 3.2 <small>$119</small></a></div>
+  <p class="eyebrow mono">// more details</p><h1>Everything <span class="grad">inside</span>.</h1><p class="lede">Workflow automation for PixInsight, with an auto-loader for Photoshop. The home page is two clicks — this is what happens inside them, and what you get to play with afterwards.</p><div class="hero-cta" style="margin-top:22px"><a class="btn btn-glow" href="../shop/">Get PiMagic 3.2 <small>$119</small></a></div>
 </div></section>
-<!-- ============ features ============ -->
+<nav class="dtab-nav" aria-label="Details sections"><div class="wrap" role="tablist"><button role="tab" id="tb-features" aria-controls="features" aria-selected="true" data-tab="features">Features</button><button role="tab" id="tb-result" aria-controls="result" aria-selected="false" data-tab="result">Layers</button><button role="tab" id="tb-engine" aria-controls="engine" aria-selected="false" data-tab="engine">Engine</button><button role="tab" id="tb-pisolver" aria-controls="pisolver" aria-selected="false" data-tab="pisolver">PiSolver</button><button role="tab" id="tb-cameras" aria-controls="cameras" aria-selected="false" data-tab="cameras">Cameras</button><button role="tab" id="tb-astromagic" aria-controls="astromagic" aria-selected="false" data-tab="astromagic">AstroMagic</button><button role="tab" id="tb-faq" aria-controls="faq" aria-selected="false" data-tab="faq">FAQ</button></div></nav>
+<div class="dtabs" id="dtabs"><div class="dtab-panel" role="tabpanel" aria-labelledby="tb-features"><!-- ============ features ============ -->
 <section class="sec sec-tight" id="features">
   <div class="wrap">
     <div class="sec-head reveal"><p class="eyebrow mono">// what's inside</p><h2>Complex processing.<br><span class="grad">Made simple.</span></h2></div>
@@ -40,7 +41,7 @@
   </div>
 </section>
 
-<!-- ============ before / after ============ -->
+</div><div class="dtab-panel" role="tabpanel" aria-labelledby="tb-result" hidden><!-- ============ before / after ============ -->
 <section class="sec sec-tight" id="result">
   <div class="wrap">
     <div class="sec-head reveal">
@@ -85,7 +86,7 @@
   </div>
 </section>
 
-<!-- ============ engine ============ -->
+</div><div class="dtab-panel" role="tabpanel" aria-labelledby="tb-engine" hidden><!-- ============ engine ============ -->
 <section class="sec engine" id="engine">
   <canvas id="engineCanvas" aria-hidden="true"></canvas>
   <div class="wrap engine-copy reveal">
@@ -95,7 +96,7 @@
   </div>
 </section>
 
-<!-- ============ PiSolver ============ -->
+</div><div class="dtab-panel" role="tabpanel" aria-labelledby="tb-pisolver" hidden><!-- ============ PiSolver ============ -->
 <section class="sec" id="pisolver">
   <div class="wrap solver-grid">
     <div class="reveal">
@@ -117,7 +118,7 @@
   </div>
 </section>
 
-<!-- ============ cameras ============ -->
+</div><div class="dtab-panel" role="tabpanel" aria-labelledby="tb-cameras" hidden><!-- ============ cameras ============ -->
 <section class="sec" id="cameras">
   <div class="wrap">
     <div class="sec-head reveal"><p class="eyebrow mono">// any camera</p><h2>From a fisheye lens to a deep-sky telescope.</h2><p>Real PiMagic results, one per camera type.</p></div>
@@ -132,7 +133,7 @@
   </div>
 </section>
 
-<!-- ============ AstroMagic ============ -->
+</div><div class="dtab-panel" role="tabpanel" aria-labelledby="tb-astromagic" hidden><!-- ============ AstroMagic ============ -->
 <section class="sec" id="astromagic">
   <div class="wrap am-grid">
     <figure class="am-img glass reveal"><img src="../assets/img/am_gunlock.webp" alt="Gunlock panorama — blended by PiMagic, finished in Photoshop by Craig Stocks" loading="lazy"><figcaption class="mono">Blended by PiMagic · finished in Photoshop by Craig Stocks</figcaption></figure>
@@ -161,7 +162,7 @@
   </div>
 </section>
 
-<!-- ============ FAQ ============ -->
+</div><div class="dtab-panel" role="tabpanel" aria-labelledby="tb-faq" hidden><!-- ============ FAQ ============ -->
 <section class="sec sec-tight" id="faq">
   <div class="wrap"><div class="faq">
     <div class="sec-head reveal"><p class="eyebrow mono">// questions</p><h2>Good to know.</h2></div>
@@ -172,7 +173,7 @@
     <details class="glass"><summary>How do I receive my order?</summary><p>By email, with the download and installation information and your receipt. Nothing arrived? Check your spam folder.</p></details>
   </div></div>
 </section>
-<section class="sec sec-tight"><div class="wrap"><div class="cta-band glass reveal"><div><h2>Two clicks. Then it's yours.</h2><p>Select a folder, press Start. The creativity is yours.</p></div>
+</div></div><section class="sec sec-tight"><div class="wrap"><div class="cta-band glass reveal"><div><h2>Two clicks. Then it's yours.</h2><p>Select a folder, press Start. The creativity is yours.</p></div>
   <div class="hero-cta"><a class="btn btn-glow" href="../shop/">Get PiMagic 3.2 <small>$119</small></a><a class="btn btn-ghost" href="../gallery/">See the gallery</a></div></div></div></section>
 </main><footer class="pm-foot">
   <div class="wrap foot-grid">
@@ -184,6 +185,6 @@
 </footer>
 <div class="modal" id="filmModal" hidden><div class="modal-in"><button class="modal-x" aria-label="Close">✕</button><video controls playsinline preload="none"></video></div></div>
 <div class="modal" id="lightbox" hidden><div class="modal-in lb"><button class="modal-x" aria-label="Close">✕</button><img alt=""><p class="mono"></p></div></div>
-<script src="../js/site.js?v=202610222200" defer></script>
+<script src="../js/site.js?v=202610231000" defer></script>
 </body>
 </html>

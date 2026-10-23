@@ -255,6 +255,21 @@ $$(".player[data-src]").forEach(p => $(".play", p).addEventListener("click", () 
   if (reduce) { playing = false; show(3); } apply(); raf = requestAnimationFrame(tick);
 })();
 
+/* ---------- details page: one section at a time, the menu stays (hash = section) ---------- */
+(() => {
+  const nav = $(".dtab-nav"); if (!nav) return;
+  const B = $$("[data-tab]", nav), P = $$(".dtab-panel");
+  const open = (k, scroll) => { const i = Math.max(0, B.findIndex(b => b.dataset.tab === k));
+    B.forEach((b, j) => b.setAttribute("aria-selected", j === i)); P.forEach((p, j) => p.hidden = j !== i);
+    $$(".reveal", P[i]).forEach(el => el.classList.add("in"));
+    dispatchEvent(new Event("resize"));                                            // canvases and sliders measure themselves again
+    if (scroll) scrollTo({ top: $("#dtabs").getBoundingClientRect().top + scrollY - nav.offsetHeight - parseFloat(getComputedStyle(nav).top), behavior: "instant" });   // the section starts right under the menu
+    const w = $(".wrap", nav); w.scrollLeft = B[i].offsetLeft - w.offsetLeft - 16; };   // phones: the chosen tab stays in sight
+  B.forEach(b => b.addEventListener("click", () => { history.replaceState(null, "", "#" + b.dataset.tab); open(b.dataset.tab, true); }));
+  addEventListener("hashchange", () => open(location.hash.slice(1), true));
+  open(location.hash.slice(1), !!location.hash);
+})();
+
 /* ---------- tutorials: topic chips, version toggle, search ---------- */
 (() => {
   const list = $("#tutorials"); if (!list) return;

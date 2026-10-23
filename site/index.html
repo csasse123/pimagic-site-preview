@@ -12,7 +12,7 @@
 <meta name="theme-color" content="#04060c">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=202610230900">
+<link rel="stylesheet" href="css/site.css?v=202610231000">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%2304060c'/%3E%3Cellipse cx='32' cy='32' rx='24' ry='9' fill='none' stroke='%236fd3ff' stroke-width='3' transform='rotate(-25 32 32)'/%3E%3Ccircle cx='32' cy='32' r='7' fill='%23a98bff'/%3E%3C/svg%3E">
 </head>
 <body>
@@ -47,8 +47,9 @@
   <div class="hero-inner wrap">
     <div class="hero-copy">
       <p class="chip"><span class="dot"></span>New · PiMagic Studio 3.2</p>
+      <p class="what mono">Workflow automation for PixInsight <i>+</i> an auto-loader for Photoshop</p>
       <h1>Astrophotography.<br><span class="grad">Made simple.</span></h1>
-      <p class="lede">Select a folder. Press Start. PiMagic Studio reads your data, configures itself and does the routine processing — calibration, stacking, colour, even mosaics. Your time goes where it matters: <b class="hl">the creativity.</b></p>
+      <p class="lede">Select a folder. Press Start. PiMagic Studio runs the whole PixInsight workflow for you — calibration, stacking, colour, mosaics, plate solving and annotation — then hands your layers to Photoshop. Your time goes where it matters: <b class="hl">the creativity.</b></p>
       <div class="hero-cta">
         <a class="btn btn-glow" href="shop/">Get PiMagic 3.2 <small>$119</small></a>
         <a class="btn btn-ghost" href="#start">See how it works <span aria-hidden="true">↓</span></a>
@@ -103,7 +104,7 @@
         </div>
         <p class="start-note">Beside it: a real run, recorded by Craig Stocks on his own IC 405 data — no staging, no hand edits. The film shows a whole run in 30 seconds. <button class="link-arrow" data-film="long">Or watch the 75-second tour →</button></p>
         <ul class="trio-mini">
-          <li><b>Simple.</b> Point it at a folder; that's the input.</li>
+          <li><b>Simple.</b> Select a folder; that's the input.</li>
           <li><b>Automatic.</b> Every routine step, done for you.</li>
           <li><b>Creative.</b> Finish in Photoshop or any tool you love.</li>
         </ul>
@@ -124,7 +125,7 @@
         <li><span>Calibration</span><b>masters matched from your library</b></li>
         <li><span>Target</span><b>IC 405 Flaming Star · found</b></li>
         <li><span>Route</span><b>deep sky · narrowband + RGB</b></li>
-        <li><span>Outputs</span><b>RGB · HOO · SHO · layers</b></li>
+        <li><span>Outputs</span><b>RGB · HOO · SHO · annotation · layers</b></li>
       </ul>
       <p class="det-go mono"><i></i>Processing path decided — ready for Start</p>
     </div>
@@ -186,6 +187,28 @@
       <a class="vt reveal" href="gallery/#solved"><img src="assets/img/solve_orion_annot.webp" alt="" loading="lazy"><span class="mono">Solved &amp; annotated</span></a>
     </div>
     <p class="center reveal"><a class="btn btn-ghost" href="gallery/">See the gallery →</a></p>
+  </div>
+</section>
+
+<!-- ============ PiSolver + annotation, a result of every run ============ -->
+<section class="sec sec-tight" id="solver">
+  <div class="wrap solver-home">
+    <figure class="ba ba-solve-h glass reveal" data-start="0.5">
+      <img class="ba-after" src="assets/img/solve_orion_annot.webp" alt="Orion mosaic, solved and annotated by PiSolver" loading="lazy">
+      <div class="ba-before"><img src="assets/img/solve_orion.webp" alt="Orion mosaic" loading="lazy"></div>
+      <div class="ba-handle" role="slider" tabindex="0" aria-label="Show the annotation" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><span></span></div>
+      <span class="ba-tag ba-tag-l mono">Your image</span><span class="ba-tag ba-tag-r mono">Solved &amp; annotated</span>
+    </figure>
+    <div class="reveal">
+      <p class="eyebrow mono">// PiSolver · included</p>
+      <h2>It knows where you pointed.<br><span class="grad">And names what it sees.</span></h2>
+      <ul class="ticks">
+        <li>Our own blind solver: no target, telescope or camera details needed — it finds the field in seconds</li>
+        <li>Linear or stretched, any format: FITS, XISF, camera RAW, TIFF, PNG, JPEG</li>
+        <li>Every run delivers the annotation as its own layer: object names, coordinate grid and the image's metadata</li>
+      </ul>
+      <a class="link-arrow" href="details/#pisolver">More about PiSolver →</a>
+    </div>
   </div>
 </section>
 
@@ -280,8 +303,8 @@
       <h2>More nights imaging.<br>More time creating.</h2>
       <ul class="ticks">
         <li>PiMagic 3.2 — select a folder, press Start · Smart and Expert mode</li>
-        <li>PiSolver — blind solving and annotation, built in</li>
-        <li>AstroMagic for Photoshop — your results as organised layers</li>
+        <li>PiSolver — our blind solver and annotator, built in</li>
+        <li>AstroMagic — the auto-loader for Photoshop: your results as organised layers</li>
         <li>Mac, Windows, Linux · requires PixInsight 1.9.5</li>
       </ul>
       <p class="links-row"><a class="link-arrow" href="details/">Everything inside →</a><a class="link-arrow" href="gallery/">The gallery →</a><a class="link-arrow" href="tutorials/">Tutorials →</a></p>
@@ -309,6 +332,6 @@
 <div class="modal" id="filmModal" hidden><div class="modal-in"><button class="modal-x" aria-label="Close">✕</button><video controls playsinline preload="none"></video></div></div>
 <div class="modal" id="lightbox" hidden><div class="modal-in lb"><button class="modal-x" aria-label="Close">✕</button><img alt=""><p class="mono"></p></div></div>
 
-<script src="js/site.js?v=202610230900" defer></script>
+<script src="js/site.js?v=202610231000" defer></script>
 </body>
 </html>

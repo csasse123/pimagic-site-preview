@@ -65,3 +65,9 @@ The section is a player (site.js "Elephant Trunk player"): 1 the run film - 2 th
 annotation, metadata) fly into a Photoshop window in 3D and settle, the Layers panel fills - 3 global-adjustment sliders that really
 change the picture (CSS filters on the starless layer, star layer opacity), an automatic demo, then "your turn"; layer eyes work -
 4 Craig's finish. Autoplays when in view, loops; any slider touch pauses it.
+
+## 23 Oct 2026, later - Craig and Deb's notes
+Details page: one section at a time under a sticky menu (site.js "details page" block, hash = section, e.g. details/#pisolver;
+build_pages.details() wraps each section of tools/pages/details_body.html in a .dtab-panel). Home: "Workflow automation for
+PixInsight + an auto-loader for Photoshop" above the headline, lede names plate solving and annotation; new #solver block (Orion
+plain vs solved & annotated, PiSolver points) before the Elephant player. "Select a folder" everywhere (never "point it at").

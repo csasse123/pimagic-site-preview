@@ -7,7 +7,7 @@ import os, re, shutil, subprocess, json, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import build_pages
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = os.path.join(HERE, "site"); OUT = os.path.join(HERE, "wp", "pimagic-site")
-VERSION = "1.2.0"
+VERSION = "1.3.0"
 PAGES = {"home": "index.html", "details": "details/index.html", "gallery": "gallery/index.html", "tutorials": "tutorials/index.html", "testimonials": "testimonials/index.html", "shop": "shop/index.html", "contact": "contact/index.html"}
 LINKS = {"details": "details/", "gallery": "gallery/", "shop": "shop/", "tutorials": "about/", "testimonials": "testimonials/", "contact": "contact/"}
 
@@ -182,7 +182,7 @@ if ($page === 'tutorials' && ($t = pms_tutorials())) {
 }
 if ($page === 'contact') $form = do_shortcode('[wpforms id="' . (int) get_option('pms_form_id', 63) . '" title="false" description="false"]');   // before wp_head: its styles load in the head
 ob_start(); wp_head(); $head = ob_get_clean();
-if (is_admin_bar_showing()) $head .= '<style>.pm-nav{top:32px!important}@media (max-width:782px){.pm-nav{top:46px!important}}</style>';
+if (is_admin_bar_showing()) $head .= '<style>.pm-nav{top:32px!important}.dtab-nav{top:90px!important}@media (max-width:782px){.pm-nav{top:46px!important}.dtab-nav{top:104px!important}}</style>';
 ob_start(); wp_footer(); $foot = ob_get_clean();
 echo str_replace(
 	array('{{BASE}}', '{{HOME}}', '{{WP_HEAD}}', '{{WP_FOOTER}}', '{{CONTACT_FORM}}'),
