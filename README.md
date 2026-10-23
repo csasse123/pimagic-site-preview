@@ -73,3 +73,10 @@ PixInsight + an auto-loader for Photoshop" above the headline, lede names plate 
 plain vs solved & annotated, PiSolver points) before the Elephant player. "Select a folder" everywhere (never "point it at").
 
 Mosaic block (23 Oct, Craig): no longer scroll-driven - it plays by itself like a GIF (9 s found -> placed -> matched -> blended, 3 s hold, loop, only while in view); the section is normal height, so the page scrolls straight past it.
+
+## 23 Oct 2026 - "Why layers" (Craig: the player's Stars slider does not exist in the product; give the sliders their own section)
+Player trimmed to three steps (run film, layers into Photoshop in 3D, Craig's finish); its Properties sliders are gone. New block
+#layers before the speed run: a simplified Photoshop with Craig's pieces (sources/craig_elephant_pieces_2026-10-23: Red-Sulfur,
+Green-Hydrogen, Blue-Oxygen, Stars, Annotations, made to be combined in Screen mode; tools/build_layers_demo.py -> ly_*.webp
+1152x1440 + thumbnails). Layers palette: show checkbox + name, indented "Intensity" slider 0-200 % (CSS brightness on that layer,
+mix-blend-mode screen over black), Reset. On phones the picture stays pinned while you scroll the palette.

@@ -12,7 +12,7 @@
 <meta name="theme-color" content="#04060c">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=202610231100">
+<link rel="stylesheet" href="css/site.css?v=202610231200">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%2304060c'/%3E%3Cellipse cx='32' cy='32' rx='24' ry='9' fill='none' stroke='%236fd3ff' stroke-width='3' transform='rotate(-25 32 32)'/%3E%3Ccircle cx='32' cy='32' r='7' fill='%23a98bff'/%3E%3C/svg%3E">
 </head>
 <body>
@@ -216,11 +216,11 @@
 <section class="sec" id="journey">
   <div class="wrap">
     <div class="sec-head reveal"><p class="eyebrow mono">// one image, start to finish</p><h2>From Start to <span class="grad">your finish</span>.</h2>
-      <p>A real PiMagic run on Craig Stocks' Elephant Trunk data, sped up — then into Photoshop. It plays by itself; click any step, or take the sliders yourself.</p></div>
+      <p>A real PiMagic run on Craig Stocks' Elephant Trunk data, sped up — then into Photoshop and on to Craig's finish. It plays by itself; click any step.</p></div>
     <div class="jr reveal" id="jr">
       <ol class="jr-steps mono">
         <li><button data-s="0"><b>1</b>PiMagic runs</button></li><li><button data-s="1"><b>2</b>Into Photoshop</button></li>
-        <li><button data-s="2"><b>3</b>Your sliders</button></li><li><button data-s="3"><b>4</b>Your finish</button></li>
+        <li><button data-s="2"><b>3</b>Your finish</button></li>
       </ol>
       <div class="jr-stage glass">
         <div class="jr-scene jr-run">
@@ -240,14 +240,6 @@
               </div>
             </div>
             <div class="ps-panels">
-              <div class="ps-panel ps-props">
-                <h4 class="mono">Properties · Global adjustments</h4>
-                <label>Brightness<input type="range" min="60" max="140" value="100" data-k="b"><output>0</output></label>
-                <label>Contrast<input type="range" min="30" max="170" value="100" data-k="c"><output>0</output></label>
-                <label>Saturation<input type="range" min="0" max="200" value="100" data-k="s"><output>0</output></label>
-                <label>Stars<input type="range" min="50" max="150" value="100" data-k="st"><output>0</output></label>
-                <p class="ps-hint mono">Your turn — drag a slider</p>
-              </div>
               <div class="ps-panel ps-layers">
                 <h4 class="mono">Layers</h4>
                 <ul>
@@ -264,13 +256,44 @@
           <img src="assets/img/el_craig.webp" alt="The Elephant Trunk, finished in Photoshop by Craig Stocks" loading="lazy">
           <div class="jr-fin-copy"><p class="eyebrow mono">// your finish</p><h3>Finished by Craig Stocks.</h3>
             <p>Same data, same layers — a few minutes of sliders in Photoshop. The routine took no effort; the time went into the art.</p>
-            <button class="btn btn-ghost btn-sm" data-s="2">Try the sliders yourself</button></div>
+            <a class="btn btn-ghost btn-sm" href="#layers">Try the layers yourself ↓</a></div>
         </div>
       </div>
       <div class="jr-foot"><p class="jr-cap"></p><div class="jr-ctl"><button class="jr-play mono" aria-label="Pause">❚❚ Pause</button><button class="jr-replay mono">↺ Replay</button></div></div>
     </div>
   </div>
 </section>
+<!-- ============ why layers: a simplified Photoshop with Craig's Elephant Trunk layers (Screen mode) ============ -->
+<section class="sec" id="layers">
+  <div class="wrap">
+    <div class="sec-head reveal"><p class="eyebrow mono">// why layers</p><h2>Every part of the image, <span class="grad">on its own layer</span>.</h2>
+      <p>This is the idea behind PiMagic and AstroMagic: each filter, the stars and the annotation arrive as separate layers, combined in Screen mode. Switch any of them off, turn its intensity up or down — and see why processing in layers gives you control.</p></div>
+    <div class="lyps glass reveal">
+      <div class="ps-bar mono"><i></i><i></i><i></i><span>Elephant_Trunk_SHO.psd — Layers</span></div>
+      <div class="lyps-body">
+        <div class="lyps-canvas"><div class="ly-stack"><img class="ly ly-sii" src="assets/img/ly_sii.webp" alt="" loading="lazy"><img class="ly ly-ha" src="assets/img/ly_ha.webp" alt="" loading="lazy"><img class="ly ly-oiii" src="assets/img/ly_oiii.webp" alt="" loading="lazy"><img class="ly ly-stars" src="assets/img/ly_stars.webp" alt="" loading="lazy"><img class="ly ly-annot" src="assets/img/ly_annot.webp" alt="" loading="lazy"></div></div>
+        <div class="lyps-panel">
+          <div class="lyps-head mono"><span>Layers</span><span>Screen</span></div>
+          <ul class="ly-list">
+            <li data-ly="annot"><label class="ly-name"><input type="checkbox" checked aria-label="Show Annotations"><img src="assets/img/ly_annot_t.webp" alt=""><span>Annotations</span></label>
+              <label class="ly-int"><span>Intensity</span><input type="range" min="0" max="200" value="100" aria-label="Annotations intensity"><output>100%</output></label></li>
+            <li data-ly="stars"><label class="ly-name"><input type="checkbox" checked aria-label="Show Stars"><img src="assets/img/ly_stars_t.webp" alt=""><span>Stars</span></label>
+              <label class="ly-int"><span>Intensity</span><input type="range" min="0" max="200" value="100" aria-label="Stars intensity"><output>100%</output></label></li>
+            <li data-ly="oiii"><label class="ly-name"><input type="checkbox" checked aria-label="Show Blue · Oxygen (OIII)"><img src="assets/img/ly_oiii_t.webp" alt=""><span>Blue · Oxygen (OIII)</span></label>
+              <label class="ly-int"><span>Intensity</span><input type="range" min="0" max="200" value="100" aria-label="Blue · Oxygen (OIII) intensity"><output>100%</output></label></li>
+            <li data-ly="ha"><label class="ly-name"><input type="checkbox" checked aria-label="Show Green · Hydrogen (Hα)"><img src="assets/img/ly_ha_t.webp" alt=""><span>Green · Hydrogen (Hα)</span></label>
+              <label class="ly-int"><span>Intensity</span><input type="range" min="0" max="200" value="100" aria-label="Green · Hydrogen (Hα) intensity"><output>100%</output></label></li>
+            <li data-ly="sii"><label class="ly-name"><input type="checkbox" checked aria-label="Show Red · Sulfur (SII)"><img src="assets/img/ly_sii_t.webp" alt=""><span>Red · Sulfur (SII)</span></label>
+              <label class="ly-int"><span>Intensity</span><input type="range" min="0" max="200" value="100" aria-label="Red · Sulfur (SII) intensity"><output>100%</output></label></li>
+          </ul>
+          <button class="ly-reset mono">↺ Reset</button>
+        </div>
+      </div>
+    </div>
+    <p class="mono small reveal" style="margin-top:12px">Layers prepared by Craig Stocks · Elephant Trunk, SHO · Utah Desert Remote Observatories</p>
+  </div>
+</section>
+
 <section class="sec sec-tight" id="speedrun">
   <div class="wrap speed-grid">
     <figure class="speed glass reveal"><img src="assets/img/speedrun.webp" alt="Craig Stocks' speed run: in 2023, about fifteen manual steps before processing could begin; in 2026, blink the subs, PiMagic Studio, begin processing" loading="lazy"><figcaption class="mono">Craig Stocks' speed run · Elephant Trunk · Utah Desert Remote Observatories</figcaption></figure>
@@ -332,6 +355,6 @@
 <div class="modal" id="filmModal" hidden><div class="modal-in"><button class="modal-x" aria-label="Close">✕</button><video controls playsinline preload="none"></video></div></div>
 <div class="modal" id="lightbox" hidden><div class="modal-in lb"><button class="modal-x" aria-label="Close">✕</button><img alt=""><p class="mono"></p></div></div>
 
-<script src="js/site.js?v=202610231100" defer></script>
+<script src="js/site.js?v=202610231200" defer></script>
 </body>
 </html>
