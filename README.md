@@ -104,3 +104,5 @@ while WordPress is still parsing never fired -> the loader runs each block after
 tools/build_blocks_docs.py: INSTRUCTIONS.html/.txt, .txt copies of every block, fonts-and-colours CSS for native blocks (Craig:
 WP uses Roboto Flex, blocks bring Inter/Space Grotesk/JetBrains Mono). Test: launch config "wp-blocks-test" (wp-test/blocks/
 blueprint.json builds Home V3.2, details, gallery from the kit). Dropbox: "PiMagic Studio - Website Blocks for Craig".
+
+25 Oct (Craig): Details > Engine = fixed-height two-cell grid, centred on one line (stacked on phones, fixed network height); Linux removed everywhere (Mac and Windows only). Plugin 1.5.4, block kit 1.0.2.

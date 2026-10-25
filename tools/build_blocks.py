@@ -5,7 +5,7 @@
 #   python3 tools/build_blocks.py
 import os, re, shutil, subprocess, html as H
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); SITE = os.path.join(HERE, "site")
-OUT = os.path.join(HERE, "exports", "pimagic-block-kit"); KITVER = "1.0.1"
+OUT = os.path.join(HERE, "exports", "pimagic-block-kit"); KITVER = "1.0.2"
 ASSETS = "/wp-content/plugins/pimagic-block-assets/"                         # root-relative: works on the live site and on staging
 LINKS = {"buy": "/downloads/pimagic-studio-version-3/", "details": "/details/", "gallery": "/gallery/", "tutorials": "/about/",
          "testimonials": "/testimonials/", "contact": "/contact/"}

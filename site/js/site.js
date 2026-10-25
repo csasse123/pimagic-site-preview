@@ -98,7 +98,7 @@ $$(".player[data-src]").forEach(p => $(".play", p).addEventListener("click", () 
   new IntersectionObserver(es => { vis = es[0].isIntersecting; if (vis) { t0 = performance.now(); requestAnimationFrame(draw); } }, { threshold: .05 }).observe(c);
   c.parentElement.addEventListener("pointermove", e => { const r = c.getBoundingClientRect(); mx = (e.clientX - r.left) / r.width; my = (e.clientY - r.top) / r.height; });
   function draw(now) {
-    if (!vis) return; const wide = innerWidth > 900, t = (now - t0) / 1000, cx = w * (wide ? .73 : .5), cy = h * (wide ? .4 : .3), R = Math.min(w * (wide ? .14 : .24), h * (wide ? .36 : .2));
+    if (!vis) return; const wide = innerWidth > 900, t = (now - t0) / 1000, cx = w * .5, cy = h * .5, R = Math.min(w * (wide ? .27 : .25), h * .3);   // the network fills its own box, centred
     g.clearRect(0, 0, w, h);
     const P = N.map((n, i) => { const a = i / N.length * 6.283 + t * .05 + (mx - .5) * .4, rr = R * (1 + .16 * Math.sin(i * 1.7));
       return [cx + Math.cos(a) * rr * 1.25, cy + Math.sin(a) * rr * .72 + (my - .5) * 20 * dpr]; });

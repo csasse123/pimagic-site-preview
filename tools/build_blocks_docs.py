@@ -32,7 +32,7 @@ table{{width:100%;border-collapse:collapse;margin-top:8px}} td{{border-top:1px s
 ol li,ul li{{margin:6px 0}} pre{{background:#0a0f1a;border:1px solid var(--line);border-radius:8px;padding:12px;overflow:auto;font-size:13px}}
 </style></head><body><div class="w">
 <h1>PiMagic Studio Block Kit</h1>
-<p class="small">For Craig · version 1.0.1 · 24 Oct 2026 · builds the new home page, Details and Gallery in WordPress so they look exactly like the preview (csasse123.github.io/pimagic-site-preview)</p>
+<p class="small">For Craig · version 1.0.2 · 25 Oct 2026 · builds the new home page, Details and Gallery in WordPress so they look exactly like the preview (csasse123.github.io/pimagic-site-preview)</p>
 
 <div class="box"><b>What's in the kit</b><ul>
 <li><code>pimagic-block-assets.zip</code> — a tiny plugin that only holds the images and films (it changes no page and adds no settings).</li>
@@ -86,7 +86,7 @@ Every block is complete in itself: design and behaviour are inside it, and the t
 open(os.path.join(OUT, "INSTRUCTIONS.html"), "w").write(DOC)
 txt = subprocess.run(["textutil", "-convert", "txt", "-stdout", os.path.join(OUT, "INSTRUCTIONS.html")], capture_output=True, text=True).stdout
 open(os.path.join(OUT, "INSTRUCTIONS.txt"), "w").write(txt)
-z = os.path.join(HERE, "exports", "pimagic-block-kit-1.0.1.zip")
+z = os.path.join(HERE, "exports", "pimagic-block-kit-1.0.2.zip")
 if os.path.exists(z): os.remove(z)
 subprocess.run(["zip", "-qr", "-X", z, "pimagic-block-kit", "-x", "pimagic-block-kit/_build/*", "pimagic-block-kit/pimagic-block-assets.zip", "*.DS_Store"], cwd=os.path.join(HERE, "exports"), check=True)
 print("kit zip", os.path.getsize(z) // 1024, "KB")

@@ -12,7 +12,7 @@
       <article class="card glass reveal span2"><i class="ic">✦</i><h3>Deblur · Denoise · Star separation</h3><p>Sharper detail, cleaner backgrounds, and a starless layer plus a stars layer for your own finishing. Uses RC-Astro's BlurXTerminator, NoiseXTerminator and StarXTerminator when they are installed.</p></article>
       <article class="card glass reveal"><i class="ic">▣</i><h3>Ready for Photoshop</h3><p>Finished TIFFs, and AstroMagic builds the layer groups for you.</p></article>
       <article class="card glass reveal"><i class="ic">≡</i><h3>Every run documented</h3><p>A report and previews for every run, so you always know what was done.</p></article>
-      <article class="card glass reveal"><i class="ic">⌘</i><h3>On your computer</h3><p>Runs on Mac, Windows and Linux, built on PixInsight 1.9.5. Your data never leaves your computer.</p></article>
+      <article class="card glass reveal"><i class="ic">⌘</i><h3>On your computer</h3><p>Runs on Mac and Windows, built on PixInsight 1.9.5. Your data never leaves your computer.</p></article>
     </div>
   </div>
 </section>
@@ -64,13 +64,16 @@
 
 <!-- ============ engine ============ -->
 <section class="sec engine" id="engine">
-  <canvas id="engineCanvas" aria-hidden="true"></canvas>
-  <div class="wrap engine-copy reveal">
-    <p class="eyebrow mono">// the engine underneath</p>
-    <h2>Every routine step, one button<br><span class="grad">Your time goes to the art</span></h2>
-    <p>Underneath, PiMagic's own tools and PixInsight's proven processes run every routine step and make the decisions a seasoned imager would — so you don't have to.</p>
+  <div class="wrap engine-grid">
+    <div class="engine-copy reveal">
+      <p class="eyebrow mono">// the engine underneath</p>
+      <h2>Every routine step, one button<br><span class="grad">Your time goes to the art</span></h2>
+      <p>Underneath, PiMagic's own tools and PixInsight's proven processes run every routine step and make the decisions a seasoned imager would — so you don't have to.</p>
+    </div>
+    <div class="engine-viz"><canvas id="engineCanvas" aria-hidden="true"></canvas></div>
   </div>
 </section>
+
 
 <!-- ============ PiSolver ============ -->
 <section class="sec" id="pisolver">
@@ -143,7 +146,7 @@
   <div class="wrap"><div class="faq">
     <div class="sec-head reveal"><p class="eyebrow mono">// questions</p><h2>Good to know</h2></div>
     <details class="glass" open><summary>Do I need to know PixInsight?</summary><p>No. PixInsight is the engine under the hood — PiMagic runs it for you. Select a folder, press Start. (Know PixInsight already? Expert mode opens every setting.)</p></details>
-    <details class="glass"><summary>What do I need?</summary><p>PixInsight 1.9.5 on Mac, Windows or Linux. RC-Astro's BlurXTerminator, NoiseXTerminator and StarXTerminator are used when installed (on Mac also the free RC-Astro command-line tool). Photoshop is needed only for AstroMagic.</p></details>
+    <details class="glass"><summary>What do I need?</summary><p>PixInsight 1.9.5 on Mac or Windows. RC-Astro's BlurXTerminator, NoiseXTerminator and StarXTerminator are used when installed (on Mac also the free RC-Astro command-line tool). Photoshop is needed only for AstroMagic.</p></details>
     <details class="glass"><summary>How is it installed?</summary><p>PiMagic installs through the PixInsight repository; the download email has the details and an installation guide. If a download or licence activation is blocked, your firewall or antivirus is the usual cause — pause it briefly to complete the installation.</p></details>
     <details class="glass"><summary>Which cameras and filters work?</summary><p>Mono and one-shot-colour astro cameras, DSLRs and mirrorless cameras, smart telescopes and fisheye lenses; L, R, G, B, Hα, OIII, SII and dual-band filters.</p></details>
     <details class="glass"><summary>Do I lose control?</summary><p>No — that is the point. PiMagic takes over the routine; the creative decisions stay yours. Smart mode decides the processing for you, Expert mode opens every setting, and the results are clean layered files you finish as you like.</p></details>
