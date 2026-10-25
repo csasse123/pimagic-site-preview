@@ -5,7 +5,7 @@
 #   python3 tools/build_blocks.py
 import os, re, shutil, subprocess, html as H
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); SITE = os.path.join(HERE, "site")
-OUT = os.path.join(HERE, "exports", "pimagic-block-kit"); KITVER = "1.0"
+OUT = os.path.join(HERE, "exports", "pimagic-block-kit"); KITVER = "1.0.1"
 ASSETS = "/wp-content/plugins/pimagic-block-assets/"                         # root-relative: works on the live site and on staging
 LINKS = {"buy": "/downloads/pimagic-studio-version-3/", "details": "/details/", "gallery": "/gallery/", "tutorials": "/about/",
          "testimonials": "/testimonials/", "contact": "/contact/"}
@@ -66,7 +66,11 @@ BASECSS = (".pms{background:var(--bg);width:100vw!important;max-width:100vw!impo
            ".pms h1,.pms h2,.pms h3{color:var(--text);text-transform:none;padding:0;background:none;border:0}"
            ".pms p{font-family:var(--body)}.pms ul,.pms ol{margin-top:0}.pms li{list-style:inherit}.pms img{height:auto;border:0;box-shadow:none}"
            ".pms a:focus,.pms button:focus{outline-offset:2px}.pms figure{margin:0}.pms input[type=range]{background:transparent;border:0;box-shadow:none}"
-           ".pms button{box-shadow:none;text-transform:none;letter-spacing:inherit;min-height:0;border-radius:inherit}")
+           ".pms button{box-shadow:none;text-transform:none;letter-spacing:inherit;min-height:0;border-radius:inherit}"
+           # a theme or page rule like  body a { color: ... !important }  must not recolour our buttons and links (Craig's page, 24 Oct)
+           ".pms a.btn-glow{color:#061018!important}.pms a.btn-ghost,.pms a.vt,.pms a.pm-logo{color:var(--text)!important}"
+           ".pms a.link-arrow,.pms .links a,.pms a.tut-link{color:var(--cyan)!important}.pms .jump a{color:var(--mute)!important}"
+           ".pms a{text-decoration:none}")
 
 # ------------------------------------------------------------------ JS: split site.js at its section markers
 js_src = open(os.path.join(SITE, "js/site.js")).read()
