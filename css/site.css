@@ -389,7 +389,7 @@ p{margin:0 0 1em;color:var(--mute)} .small{font-size:14px;color:var(--dim)}
 .gsec{padding-top:46px;scroll-margin-top:80px} .gsec .topic-head{margin-bottom:20px}
 .layers-fig{margin:28px 0 0;padding:0;overflow:hidden} .layers-fig img{width:100%} .layers-fig figcaption{font-size:11.5px;color:var(--mute);padding:12px 16px}
 .ba-ps{aspect-ratio:2560/1437}
-.sub .engine{min-height:70vh}
+.sub .engine{min-height:0}
 .h3big{font-size:clamp(26px,3vw,40px)}
 .btn-glow small{color:rgba(6,16,24,.62);font-weight:600}
 .cred{display:grid;grid-template-columns:repeat(2,max-content);gap:10px 34px;padding-top:20px;border-top:1px solid var(--line);max-width:600px}
@@ -535,3 +535,11 @@ p{margin:0 0 1em;color:var(--mute)} .small{font-size:14px;color:var(--dim)}
 .hood i{font-style:normal;color:var(--mint);font-size:17px;line-height:1.4}
 .hood-sm{margin-top:20px;font-size:14px}
 .hood b{color:var(--text);font-weight:600}
+
+/* engine: text and network are two cells of one grid with the same fixed height, centred on the same line (Craig, 25 Oct) */
+.engine{display:block;min-height:0;overflow:visible;padding:clamp(48px,6vw,90px) 0}
+.engine-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:40px;align-items:center;height:clamp(380px,46vw,520px)}
+.engine-copy{position:static;max-width:none;padding:0;align-self:center}
+.engine-viz{position:relative;height:100%;min-width:0}
+#engineCanvas{position:absolute;inset:0;width:100%;height:100%}
+@media (max-width:900px){.engine-grid{grid-template-columns:1fr;height:auto;gap:8px}.engine-viz{height:min(92vw,420px)}}
