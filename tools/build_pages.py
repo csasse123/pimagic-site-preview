@@ -17,7 +17,7 @@ def head(title, desc):
 <meta name="theme-color" content="#04060c">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/site.css?v=202610250900">
+<link rel="stylesheet" href="../css/site.css?v=202610261000">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%2304060c'/%3E%3Cellipse cx='32' cy='32' rx='24' ry='9' fill='none' stroke='%236fd3ff' stroke-width='3' transform='rotate(-25 32 32)'/%3E%3Ccircle cx='32' cy='32' r='7' fill='%23a98bff'/%3E%3C/svg%3E">
 </head>
 <body class="sub">
@@ -46,7 +46,7 @@ FOOT = f"""<footer class="pm-foot">
 </footer>
 <div class="modal" id="filmModal" hidden><div class="modal-in"><button class="modal-x" aria-label="Close">✕</button><video controls playsinline preload="none"></video></div></div>
 <div class="modal" id="lightbox" hidden><div class="modal-in lb"><button class="modal-x" aria-label="Close">✕</button><img alt=""><p class="mono"></p></div></div>
-<script src="../js/site.js?v=202610250900" defer></script>
+<script src="../js/site.js?v=202610261000" defer></script>
 </body>
 </html>
 """
@@ -61,7 +61,7 @@ TOPICS = [
   ("start", "Getting started", "Install PiMagic Studio and meet the workflow."),
   ("modes", "Smart & Expert mode", "Let PiMagic decide, or take control."),
   ("mosaic", "Mosaics & nightscapes", "Multi-pane mosaics and wide-field landscapes."),
-  ("colour", "Colour", "Colour calibration and narrowband palettes."),
+  ("color", "Color", "Color calibration and narrowband palettes."),
   ("layers", "AstroMagic: the layer structure", "Every group and layer AstroMagic builds in Photoshop, explained."),
   ("walk", "Walkthroughs by camera & filter", "Follow along from raw data to a finished image."),
   ("ps101", "Photoshop 101", "The Photoshop basics behind a non-destructive astro workflow."),
@@ -74,23 +74,23 @@ T = [  # (topic, title, youtube id, date, post slug, description)
   ("modes", "Expert Mode", "bxBqzyOlXw4", "2026-04-06", "expert-mode", "Open up every control and set the process and parameters yourself."),
   ("mosaic", "Mosaics", "dwVPENorFSY", "2026-04-07", "installation-2", "Mosaic processing with PiMagic and AstroMagic, from panes to a finished mosaic."),
   ("mosaic", "Nightscapes", "mmb9T0s3TUc", "2026-04-06", "nightscapes", "Processing a nightscape with PiMagic Studio and AstroMagic."),
-  ("colour", "How Important are SPCC Settings?", "G12Ny35ZLKc", "2026-01-28", "how-important-are-spcc-settings", "Generic versus exact filter and sensor settings for colour calibration — tested."),
-  ("colour", "Monochrome Narrowband Color Mapping", "tOVkoOCI0HM", "2026-04-06", "monochrome-narrowband-color-mapping", "Choosing a narrowband palette — SHO (Hubble) is AstroMagic's default."),
+  ("color", "How Important are SPCC Settings?", "G12Ny35ZLKc", "2026-01-28", "how-important-are-spcc-settings", "Generic versus exact filter and sensor settings for color calibration — tested."),
+  ("color", "Monochrome Narrowband Color Mapping", "tOVkoOCI0HM", "2026-04-06", "monochrome-narrowband-color-mapping", "Choosing a narrowband palette — SHO (Hubble) is AstroMagic's default."),
   ("layers", "AstroMagic Panel Overview", "TM3jfj0psJY", "2026-01-02", "astromagic-panel-overview", "The tools built into the AstroMagic panel for Photoshop."),
   ("layers", "AstroMagic Standard Layer Structure", "8r36oWO_5nY", "2026-01-02", "astromagic-standard-layer-structure", "The Photoshop layer structure AstroMagic creates for you."),
   ("layers", "Layer Groups", "YCUfd7zgOTw", "2026-04-06", "layer-groups", "The same layer structure in every image, so you always find your way around."),
-  ("layers", "Global Adjustments", "PJK_hBoeXrY", "2026-04-06", "global-adjustments", "Brightness, contrast and colour for the whole image — without touching the stars."),
-  ("layers", "Color Adjustments", "2xv7tY2Chys", "2026-04-06", "color-adjustments", "Every colour layer group shares one structure, so adjustments feel familiar."),
+  ("layers", "Global Adjustments", "PJK_hBoeXrY", "2026-04-06", "global-adjustments", "Brightness, contrast and color for the whole image — without touching the stars."),
+  ("layers", "Color Adjustments", "2xv7tY2Chys", "2026-04-06", "color-adjustments", "Every color layer group shares one structure, so adjustments feel familiar."),
   ("layers", "Stars", "3QpG8jKmpBI", "2026-04-06", "stars", "Stars live in their own group: balance them against everything else."),
   ("layers", "Annotation Layers", "GL7a9DlGBA4", "2026-04-06", "annotation-layers", "The three annotation layers and how to fine-tune them."),
   ("layers", "Metadata Text Panel", "ylpB4B8FvHc", "2026-04-06", "metadata-text-panel", "Filters, integration time and more, in an editable metadata group."),
-  ("walk", "One-Shot Color", "rTkf21V_ETI", "2026-01-02", "astromagic-one-shot-color", "A simple image from a one-shot colour camera, start to finish."),
-  ("walk", "Dual-Narrowband", "65hFFslXmDI", "2026-01-02", "astromagic-dual-narrowband", "One-shot colour with a clear filter plus a dual-narrowband filter."),
+  ("walk", "One-Shot Color", "rTkf21V_ETI", "2026-01-02", "astromagic-one-shot-color", "A simple image from a one-shot color camera, start to finish."),
+  ("walk", "Dual-Narrowband", "65hFFslXmDI", "2026-01-02", "astromagic-dual-narrowband", "One-shot color with a clear filter plus a dual-narrowband filter."),
   ("walk", "LRGB", "BTbZtp0AwME", "2026-01-02", "astromagic-lrgb", "A monochrome camera with a typical LRGB filter set."),
   ("walk", "SHO", "HaRSE1Gi7IU", "2026-01-02", "astromagic-sho", "SHO filters on a monochrome camera: a Hubble-palette image."),
   ("walk", "LRGB + Hα with Continuum Subtraction", "2CNh6D64DPk", "2026-01-02", "astromagic-lrgbha-continuum-subtraction", "LRGB plus Hα, with red continuum subtraction to clean up the Hα."),
   ("ps101", "The Photoshop Advantage", "DWEC38h3e0E", "2025-12-31", "the-photoshop-advantage", "Why Photoshop's tools are so useful for astro images."),
-  ("ps101", "Workspace", "yAf7ZRzzXyE", "2026-01-01", "photoshop-101-workspace", "Organising the Photoshop workspace to fit your workflow."),
+  ("ps101", "Workspace", "yAf7ZRzzXyE", "2026-01-01", "photoshop-101-workspace", "Organizing the Photoshop workspace to fit your workflow."),
   ("ps101", "Layers and Groups", "-BXdf0hwBtc", "2026-01-01", "photoshop-101-layers-and-groups", "The two most fundamental features in Photoshop."),
   ("ps101", "Advanced Tools", "PR5OajddzKg", "2026-01-01", "photoshop-101-advanced-tools", "Blending modes, smart objects and more."),
 ]
@@ -108,7 +108,7 @@ def tutorials():
     for k, n, sub in TOPICS:
         cards = "".join(tut_card(*x) for x in T if x[0] == k)
         sections += f'<section class="topic" id="t-{k}"><div class="topic-head"><h2>{E(n)}</h2><p>{E(sub)}</p></div><div class="tut-grid">{cards}</div></section>\n'
-    body = page_hero("// learn", "Tutorials", "Short videos, organised by topic. Every one plays right here.")
+    body = page_hero("// learn", "Tutorials", "Short videos, organized by topic. Every one plays right here.")
     body += f"""<section class="sec sec-tight"><div class="wrap">
   <div class="new32 glass reveal">
     <div><p class="eyebrow mono">// new · PiMagic 3.2</p><h2>Start here</h2>
@@ -118,7 +118,7 @@ def tutorials():
     <ol class="install mono">
       <li><b>Add two repositories</b> in PixInsight (Resources › Manage Repositories):<code>https://pixinsight.pimagicstudio.com/pm3/</code><code>https://pixinsight.pimagicstudio.com/pisolver/</code></li>
       <li><b>Check for updates</b> and restart PixInsight.</li>
-      <li><b>Enter your licence key</b> — switch to Expert mode for the Tools tab. The same key activates PiSolver.</li>
+      <li><b>Enter your license key</b> — switch to Expert mode for the Tools tab. The same key activates PiSolver.</li>
       <li><b>Install AstroMagic</b> from the Tools tab: Install Plugin, then Install Actions.</li>
     </ol>
   </div>
@@ -135,7 +135,7 @@ def tutorials():
   <div class="tut-empty glass" id="tempty" hidden><h3>PiMagic 3.2 tutorials are on their way</h3><p>They are being recorded now. Meanwhile, switch the PiMagic 2 archive back on to browse the earlier videos.</p></div>
 </div></section>
 """
-    return head("Tutorials — PiMagic Studio", "PiMagic Studio tutorials by topic: installation, Smart and Expert mode, mosaics, colour, AstroMagic for Photoshop, walkthroughs and Photoshop 101.") + nav("tutorials") + "<main>" + body + "</main>" + FOOT
+    return head("Tutorials — PiMagic Studio", "PiMagic Studio tutorials by topic: installation, Smart and Expert mode, mosaics, color, AstroMagic for Photoshop, walkthroughs and Photoshop 101.") + nav("tutorials") + "<main>" + body + "</main>" + FOOT
 
 # ------------------------------------------------------------------ testimonials (verbatim from the live page)
 Q = [
@@ -182,28 +182,28 @@ def testimonials():
 
 # ------------------------------------------------------------------ shop (EDD products on the live site)
 def shop():
-    body = page_hero("// shop", "Get<br><span class=\"grad\">PiMagic Studio 3</span>", "Astrophotography, made simple: the routine processing done for you, from a folder of raw frames to finished images — so your time goes into the creative part. One licence.")
+    body = page_hero("// shop", "Get<br><span class=\"grad\">PiMagic Studio 3</span>", "Astrophotography, made simple: the routine processing done for you, from a folder of raw frames to finished images — so your time goes into the creative part. One license.")
     body += f"""<section class="sec sec-tight"><div class="wrap">
   <div class="plans">
     <article class="plan plan-main glass reveal">
       <p class="mono price-k">PiMagic Studio 3 · current version 3.2</p>
-      <p class="price-v"><span>$</span>119</p><p class="price-s">One licence · Mac and Windows · plus applicable tax</p>
+      <p class="price-v"><span>$</span>119</p><p class="price-s">One license · Mac and Windows · plus applicable tax</p><p class="guar">✓ Money-back guarantee</p>
       <ul class="ticks">
         <li><b>PiMagic for PixInsight</b> — the complete workflow, from calibration to finished images. Smart and Expert mode.</li>
         <li><b>PiSolver</b> — our blind solver and annotator, also as a stand-alone PixInsight process</li>
-        <li><b>AstroMagic for Photoshop</b> — your results loaded and organised into layer groups</li>
-        <li>Deep sky, nightscapes and mosaics · DSLR, mirrorless, one-shot colour, mono, smart telescopes</li>
+        <li><b>AstroMagic for Photoshop</b> — your results loaded and organized into layer groups</li>
+        <li>Deep sky, nightscapes and mosaics · DSLR, mirrorless, one-shot color, mono, smart telescopes</li>
         <li>Calibration library · every filter and palette · 16-bit TIFF and JPEG output</li>
       </ul>
       <a class="btn btn-glow btn-block" href="{LIVE}/downloads/pimagic-studio-version-3/">Buy PiMagic Studio 3</a>
-      <p class="price-f">Secure checkout on pimagicstudio.com · instant download · licence key by email</p>
+      <p class="price-f">Instant download · license key by email · secure checkout on pimagicstudio.com</p>
     </article>
     <div class="plan-side">
       <article class="plan glass reveal">
         <p class="mono price-k">Already a customer?</p>
         <ul class="links">
-          <li><a href="{LIVE}/checkout/order-history/">Order history &amp; licence keys →</a></li>
-          <li><a href="{LIVE}/downloads/pimagic-studio-download-only/">Download only (update with an existing licence) →</a></li>
+          <li><a href="{LIVE}/checkout/order-history/">Order history &amp; license keys →</a></li>
+          <li><a href="{LIVE}/downloads/pimagic-studio-download-only/">Download only (update with an existing license) →</a></li>
           <li><a href="{LIVE}/downloads/pimagic-studio-documentation/">Installation guide &amp; manuals →</a></li>
         </ul>
       </article>
@@ -214,7 +214,7 @@ def shop():
 <section class="sec sec-tight"><div class="wrap">
   <div class="sec-head reveal"><p class="eyebrow mono">// what you get</p><h2>Three tools, one workflow</h2></div>
   <div class="trio">
-    <article class="card glass reveal"><i class="ic">◎</i><h3>PiMagic for PixInsight</h3><p>Select a folder: it sorts every file, calibrates, stacks, solves, removes gradients, tunes star colour, deblurs, denoises and separates stars — then writes finished images and layered TIFFs.</p></article>
+    <article class="card glass reveal"><i class="ic">◎</i><h3>PiMagic for PixInsight</h3><p>Select a folder: it sorts every file, calibrates, stacks, solves, removes gradients, tunes star color, deblurs, denoises and separates stars — then writes finished images and layered TIFFs.</p></article>
     <article class="card glass reveal"><i class="ic">✶</i><h3>PiSolver</h3><p>A blind solver that needs no target, scope or camera information. Works on any file type, linear or not. Generates annotated images or transparent overlays.</p></article>
     <article class="card glass reveal"><i class="ic">▣</i><h3>AstroMagic for Photoshop</h3><p>Loads every result and builds the same familiar layer groups for each image, with non-destructive adjustment layers ready for your creative finish.</p></article>
   </div>
@@ -222,14 +222,14 @@ def shop():
 
 <section class="sec sec-tight"><div class="wrap install-grid">
   <div class="reveal"><p class="eyebrow mono">// after you order</p><h2>Up and running in minutes</h2>
-    <p>You receive an email from info@pimagicstudio.com with your licence key, receipt and download information. Nothing arrived? Check your spam folder.</p>
+    <p>You receive an email from info@pimagicstudio.com with your license key, receipt and download information. Nothing arrived? Check your spam folder.</p>
     <a class="link-arrow" href="../tutorials/">Watch the tutorials →</a></div>
   <ol class="install mono glass reveal">
     <li><b>Add two repositories</b> in PixInsight (Resources › Manage Repositories):<code>https://pixinsight.pimagicstudio.com/pm3/</code><code>https://pixinsight.pimagicstudio.com/pisolver/</code></li>
     <li><b>Check for updates</b> and restart PixInsight.</li>
-    <li><b>Enter your licence key</b> — Expert mode opens the Tools tab. The same key activates PiSolver.</li>
+    <li><b>Enter your license key</b> — Expert mode opens the Tools tab. The same key activates PiSolver.</li>
     <li><b>Install AstroMagic</b> from the Tools tab: Install Plugin, then Install Actions.</li>
-    <li><b>Mac:</b> also install the free RC-Astro command-line tool (it does not use a licence seat).</li>
+    <li><b>Mac:</b> also install the free RC-Astro command-line tool (it does not use a license seat).</li>
   </ol>
 </div></section>
 
@@ -237,9 +237,9 @@ def shop():
   <div class="sec-head reveal"><p class="eyebrow mono">// questions</p><h2>Before you buy</h2></div>
   <details class="glass" open><summary>Do I need to know PixInsight?</summary><p>No. PixInsight is the engine under the hood — PiMagic runs it for you. Select a folder, press Start. (Know PixInsight already? Expert mode opens every setting.)</p></details>
   <details class="glass"><summary>What do I need?</summary><p>PixInsight 1.9.5 on Mac or Windows. RC-Astro's BlurXTerminator, NoiseXTerminator and StarXTerminator are used when installed. Photoshop only for AstroMagic — PiMagic's TIFF and JPEG results open in just about any image editor.</p></details>
-  <details class="glass"><summary>The download or licence activation is blocked.</summary><p>By far the most common cause is a firewall or antivirus program. Pause both briefly to complete the installation.</p></details>
+  <details class="glass"><summary>The download or license activation is blocked.</summary><p>By far the most common cause is a firewall or antivirus program. Pause both briefly to complete the installation.</p></details>
   <details class="glass"><summary>Do I need my own stacking software?</summary><p>No. Select the folder with your lights, flats, darks and bias — it calibrates and stacks for you. You can also keep a calibration library and let PiMagic pick the matching masters.</p></details>
-  <details class="glass"><summary>Which cameras work?</summary><p>Mono and one-shot-colour astro cameras, DSLRs and mirrorless cameras, smart telescopes and fisheye lenses — deep sky, nightscapes and mosaics.</p></details>
+  <details class="glass"><summary>Which cameras work?</summary><p>Mono and one-shot-color astro cameras, DSLRs and mirrorless cameras, smart telescopes and fisheye lenses — deep sky, nightscapes and mosaics.</p></details>
 </div></div></section>
 """
     return head("Shop — PiMagic Studio", "Buy PiMagic Studio 3: PiMagic for PixInsight, PiSolver and AstroMagic for Photoshop.") + nav("shop") + "<main>" + body + "</main>" + FOOT
@@ -252,7 +252,7 @@ def contact():
   <form class="cform glass reveal" id="cform" action="mailto:info@pimagicstudio.com" method="post" enctype="text/plain">
     <div class="row2"><label>First name<input name="first" required autocomplete="given-name"></label><label>Last name<input name="last" autocomplete="family-name"></label></div>
     <label>Email<input type="email" name="email" required autocomplete="email"></label>
-    <label>Topic<select name="topic"><option>A question before buying</option><option>Installation or licence</option><option>Help with my data or a result</option><option>An idea or feature request</option><option>Something else</option></select></label>
+    <label>Topic<select name="topic"><option>A question before buying</option><option>Installation or license</option><option>Help with my data or a result</option><option>An idea or feature request</option><option>Something else</option></select></label>
     <label>Message<textarea name="message" rows="6" required></textarea></label>
     <button class="btn btn-glow btn-block" type="submit">Send message</button>
     <p class="small">Opens your email app, addressed to info@pimagicstudio.com.</p>
@@ -260,8 +260,8 @@ def contact():
   <div class="contact-side">
     <article class="card glass reveal"><i class="ic">✉</i><h3>Email us directly</h3><p><a class="link-arrow" href="mailto:info@pimagicstudio.com">info@pimagicstudio.com</a></p></article>
     <article class="card glass reveal"><i class="ic">▶</i><h3>Quick answers</h3><ul class="links">
-      <li><a href="../tutorials/">Tutorials, by topic →</a></li><li><a href="../shop/#faq">Installation &amp; licence FAQ →</a></li>
-      <li><a href="{LIVE}/checkout/order-history/">Order history &amp; licence keys →</a></li></ul></article>
+      <li><a href="../tutorials/">Tutorials, by topic →</a></li><li><a href="../shop/#faq">Installation &amp; license FAQ →</a></li>
+      <li><a href="{LIVE}/checkout/order-history/">Order history &amp; license keys →</a></li></ul></article>
     <article class="card glass reveal"><i class="ic">✦</i><h3>Your order</h3><p>Download, installation information and your receipt arrive by email right after checkout, from info@pimagicstudio.com. Nothing there? Please check your spam folder.</p></article>
   </div>
 </div></section>
@@ -306,8 +306,8 @@ def details():
 
 # ------------------------------------------------------------------ gallery (tiles come from site.js, one masonry per section)
 GSECS = [("mosaics", "Mosaics & panoramas", "Deep-sky mosaics and landscape panoramas, every pane found, placed, matched and blended."),
-         ("narrowband", "Narrowband", "SHO, HOO and dual-band — mono or one-shot colour."),
-         ("broadband", "Galaxies & broadband", "RGB, LRGB and one-shot colour, from comets to galaxies."),
+         ("narrowband", "Narrowband", "SHO, HOO and dual-band — mono or one-shot color."),
+         ("broadband", "Galaxies & broadband", "RGB, LRGB and one-shot color, from comets to galaxies."),
          ("nightscapes", "Nightscapes & wide field", "Milky Way, nightscapes and all-sky fisheye."),
          ("solved", "Solved & annotated", "PiSolver knows where you were pointing and names what it sees.")]
 def gallery():

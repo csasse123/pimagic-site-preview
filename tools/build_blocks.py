@@ -5,7 +5,7 @@
 #   python3 tools/build_blocks.py
 import os, re, shutil, subprocess, html as H
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); SITE = os.path.join(HERE, "site")
-OUT = os.path.join(HERE, "exports", "pimagic-block-kit"); KITVER = "1.0.2"
+OUT = os.path.join(HERE, "exports", "pimagic-block-kit"); KITVER = "1.1"
 ASSETS = "/wp-content/plugins/pimagic-block-assets/"                         # root-relative: works on the live site and on staging
 LINKS = {"buy": "/downloads/pimagic-studio-version-3/", "details": "/details/", "gallery": "/gallery/", "tutorials": "/about/",
          "testimonials": "/testimonials/", "contact": "/contact/"}
@@ -133,7 +133,11 @@ def fix(h, sub=False):
 home, _ = sections("index.html", [("hero", r'<section class="hero"'), ("start", r'<section class="sec" id="start"'), ("smart", r'<section class="sec" id="smart"'),
     ("layers", r'<section class="sec" id="layers"'), ("variety", r'<section class="sec sec-tight" id="variety"'), ("standout", r'<section class="sec sec-tight" id="standout"'),
     ("journey", r'<section class="sec" id="journey"'), ("speedrun", r'<section class="sec sec-tight" id="speedrun"'), ("voices", r'<section class="sec" id="voices"'),
-    ("pricing", r'<section class="sec" id="pricing"')])
+    ("pricing", r'<section class="sec" id="pricing"'), ("faq", r'<section class="sec sec-tight" id="faq"')])
+def no_grids(h):
+    h = re.sub(r'<nav class="jump".*?</nav>', "", h, flags=re.S)                                  # its links pointed at the removed sections
+    a = h.index('<section class="sec sec-tight"><div class="wrap"><section class="gsec"'); b = h.index('<section class="sec sec-tight"><div class="wrap"><div class="cta-band')
+    return h[:a] + "<!-- Your native WordPress Gallery block(s) go here: put this block's content in a Group, or add the Gallery after the heading. -->\n" + h[b:]
 def main_of(path):
     s = open(os.path.join(SITE, path)).read(); return s[s.index("<main>") + 6:s.index("</main>")]
 
@@ -154,10 +158,11 @@ BLOCKS = [
  ("home/08-speed-run.html", "Same fifteen minutes (speed run)", home["speedrun"], ("reveal",), "", "Easy to rebuild natively: image + heading + text + 2 buttons."),
  ("home/09-quotes.html", "Real users, real results", home["voices"], ("reveal",), "", "Easy to rebuild natively: 3 quote blocks, or your testimonials."),
  ("home/10-pricing.html", "More nights imaging · $119", home["pricing"], ("reveal",), "", "Easy to rebuild natively; the Buy button can be the shop's own button."),
+ ("home/11-faq.html", "Good to know (FAQ before you buy)", home["faq"], ("reveal",), "", "Easy to rebuild natively as an accordion."),
  ("pages/details-page.html", "Details page (all eight tabs)", fix(main_of("details/index.html"), sub=True) + MODALS,
   ("reveal", "before / after", "films", "Smart", "the engine", "details page", "PiMagic layers", "counters"),
   ".pms .dtab-top{margin-top:0}.pms .dtab-nav{top:0}body.admin-bar .pms .dtab-nav{top:32px}@media (max-width:782px){body.admin-bar .pms .dtab-nav{top:46px}}", "Its own page with the slug  details ."),
- ("pages/gallery-page.html", "Gallery page", fix(main_of("gallery/index.html"), sub=True) + MODALS, ("reveal", "films", "gallery"),
+ ("pages/gallery-page.html", "Gallery page (heading + closing band; add your native Gallery between)", no_grids(fix(main_of("gallery/index.html"), sub=True)) + MODALS, ("reveal", "films"),
   ".pms .page-hero{padding-top:70px}", "Its own page with the slug  gallery ."),
 ]
 if os.path.exists(OUT): shutil.rmtree(OUT)

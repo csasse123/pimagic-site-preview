@@ -98,7 +98,7 @@ $$(".player[data-src]").forEach(p => $(".play", p).addEventListener("click", () 
   new IntersectionObserver(es => { vis = es[0].isIntersecting; if (vis) { t0 = performance.now(); requestAnimationFrame(draw); } }, { threshold: .05 }).observe(c);
   c.parentElement.addEventListener("pointermove", e => { const r = c.getBoundingClientRect(); mx = (e.clientX - r.left) / r.width; my = (e.clientY - r.top) / r.height; });
   function draw(now) {
-    if (!vis) return; const wide = innerWidth > 900, t = (now - t0) / 1000, cx = w * .5, cy = h * .5, R = Math.min(w * (wide ? .27 : .25), h * .3);   // the network fills its own box, centred
+    if (!vis) return; const wide = innerWidth > 900, t = (now - t0) / 1000, cx = w * .5, cy = h * .5, R = Math.min(w * (wide ? .27 : .25), h * .3);   // the network fills its own box, centered
     g.clearRect(0, 0, w, h);
     const P = N.map((n, i) => { const a = i / N.length * 6.283 + t * .05 + (mx - .5) * .4, rr = R * (1 + .16 * Math.sin(i * 1.7));
       return [cx + Math.cos(a) * rr * 1.25, cy + Math.sin(a) * rr * .72 + (my - .5) * 20 * dpr]; });
@@ -152,9 +152,9 @@ $$(".player[data-src]").forEach(p => $(".play", p).addEventListener("click", () 
     { c: "mosaics", k: "gunlock_panorama", t: "Gunlock", s: "landscape panorama" }, { c: "mosaics", src: "solve_orion", t: "Orion", s: "deep-sky mosaic" },
     { c: "narrowband", k: "veil_nebula", t: "Veil Nebula", s: "SHO narrowband" }, { c: "narrowband", k: "wizard_nebula", t: "Wizard Nebula", s: "SHO narrowband · mono" },
     { c: "narrowband", k: "elephant_s_trunk", t: "Elephant's Trunk", s: "SHO narrowband" }, { c: "narrowband", k: "tarantula_nebula", t: "Tarantula Nebula", s: "SHO narrowband" },
-    { c: "narrowband", k: "heart_nebula", t: "Heart Nebula", s: "narrowband" }, { c: "narrowband", k: "horsehead_nebula", t: "Horsehead Nebula", s: "one-shot colour + dual-band" },
+    { c: "narrowband", k: "heart_nebula", t: "Heart Nebula", s: "narrowband" }, { c: "narrowband", k: "horsehead_nebula", t: "Horsehead Nebula", s: "one-shot color + dual-band" },
     { c: "broadband", k: "andromeda_galaxy", t: "Andromeda Galaxy", s: "RGB" }, { c: "broadband", k: "bode_s_galaxy", t: "Bode's Galaxy", s: "LRGB · mono" },
-    { c: "broadband", k: "pleiades", t: "Pleiades", s: "one-shot colour" }, { c: "broadband", k: "m78", t: "M78", s: "mono" },
+    { c: "broadband", k: "pleiades", t: "Pleiades", s: "one-shot color" }, { c: "broadband", k: "m78", t: "M78", s: "mono" },
     { c: "broadband", k: "dumbbell_nebula", t: "Dumbbell Nebula", s: "large telescope" }, { c: "broadband", k: "comet_12p_pons_brooks", t: "Comet 12P/Pons-Brooks", s: "RGB" },
     { c: "nightscapes", k: "m8", t: "M8 · Lagoon & Trifid", s: "Milky Way core" }, { c: "nightscapes", k: "lambs_knoll", t: "Lambs Knoll", s: "Milky Way nightscape" },
     { c: "nightscapes", k: "milky_way_nightscape", t: "Milky Way", s: "nightscape · mirrorless" }, { c: "nightscapes", k: "all_sky", t: "All-sky", s: "fisheye" },

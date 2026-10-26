@@ -106,3 +106,5 @@ WP uses Roboto Flex, blocks bring Inter/Space Grotesk/JetBrains Mono). Test: lau
 blueprint.json builds Home V3.2, details, gallery from the kit). Dropbox: "PiMagic Studio - Website Blocks for Craig".
 
 25 Oct (Craig): Details > Engine = fixed-height two-cell grid, centred on one line (stacked on phones, fixed network height); Linux removed everywhere (Mac and Windows only). Plugin 1.5.4, block kit 1.0.2.
+
+26 Oct (Craig/Grok review, Christian: items 1-6): US spelling site-wide (license, color, organized...), requirement + "Money-back guarantee" line under the hero buy button and in the price card, home FAQ (#faq, kit block 11), brighter price footnote. Kit 1.1: gallery-page block has no grids (Craig uses a native Gallery). Open: refund terms/days, upgrade-from-2.6 wording, "one payment" and update policy to confirm. Plugin 1.5.5.

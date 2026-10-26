@@ -32,11 +32,11 @@ table{{width:100%;border-collapse:collapse;margin-top:8px}} td{{border-top:1px s
 ol li,ul li{{margin:6px 0}} pre{{background:#0a0f1a;border:1px solid var(--line);border-radius:8px;padding:12px;overflow:auto;font-size:13px}}
 </style></head><body><div class="w">
 <h1>PiMagic Studio Block Kit</h1>
-<p class="small">For Craig · version 1.0.2 · 25 Oct 2026 · builds the new home page, Details and Gallery in WordPress so they look exactly like the preview (csasse123.github.io/pimagic-site-preview)</p>
+<p class="small">For Craig · version 1.1 · 26 Oct 2026 · builds the new home page, Details and Gallery in WordPress so they look exactly like the preview (csasse123.github.io/pimagic-site-preview)</p>
 
 <div class="box"><b>What's in the kit</b><ul>
 <li><code>pimagic-block-assets.zip</code> — a tiny plugin that only holds the images and films (it changes no page and adds no settings).</li>
-<li><code>blocks/home/</code> — the 11 home-page blocks, in order (00–10). <code>blocks/pages/</code> — Details and Gallery, one block each.</li>
+<li><code>blocks/home/</code> — the 12 home-page blocks, in order (00–11). <code>blocks/pages/</code> — Details and Gallery, one block each.</li>
 <li><code>blocks-as-text/</code> — the same blocks as .txt files: double-click, Select All, Copy. Use these if your computer opens .html as a web page.</li>
 <li><code>fonts-and-colours-for-native-blocks.css</code> — makes your own WordPress blocks use the same fonts and colours.</li></ul>
 Every block is complete in itself: design and behaviour are inside it, and the theme can't change it.</div>
@@ -51,11 +51,11 @@ Every block is complete in itself: design and behaviour are inside it, and the t
 <li>Block 00 is optional but recommended: it paints the whole page in the PiMagic dark with the moving starfield, like the preview.</li>
 <li>Preview the page (the editor shows only code; the real look appears in Preview and on the live page).</li></ol>
 <table>{rows}</table>
-<p class="small">Blocks 05, 08, 09 and 10 are simple — you can rebuild them as native WordPress blocks any time (use the font file in step 5 so they match).</p>
+<p class="small">Blocks 05, 08, 09, 10 and 11 are simple — you can rebuild them as native WordPress blocks any time (use the font file in step 5 so they match).</p>
 
 <h2>3 · Details and Gallery pages</h2>
 <ol><li>Create a page <b>Details</b> with the slug <code>details</code>: add block 00 (background) and then <code>pages/details-page</code>.</li>
-<li>Create a page <b>Gallery</b> with the slug <code>gallery</code>: add block 00 and then <code>pages/gallery-page</code>.</li>
+<li>Create a page <b>Gallery</b> with the slug <code>gallery</code>: add block 00 and then <code>pages/gallery-page</code>, which now holds only the heading and the closing band (no image grids). Put your native Gallery block between them.</li>
 <li>Same template as the home page (no title, no sidebar). Each Details tab has its own link, for example <code>/details/#pisolver</code>.</li></ol>
 
 <h2>4 · Links inside the blocks</h2>
@@ -86,7 +86,7 @@ Every block is complete in itself: design and behaviour are inside it, and the t
 open(os.path.join(OUT, "INSTRUCTIONS.html"), "w").write(DOC)
 txt = subprocess.run(["textutil", "-convert", "txt", "-stdout", os.path.join(OUT, "INSTRUCTIONS.html")], capture_output=True, text=True).stdout
 open(os.path.join(OUT, "INSTRUCTIONS.txt"), "w").write(txt)
-z = os.path.join(HERE, "exports", "pimagic-block-kit-1.0.2.zip")
+z = os.path.join(HERE, "exports", "pimagic-block-kit-1.1.zip")
 if os.path.exists(z): os.remove(z)
 subprocess.run(["zip", "-qr", "-X", z, "pimagic-block-kit", "-x", "pimagic-block-kit/_build/*", "pimagic-block-kit/pimagic-block-assets.zip", "*.DS_Store"], cwd=os.path.join(HERE, "exports"), check=True)
 print("kit zip", os.path.getsize(z) // 1024, "KB")
