@@ -543,3 +543,9 @@ p{margin:0 0 1em;color:var(--mute)} .small{font-size:14px;color:var(--dim)}
 .engine-viz{position:relative;height:100%;min-width:0}
 #engineCanvas{position:absolute;inset:0;width:100%;height:100%}
 @media (max-width:900px){.engine-grid{grid-template-columns:1fr;height:auto;gap:8px}.engine-viz{height:min(92vw,420px)}}
+
+/* 26 Oct (Craig/Grok review): requirement + guarantee under the first buy button, brighter price footnote */
+.buyline{display:flex;flex-wrap:wrap;gap:6px 18px;margin:16px 0 0;font-size:13px;color:#c3cede}
+.buyline span::before{content:"✓";color:var(--mint);margin-right:7px} .buyline span:first-child{color:var(--text);font-weight:500} .buyline span:not(:first-child)::before{content:"•";color:var(--dim)}
+.guar{margin:10px 0 0;font:600 15px var(--head);color:var(--mint)}
+.price-f,.plan .price-f{font-size:15px;color:#c3cede;margin-top:10px}
